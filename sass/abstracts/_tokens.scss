@@ -1,0 +1,19 @@
+@use "colors" as *;
+@use "typography" as *;
+
+// $active-theme: $light;
+// $enable-media-query-dark-mode: false;
+
+// Body
+$body-font-family: $font-family-base;
+$body-font-size: $font-size-400;
+$body-line-height: 1.5;
+$body-font-weight: $font-weight-default;
+$body-text-color: $color-text-primary;
+$body-background-color: $color-background;
+
+// Contextual
+$color-text-default: $color-text-primary;
+$color-background-default: $color-background;
+$color-text-interactive-default: $color-text-primary;
+$color-text-interactive-hover: $color-text-secondary;

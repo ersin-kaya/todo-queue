@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap");
 *,
 *::before,
 *::after {
@@ -15,6 +16,63 @@ picture,
 svg {
   display: block;
   max-width: 100%;
+}
+
+body {
+  font-family: "Raleway", sans-serif;
+  font-weight: 400;
+  font-size: 1rem;
+  color: #000000;
+  background-color: #ffffff;
+  line-height: 1.5;
+}
+
+.fs-900 {
+  font-size: 3.75rem;
+}
+
+.fs-800 {
+  font-size: 3rem;
+}
+
+.fs-700 {
+  font-size: 1.75rem;
+}
+
+.fs-600 {
+  font-size: 1.3125rem;
+}
+
+.fs-500 {
+  font-size: 1.125rem;
+}
+
+.fs-400 {
+  font-size: 1rem;
+}
+
+.fs-300 {
+  font-size: 0.925rem;
+}
+
+.fs-200 {
+  font-size: 0.875rem;
+}
+
+.fw-regular {
+  font-weight: 400;
+}
+
+.fw-bold {
+  font-weight: 700;
+}
+
+.ff-base {
+  font-family: "Raleway", sans-serif;
+}
+
+.ff-accent {
+  font-family: "Raleway", sans-serif;
 }
 
 /*# sourceMappingURL=main.css.map */
