@@ -25,6 +25,22 @@ body {
   color: #333333;
   background-color: #cce7ff;
   line-height: 1.5;
+  display: grid;
+  grid-template-areas: "header header header header" "...... lists active ......";
+  grid-template-rows: auto;
+  grid-template-columns: 1fr minmax(100px, 300px) minmax(250px, 500px) 1fr;
+}
+
+.title {
+  grid-area: header;
+}
+
+.all-tasks {
+  grid-area: lists;
+}
+
+.todo-list {
+  grid-area: active;
 }
 
 .fs-900 {

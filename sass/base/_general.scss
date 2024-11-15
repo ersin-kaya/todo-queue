@@ -7,4 +7,11 @@ body {
   color: $body-text-color;
   background-color: $body-background-color;
   line-height: $body-line-height;
+
+  display: grid;
+  grid-template-areas:
+    "header header header header"
+    "...... lists active ......";
+  grid-template-rows: auto;
+  grid-template-columns: 1fr minmax(100px, 300px) minmax(250px, 500px) 1fr;
 }
