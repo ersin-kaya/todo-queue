@@ -4,7 +4,10 @@
   grid-area: header;
 
   font-family: $heading-1-font-family;
-  font-size: $heading-1-font-size;
+  font-size: calc(7vw + ($heading-1-font-size / 3));
   font-weight: $heading-1-font-weight;
-  color: $heading-1-color-default;
+  color: rgba($heading-1-color-default, 0.2);
+  text-align: center;
+  letter-spacing: 1px;
+  margin: -0.2em 0 0.5em;
 }

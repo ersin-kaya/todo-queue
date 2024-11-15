@@ -34,9 +34,12 @@ body {
 .title {
   grid-area: header;
   font-family: "Poppins", serif;
-  font-size: 3.75rem;
+  font-size: calc(7vw + 1.25rem);
   font-weight: 700;
-  color: #555555;
+  color: rgba(85, 85, 85, 0.2);
+  text-align: center;
+  letter-spacing: 1px;
+  margin: -0.2em 0 0.5em;
 }
 
 .all-tasks {
