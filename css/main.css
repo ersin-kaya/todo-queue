@@ -21,7 +21,7 @@ svg {
 body {
   font-family: "Raleway", sans-serif;
   font-weight: 400;
-  font-size: 1rem;
+  font-size: 1.3125rem;
   color: #333333;
   background-color: #cce7ff;
   line-height: 1.5;
@@ -36,7 +36,7 @@ body {
   font-family: "Poppins", serif;
   font-size: calc(7vw + 1.25rem);
   font-weight: 700;
-  color: rgba(85, 85, 85, 0.2);
+  color: rgba(85, 85, 85, 0.3);
   text-align: center;
   letter-spacing: 1px;
   margin: -0.2em 0 0.5em;
@@ -44,6 +44,35 @@ body {
 
 .all-tasks {
   grid-area: lists;
+}
+.all-tasks .task-list-title {
+  font-size: 1.75rem;
+  font-weight: 700;
+}
+.all-tasks .task-list {
+  font-size: 1.125rem;
+  line-height: 2;
+  list-style: circle;
+  padding-left: 1.1em;
+}
+.all-tasks .task-list .active-list {
+  font-weight: 700;
+}
+.all-tasks input[type=text].new {
+  background: transparent;
+  border: 0;
+  color: inherit;
+  border-bottom: 2px solid currentColor;
+  font-size: inherit;
+  outline: none;
+  opacity: 0.6;
+  transition: opacity 350ms ease-in;
+}
+.all-tasks input[type=text].new:focus {
+  opacity: 1;
+}
+.all-tasks input[type=text].new:focus::placeholder {
+  opacity: 0.4;
 }
 
 .todo-list {

@@ -1,3 +1,25 @@
+@use "../abstracts/" as *;
+
 .all-tasks {
   grid-area: lists;
+
+  .task-list-title {
+    font-size: $font-size-700;
+    font-weight: $font-weight-bold;
+  }
+
+  .task-list {
+    font-size: $font-size-500;
+    line-height: 2;
+    list-style: circle;
+    padding-left: 1.1em;
+
+    .active-list {
+      font-weight: $font-weight-bold;
+    }
+  }
+
+  input[type="text"].new {
+    @include styled-text-input();
+  }
 }
