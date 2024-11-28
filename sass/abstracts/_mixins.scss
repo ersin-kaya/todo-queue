@@ -1,0 +1,23 @@
+@mixin styled-text-input(
+  $opacity: 0.6,
+  $focus-opacity: 1,
+  $focus-placeholder-opacity: 0.4,
+  $transition-duration: 350ms
+) {
+  background: transparent;
+  border: 0;
+  color: inherit;
+  border-bottom: 2px solid currentColor;
+  font-size: inherit;
+  outline: none;
+  opacity: $opacity;
+  transition: opacity $transition-duration ease-in;
+
+  &:focus {
+    opacity: $focus-opacity;
+
+    &::placeholder {
+      opacity: $focus-placeholder-opacity;
+    }
+  }
+}
