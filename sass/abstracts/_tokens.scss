@@ -6,17 +6,23 @@
 
 // Body
 $body-font-family: $font-family-base;
-$body-font-size: $font-size-400;
+$body-font-size: $font-size-600;
 $body-line-height: 1.5;
 $body-font-weight: $font-weight-default;
 $body-text-color: $color-text-primary;
 $body-background-color: $color-background;
 
-$heading-1-font-family: $font-family-accent;
+$heading-font-family: $font-family-accent;
+$heading-color-default: $color-text-secondary;
+$heading-font-weight: $font-weight-bold;
+$heading-line-height: 1.1;
+
 $heading-1-font-size: $font-size-900;
 $heading-1-color-default: $color-text-secondary;
-$heading-1-font-weight: $font-weight-bold;
-$heading-1-line-height: 1.1;
+$heading-2-font-size: $font-size-800;
+$heading-2-color-default: $color-text-secondary;
+$heading-3-font-size: $font-size-700;
+$heading-3-color-default: $color-text-secondary;
 
 // Contextual
 $color-text-default: $color-text-primary;
