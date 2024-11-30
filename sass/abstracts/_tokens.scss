@@ -4,6 +4,12 @@
 // $active-theme: $light;
 // $enable-media-query-dark-mode: false;
 
+// Contextual
+$color-text-default: $color-text-primary;
+$color-background-default: $color-background;
+$color-text-interactive-default: $color-text-primary;
+$color-text-interactive-hover: $color-text-secondary;
+
 // Body
 $body-font-family: $font-family-base;
 $body-font-size: $font-size-600;
@@ -24,8 +30,7 @@ $heading-2-color-default: $color-text-secondary;
 $heading-3-font-size: $font-size-700;
 $heading-3-color-default: $color-text-secondary;
 
-// Contextual
-$color-text-default: $color-text-primary;
-$color-background-default: $color-background;
-$color-text-interactive-default: $color-text-primary;
-$color-text-interactive-hover: $color-text-secondary;
+// Buttons
+$button-font-family: $body-font-family;
+$button-font-size: $font-size-600;
+$button-font-weight: $font-weight-black;
