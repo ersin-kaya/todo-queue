@@ -23,7 +23,7 @@ body {
   font-weight: 400;
   font-size: 1.3125rem;
   color: #333333;
-  background-color: #cce7ff;
+  background-color: #7bc1ff;
   line-height: 1.5;
   display: grid;
   grid-template-areas: "header header header header" "...... lists active ......";
