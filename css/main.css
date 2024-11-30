@@ -58,10 +58,10 @@ body {
 .all-tasks .task-list .active-list {
   font-weight: 700;
 }
-.all-tasks form {
+.all-tasks .new-task-list-creator form {
   display: flex;
 }
-.all-tasks form input[type=text].new {
+.all-tasks .new-task-list-creator form input[type=text].new {
   background: transparent;
   border: 0;
   color: inherit;
@@ -72,29 +72,29 @@ body {
   transition: opacity 350ms ease-in;
   order: 1;
 }
-.all-tasks form input[type=text].new:focus {
+.all-tasks .new-task-list-creator form input[type=text].new:focus {
   opacity: 1;
 }
-.all-tasks form input[type=text].new:focus::placeholder {
+.all-tasks .new-task-list-creator form input[type=text].new:focus::placeholder {
   opacity: 0.4;
 }
-.all-tasks form input[type=text].new.list {
+.all-tasks .new-task-list-creator form input[type=text].new.list {
   font-size: 1.125rem;
 }
-.all-tasks form .btn {
+.all-tasks .new-task-list-creator form .btn {
   cursor: pointer;
   background: 0;
   border: 0;
   color: inherit;
   font-family: "Nunito", sans-serif;
 }
-.all-tasks form .btn.create {
+.all-tasks .new-task-list-creator form .btn.create {
   font-size: 1.3125rem;
   font-weight: 900;
   margin-right: 0.25em;
   transition: opacity 160ms ease-in;
 }
-.all-tasks form .btn.create:hover {
+.all-tasks .new-task-list-creator form .btn.create:hover {
   opacity: 0.7;
 }
 

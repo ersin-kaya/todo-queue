@@ -19,7 +19,7 @@
     }
   }
 
-  form {
+  .new-task-list-creator form {
     @include add-item-form;
 
     input[type="text"].new {
