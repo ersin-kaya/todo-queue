@@ -2,8 +2,8 @@
 
 @mixin flex-layout(
   $flex-direction: row,
-  $justify-content: space-between,
-  $align-items: center
+  $justify-content: flex-start,
+  $align-items: stretch
 ) {
   display: flex;
   flex-direction: $flex-direction;
