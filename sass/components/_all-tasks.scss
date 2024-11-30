@@ -4,18 +4,18 @@
   grid-area: lists;
 
   .task-list-title {
-    font-size: $font-size-700;
-    font-weight: $font-weight-bold;
+    font-size: $all-tasks-title-font-size;
+    font-weight: $all-tasks-title-font-weight;
   }
 
   .task-list {
-    font-size: $font-size-500;
+    font-size: $all-tasks-font-size;
     line-height: 2;
     list-style: circle;
     padding-left: 1.1em;
 
     .active-list {
-      font-weight: $font-weight-bold;
+      font-weight: $all-tasks-active-font-weight;
     }
   }
 
@@ -26,7 +26,7 @@
       @include add-item-input($order: 1);
 
       &.list {
-        font-size: $font-size-500;
+        font-size: $all-tasks-font-size;
       }
     }
 
