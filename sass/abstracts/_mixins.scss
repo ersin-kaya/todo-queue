@@ -1,5 +1,16 @@
 @use "tokens" as *;
 
+@mixin flex-layout(
+  $flex-direction: row,
+  $justify-content: space-between,
+  $align-items: center
+) {
+  display: flex;
+  flex-direction: $flex-direction;
+  justify-content: $justify-content;
+  align-items: $align-items;
+}
+
 @mixin add-item-form {
   display: flex;
 }
