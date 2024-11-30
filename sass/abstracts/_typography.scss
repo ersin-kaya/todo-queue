@@ -3,17 +3,22 @@ $-ff-serif: serif;
 $-ff-inter: "Inter", serif;
 $-ff-raleway: "Raleway", sans-serif;
 $-ff-poppins: "Poppins", serif;
+$-ff-nunito: "Nunito", sans-serif;
 
-$font-family-base: $-ff-raleway;
+$font-family-base: $-ff-nunito;
 $font-family-accent: $-ff-poppins;
 
 $-fw-400: 400;
 $-fw-500: 500;
 $-fw-700: 700;
+$-fw-800: 800;
+$-fw-900: 900;
 
 $font-weight-default: $-fw-400;
 $font-weight-semi-bold: $-fw-500;
 $font-weight-bold: $-fw-700;
+$font-weight-extra-bold: $-fw-800;
+$font-weight-black: $-fw-900;
 
 $font-size-900: 3.75rem;
 $font-size-800: 3rem;
