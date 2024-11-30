@@ -62,3 +62,8 @@
   font-size: $button-font-size;
   font-weight: $button-font-weight;
 }
+
+@mixin checkbox-hover-focus {
+  transform: scale(1.1);
+  color: $checkbox-color-primary;
+}
