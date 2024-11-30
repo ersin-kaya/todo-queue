@@ -44,15 +44,21 @@
   border: 0;
   color: inherit;
   font-family: $button-font-family;
-}
 
-@mixin btn-create {
-  font-size: $button-font-size;
-  font-weight: $button-font-weight;
   margin-right: 0.25em;
   transition: opacity 160ms ease-in;
 
   &:hover {
     opacity: 0.7;
   }
+}
+
+@mixin btn-create {
+  font-size: $create-button-font-size;
+  font-weight: $create-button-font-weight;
+}
+
+@mixin btn-delete {
+  font-size: $button-font-size;
+  font-weight: $button-font-weight;
 }
