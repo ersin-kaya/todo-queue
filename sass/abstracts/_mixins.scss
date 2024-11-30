@@ -11,10 +11,6 @@
   align-items: $align-items;
 }
 
-@mixin add-item-form {
-  display: flex;
-}
-
 @mixin add-item-input(
   $opacity: 0.6,
   $focus-opacity: 1,
