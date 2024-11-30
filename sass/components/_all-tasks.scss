@@ -20,7 +20,7 @@
   }
 
   .new-task-list-creator form {
-    @include add-item-form;
+    @include flex-layout($justify-content: flex-start);
 
     input[type="text"].new {
       @include add-item-input($order: 1);
