@@ -12,7 +12,7 @@ $color-text-interactive-hover: $color-text-secondary;
 
 // Body
 $body-font-family: $font-family-base;
-$body-font-size: $font-size-600;
+$body-font-size: $font-size-500;
 $body-line-height: 1.5;
 $body-font-weight: $font-weight-default;
 $body-text-color: $color-text-default;
@@ -32,17 +32,18 @@ $heading-3-color-default: $heading-color-default;
 
 // Buttons
 $button-font-family: $body-font-family;
-$button-font-size: $body-font-size;
-$button-font-weight: $font-weight-black;
+$button-font-size: $font-size-500;
+$button-font-weight: $font-weight-bold;
 
 // All tasks component
+$all-tasks-font-size: $body-font-size;
+$all-tasks-active-font-weight: $font-weight-bold;
+
 $all-tasks-title-font-size: $font-size-700;
 $all-tasks-title-font-weight: $font-weight-bold;
 
-$all-tasks-font-size: $font-size-500;
-$all-tasks-active-font-weight: $font-weight-bold;
-
 // To-do list component
+$todo-list-font-size: $body-font-size;
 $todo-list-background-color: $color-gray-100;
 $todo-list-text-color: $body-text-color;
 
