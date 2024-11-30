@@ -23,7 +23,7 @@ body {
   font-weight: 400;
   font-size: 1.125rem;
   color: #333333;
-  background-color: #7bc1ff;
+  background-color: #d7fffc;
   line-height: 1.5;
   display: grid;
   grid-template-areas: "header header header header" "...... lists active ......";
@@ -55,7 +55,13 @@ body {
   list-style: circle;
   padding-left: 1.1em;
 }
-.all-tasks .task-list .active-list {
+.all-tasks .task-list .list-name {
+  cursor: pointer;
+}
+.all-tasks .task-list .list-name:hover {
+  opacity: 0.66;
+}
+.all-tasks .task-list .list-name.active-list {
   font-weight: 700;
 }
 .all-tasks .new-task-list-creator form {

@@ -14,8 +14,16 @@
     list-style: circle;
     padding-left: 1.1em;
 
-    .active-list {
-      font-weight: $all-tasks-active-font-weight;
+    .list-name {
+      cursor: pointer;
+
+      &:hover {
+        opacity: 0.66;
+      }
+
+      &.active-list {
+        font-weight: $all-tasks-active-font-weight;
+      }
     }
   }
 
