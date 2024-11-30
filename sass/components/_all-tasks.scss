@@ -19,7 +19,23 @@
     }
   }
 
-  input[type="text"].new {
-    @include add-item-input();
+  form {
+    @include add-item-form;
+
+    input[type="text"].new {
+      @include add-item-input($order: 1);
+
+      &.list {
+        font-size: $font-size-500;
+      }
+    }
+
+    .btn {
+      @include btn;
+
+      &.create {
+        @include btn-create;
+      }
+    }
   }
 }

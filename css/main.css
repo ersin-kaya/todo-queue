@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100..900;1,100..900&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap");
 *,
 *::before,
 *::after {
@@ -19,7 +19,7 @@ svg {
 }
 
 body {
-  font-family: "Raleway", sans-serif;
+  font-family: "Nunito", sans-serif;
   font-weight: 400;
   font-size: 1.3125rem;
   color: #333333;
@@ -58,7 +58,10 @@ body {
 .all-tasks .task-list .active-list {
   font-weight: 700;
 }
-.all-tasks input[type=text].new {
+.all-tasks form {
+  display: flex;
+}
+.all-tasks form input[type=text].new {
   background: transparent;
   border: 0;
   color: inherit;
@@ -67,12 +70,32 @@ body {
   outline: none;
   opacity: 0.6;
   transition: opacity 350ms ease-in;
+  order: 1;
 }
-.all-tasks input[type=text].new:focus {
+.all-tasks form input[type=text].new:focus {
   opacity: 1;
 }
-.all-tasks input[type=text].new:focus::placeholder {
+.all-tasks form input[type=text].new:focus::placeholder {
   opacity: 0.4;
+}
+.all-tasks form input[type=text].new.list {
+  font-size: 1.125rem;
+}
+.all-tasks form .btn {
+  cursor: pointer;
+  background: 0;
+  border: 0;
+  color: inherit;
+  font-family: "Nunito", sans-serif;
+}
+.all-tasks form .btn.create {
+  font-size: 1.3125rem;
+  font-weight: 900;
+  margin-right: 0.25em;
+  transition: opacity 160ms ease-in;
+}
+.all-tasks form .btn.create:hover {
+  opacity: 0.7;
 }
 
 .todo-list {
@@ -120,7 +143,7 @@ body {
 }
 
 .ff-base {
-  font-family: "Raleway", sans-serif;
+  font-family: "Nunito", sans-serif;
 }
 
 .ff-accent {
