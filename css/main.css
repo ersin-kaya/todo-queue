@@ -21,7 +21,7 @@ svg {
 body {
   font-family: "Nunito", sans-serif;
   font-weight: 400;
-  font-size: 1.3125rem;
+  font-size: 1.125rem;
   color: #333333;
   background-color: #7bc1ff;
   line-height: 1.5;
@@ -60,6 +60,9 @@ body {
 }
 .all-tasks .new-task-list-creator form {
   display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
 }
 .all-tasks .new-task-list-creator form input[type=text].new {
   background: transparent;
@@ -87,19 +90,98 @@ body {
   border: 0;
   color: inherit;
   font-family: "Nunito", sans-serif;
-}
-.all-tasks .new-task-list-creator form .btn.create {
-  font-size: 1.3125rem;
-  font-weight: 900;
   margin-right: 0.25em;
   transition: opacity 160ms ease-in;
 }
-.all-tasks .new-task-list-creator form .btn.create:hover {
+.all-tasks .new-task-list-creator form .btn:hover {
   opacity: 0.7;
+}
+.all-tasks .new-task-list-creator form .btn.create {
+  font-size: 1.75rem;
+  font-weight: 900;
 }
 
 .todo-list {
   grid-area: active;
+  background: #f8f9fa;
+  color: #333333;
+}
+.todo-list .todo-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #dee2e6;
+  padding: 2rem;
+}
+.todo-list .todo-header .list-title {
+  font-size: 1.75rem;
+  font-weight: 700;
+  margin: 0 1em 0 0;
+}
+.todo-list .todo-header .task-count {
+  font-size: 0.925rem;
+}
+.todo-list .todo-body {
+  padding: 2rem;
+}
+.todo-list .todo-body .new-task-creator form {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}
+.todo-list .todo-body .new-task-creator form input[type=text].new {
+  background: transparent;
+  border: 0;
+  color: inherit;
+  border-bottom: 2px solid currentColor;
+  font-size: inherit;
+  outline: none;
+  opacity: 0.6;
+  transition: opacity 350ms ease-in;
+  order: 1;
+}
+.todo-list .todo-body .new-task-creator form input[type=text].new:focus {
+  opacity: 1;
+}
+.todo-list .todo-body .new-task-creator form input[type=text].new:focus::placeholder {
+  opacity: 0.4;
+}
+.todo-list .todo-body .new-task-creator form input[type=text].new.task {
+  font-size: 1.125rem;
+}
+.todo-list .todo-body .new-task-creator form .btn {
+  cursor: pointer;
+  background: 0;
+  border: 0;
+  color: inherit;
+  font-family: "Nunito", sans-serif;
+  margin-right: 0.25em;
+  transition: opacity 160ms ease-in;
+}
+.todo-list .todo-body .new-task-creator form .btn:hover {
+  opacity: 0.7;
+}
+.todo-list .todo-body .new-task-creator form .btn.create {
+  font-size: 1.75rem;
+  font-weight: 900;
+}
+.todo-list .todo-body .delete-stuff .btn {
+  cursor: pointer;
+  background: 0;
+  border: 0;
+  color: inherit;
+  font-family: "Nunito", sans-serif;
+  margin-right: 0.25em;
+  transition: opacity 160ms ease-in;
+}
+.todo-list .todo-body .delete-stuff .btn:hover {
+  opacity: 0.7;
+}
+.todo-list .todo-body .delete-stuff .btn.delete {
+  font-size: 0.875rem;
+  font-weight: 500;
 }
 
 .fs-900 {

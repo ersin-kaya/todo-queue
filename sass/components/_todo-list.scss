@@ -1,3 +1,57 @@
+@use "../abstracts/" as *;
+
 .todo-list {
   grid-area: active;
+  background: $todo-list-background-color;
+  color: $todo-list-text-color;
+
+  .todo-header {
+    @include flex-layout();
+    background-color: $todo-list-header-background-color;
+    padding: $todo-list-spacer;
+
+    .list-title {
+      font-size: $todo-list-title-font-size;
+      font-weight: $todo-list-title-font-weight;
+      margin: $todo-list-title-margin;
+    }
+
+    .task-count {
+      font-size: $todo-list-task-count-font-size;
+    }
+  }
+
+  .todo-body {
+    padding: $todo-list-spacer;
+
+    .new-task-creator form {
+      @include flex-layout($justify-content: flex-start);
+
+      input[type="text"].new {
+        @include add-item-input($order: 1);
+
+        &.task {
+          font-size: $todo-list-font-size;
+        }
+      }
+
+      .btn {
+        @include btn;
+
+        &.create {
+          @include btn-create;
+        }
+      }
+    }
+
+    .delete-stuff {
+      .btn {
+        @include btn;
+
+        &.delete {
+          @include btn-delete;
+        }
+      }
+    }
+  }
 }
