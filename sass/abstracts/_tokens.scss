@@ -32,8 +32,11 @@ $heading-3-color-default: $heading-color-default;
 
 // Buttons
 $button-font-family: $body-font-family;
-$button-font-size: $font-size-500;
-$button-font-weight: $font-weight-bold;
+$button-font-size: $font-size-200;
+$button-font-weight: $font-weight-semi-bold;
+
+$create-button-font-size: $font-size-700;
+$create-button-font-weight: $font-weight-black;
 
 // All tasks component
 $all-tasks-font-size: $body-font-size;
