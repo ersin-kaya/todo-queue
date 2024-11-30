@@ -1,8 +1,15 @@
+@use "tokens" as *;
+
+@mixin add-item-form {
+  display: flex;
+}
+
 @mixin add-item-input(
   $opacity: 0.6,
   $focus-opacity: 1,
   $focus-placeholder-opacity: 0.4,
-  $transition-duration: 350ms
+  $transition-duration: 350ms,
+  $order: 0
 ) {
   background: transparent;
   border: 0;
@@ -11,7 +18,9 @@
   font-size: inherit;
   outline: none;
   opacity: $opacity;
+
   transition: opacity $transition-duration ease-in;
+  order: $order;
 
   &:focus {
     opacity: $focus-opacity;
@@ -19,5 +28,24 @@
     &::placeholder {
       opacity: $focus-placeholder-opacity;
     }
+  }
+}
+
+@mixin btn {
+  cursor: pointer;
+  background: 0;
+  border: 0;
+  color: inherit;
+  font-family: $button-font-family;
+}
+
+@mixin btn-create {
+  font-size: $button-font-size;
+  font-weight: $button-font-weight;
+  margin-right: 0.25em;
+  transition: opacity 160ms ease-in;
+
+  &:hover {
+    opacity: 0.7;
   }
 }
