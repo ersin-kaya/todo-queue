@@ -28,7 +28,7 @@
   }
 
   .new-task-list-creator form {
-    @include flex-layout($align-items: center);
+    @include layout($display: flex, $align-items: center);
 
     input[type="text"].new {
       @include add-item-input($order: 1);

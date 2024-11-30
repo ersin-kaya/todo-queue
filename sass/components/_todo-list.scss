@@ -6,7 +6,11 @@
   color: $todo-list-text-color;
 
   .todo-header {
-    @include flex-layout($justify-content: space-between, $align-items: center);
+    @include layout(
+      $display: flex,
+      $justify-content: space-between,
+      $align-items: center
+    );
     background-color: $todo-list-header-background-color;
     padding: $todo-list-spacer;
 
@@ -25,7 +29,7 @@
     padding: $todo-list-spacer;
 
     .new-task-creator form {
-      @include flex-layout($align-items: center);
+      @include layout($display: flex, $align-items: center);
 
       input[type="text"].new {
         @include add-item-input($order: 1);

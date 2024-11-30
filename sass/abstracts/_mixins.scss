@@ -1,11 +1,12 @@
 @use "tokens" as *;
 
-@mixin flex-layout(
+@mixin layout(
+  $display: flex,
   $flex-direction: row,
   $justify-content: flex-start,
   $align-items: stretch
 ) {
-  display: flex;
+  display: $display;
   flex-direction: $flex-direction;
   justify-content: $justify-content;
   align-items: $align-items;
