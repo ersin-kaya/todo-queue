@@ -37,16 +37,17 @@ $button-font-weight: $font-weight-semi-bold;
 
 $create-button-font-size: $font-size-700;
 $create-button-font-weight: $font-weight-black;
+$create-button-color: $color-primary;
 
 // All tasks component
-$all-tasks-font-size: $body-font-size;
+$all-tasks-font-size: $font-size-400;
 $all-tasks-active-font-weight: $font-weight-bold;
 
 $all-tasks-title-font-size: $font-size-700;
 $all-tasks-title-font-weight: $font-weight-bold;
 
 // To-do list component
-$todo-list-font-size: $body-font-size;
+$todo-list-font-size: $font-size-400;
 $todo-list-background-color: $color-gray-100;
 $todo-list-text-color: $body-text-color;
 
@@ -57,6 +58,10 @@ $todo-list-title-font-size: $font-size-700;
 $todo-list-title-font-weight: $font-weight-bold;
 $todo-list-title-margin: 0 1em 0 0;
 $todo-list-task-count-font-size: $font-size-300;
+
+$todo-list-delete-buttons-color: $color-gray-700;
+$todo-list-delete-buttons-hover-color: $color-secondary;
+$todo-list-delete-buttons-font-weight: $font-weight-bold;
 
 // Checkbox component
 $checkbox-size: 0.75em;
