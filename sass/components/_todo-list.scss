@@ -27,6 +27,73 @@
 
   .todo-body {
     padding: $todo-list-spacer;
+    position: relative;
+
+    .tasks {
+      .task {
+        position: relative;
+        margin-bottom: 1.5em;
+
+        &:hover {
+          .checkbox {
+            @include checkbox-hover-focus;
+          }
+        }
+
+        &::after {
+          content: "";
+          position: absolute;
+          right: 0;
+          left: 0;
+          bottom: -50%;
+          height: 1px;
+          background: currentColor;
+          opacity: 0.16;
+        }
+
+        label {
+          @include layout($display: inline-flex, $align-items: center);
+          position: relative;
+
+          &::after {
+            content: "";
+            position: absolute;
+            left: 1.5em;
+            right: -0.05em;
+            top: calc(50% - 0.9px);
+            height: 2px;
+            background: currentColor;
+            transform: scaleX(0);
+            transform-origin: right;
+            transition: transform 200ms ease-in-out;
+          }
+        }
+
+        [type="checkbox"] {
+          opacity: 0; // ensures the checkbox stays selectable!
+          position: absolute;
+
+          &:focus + label .checkbox {
+            @include checkbox-hover-focus;
+          }
+
+          &:checked + label .checkbox {
+            background: $checkbox-color-primary;
+            border-color: $checkbox-color-primary;
+            box-shadow: inset 0 0 0 2px $checkbox-color-secondary;
+          }
+
+          &:checked + label {
+            opacity: 0.5;
+
+            &::after {
+              transform: scaleX(1);
+              transform-origin: left;
+            }
+          }
+        }
+      }
+    }
 
     .new-task-creator form {
       @include layout($display: flex, $align-items: center);
@@ -44,11 +111,18 @@
 
         &.create {
           @include btn-create;
+          color: $create-button-color;
         }
       }
     }
 
     .delete-stuff {
+      @include layout($display: flex, $justify-content: space-evenly);
+      position: absolute;
+      width: 100%;
+      left: 0;
+      bottom: -35px;
+
       .btn {
         @include btn;
 
