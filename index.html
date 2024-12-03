@@ -32,36 +32,22 @@
       </div>
     </div>
 
-    <div class="todo-list">
+    <div class="todo-list" data-list-display-container>
       <div class="todo-header">
-        <h2 class="list-title">YouTube</h2>
-        <p class="task-count">3 tasks remaining</p>
+        <h2 class="list-title" data-list-title>
+          Let's create a list to get started!
+        </h2>
+        <p class="task-count" data-list-count></p>
       </div>
       <div class="todo-body">
-        <div class="tasks">
-          <div class="task">
+        <div class="tasks" data-tasks>
+          <!-- <div class="task">
             <input type="checkbox" id="task-1" />
             <label for="task-1">
               <span class="checkbox"></span>
               record todo list video
             </label>
-          </div>
-
-          <div class="task">
-            <input type="checkbox" id="task-2" />
-            <label for="task-2">
-              <span class="checkbox"></span>
-              edit todo list video
-            </label>
-          </div>
-
-          <div class="task">
-            <input type="checkbox" id="task-3" />
-            <label for="task-3">
-              <span class="checkbox"></span>
-              publish todo list video
-            </label>
-          </div>
+          </div> -->
         </div>
 
         <div class="new-task-creator">
@@ -84,5 +70,13 @@
         </div>
       </div>
     </div>
+    <template id="task-template">
+      <div class="task">
+        <input type="checkbox" />
+        <label>
+          <span class="checkbox"></span>
+        </label>
+      </div>
+    </template>
   </body>
 </html>
