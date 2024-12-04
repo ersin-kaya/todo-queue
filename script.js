@@ -17,6 +17,8 @@ const clearCompleteTasksButton = document.querySelector(
 const todoBody = listDisplayContainer.querySelector("[data-todo-body]");
 
 const welcomeMessage = "Let's create a list to get started!";
+const deleteConfirmationMessage = (dynamicPart = "") =>
+  `Are you sure you want to delete${dynamicPart ? ` ${dynamicPart}` : ""}?`;
 
 const LOCAL_STORAGE_LIST_KEY = "task.lists";
 const LOCAL_STORAGE_SELECTED_LIST_ID_KEY = "task.selectedListId";
@@ -44,12 +46,14 @@ tasksContainer.addEventListener("click", (e) => {
 });
 
 clearCompleteTasksButton.addEventListener("click", (e) => {
+  if (!confirm(deleteConfirmationMessage("all completed tasks"))) return;
   const selectedList = lists.find((list) => list.id === selectedListId);
   selectedList.tasks = selectedList.tasks.filter((task) => !task.complete);
   saveAndRender();
 });
 
 deleteListButton.addEventListener("click", (e) => {
+  if (!confirm(deleteConfirmationMessage("this list"))) return;
   lists = lists.filter((list) => list.id !== selectedListId);
   selectedListId = lists[0]?.id || null;
   if (!lists.length) {
