@@ -42,6 +42,7 @@ tasksContainer.addEventListener("click", (e) => {
     selectedTask.complete = e.target.checked;
     save();
     renderTaskCount(selectedList);
+    setClearCompleteTasksButtonVisibility(selectedList);
   }
 });
 
@@ -124,6 +125,7 @@ function render() {
     renderTaskCount(selectedList);
     clearElement(tasksContainer);
     renderTasks(selectedList);
+    setClearCompleteTasksButtonVisibility(selectedList);
   }
 }
 
@@ -146,6 +148,18 @@ function renderTaskCount(selectedList) {
   ).length;
   const taskString = incompleteTaskCount === 1 ? "task" : "tasks";
   listCountElement.innerText = `${incompleteTaskCount} ${taskString} remaining`;
+}
+
+function setClearCompleteTasksButtonVisibility(selectedList) {
+  const isVisible = getCompleteTasksCount(selectedList) > 0;
+  clearCompleteTasksButton.style.visibility = isVisible ? "visible" : "hidden";
+}
+
+function getCompleteTasksCount(selectedList) {
+  return selectedList.tasks.reduce(
+    (count, task) => count + (task.complete ? 1 : 0),
+    0
+  );
 }
 
 function renderLists() {
