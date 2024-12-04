@@ -14,12 +14,15 @@ const newTaskInput = document.querySelector("[data-new-task-input]");
 const clearCompleteTasksButton = document.querySelector(
   "[data-clear-complete-tasks-button]"
 );
+const todoBody = listDisplayContainer.querySelector("[data-todo-body]");
+
+const welcomeMessage = "Let's create a list to get started!";
 
 const LOCAL_STORAGE_LIST_KEY = "task.lists";
 const LOCAL_STORAGE_SELECTED_LIST_ID_KEY = "task.selectedListId";
 
 let lists = JSON.parse(localStorage.getItem(LOCAL_STORAGE_LIST_KEY)) || [];
-let selectedListId = localStorage.getItem(LOCAL_STORAGE_SELECTED_LIST_ID_KEY);
+let selectedListId = getLocalStorageItem(LOCAL_STORAGE_SELECTED_LIST_ID_KEY);
 
 listsContainer.addEventListener("click", (e) => {
   if (e.target.tagName.toLowerCase() === "li") {
@@ -48,7 +51,11 @@ clearCompleteTasksButton.addEventListener("click", (e) => {
 
 deleteListButton.addEventListener("click", (e) => {
   lists = lists.filter((list) => list.id !== selectedListId);
-  selectedListId = null;
+  selectedListId = lists[0]?.id || null;
+  if (!lists.length) {
+    listTitleElement.innerText = welcomeMessage;
+    listCountElement.style.display = "none";
+  }
   saveAndRender();
 });
 
@@ -60,6 +67,7 @@ newListForm.addEventListener("submit", (e) => {
   newListInput.value = null;
   lists.push(list);
   selectedListId = list.id;
+  listCountElement.style.display = "";
   saveAndRender();
 });
 
@@ -104,11 +112,10 @@ function render() {
   clearElement(listsContainer);
   renderLists();
   const selectedList = lists.find((list) => list.id === selectedListId);
-
-  if (selectedListId == null) {
-    listDisplayContainer.style.display = "none";
+  if (selectedListId === null) {
+    todoBody.style.display = "none";
   } else {
-    listDisplayContainer.style.display = "";
+    todoBody.style.display = "";
     listTitleElement.innerText = selectedList.name;
     renderTaskCount(selectedList);
     clearElement(tasksContainer);
@@ -156,7 +163,23 @@ function clearElement(element) {
   }
 }
 
-render();
+function getLocalStorageItem(key) {
+  const value = localStorage.getItem(key);
+
+  const map = {
+    null: null,
+    undefined: undefined,
+  };
+
+  return value in map ? map[value] : value;
+}
+
+function initializeApp() {
+  listTitleElement.innerText = welcomeMessage;
+  render();
+}
+
+initializeApp();
 
 // // // Notes
 
