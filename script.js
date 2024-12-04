@@ -35,7 +35,7 @@ listsContainer.addEventListener("click", (e) => {
 
 tasksContainer.addEventListener("click", (e) => {
   if (e.target.tagName.toLowerCase() === "input") {
-    const selectedList = lists.find((list) => list.id === selectedListId);
+    const selectedList = getSelectedListById(selectedListId);
     const selectedTask = selectedList.tasks.find(
       (task) => task.id === e.target.id
     );
@@ -48,7 +48,7 @@ tasksContainer.addEventListener("click", (e) => {
 
 clearCompleteTasksButton.addEventListener("click", (e) => {
   if (!confirm(deleteConfirmationMessage("all completed tasks"))) return;
-  const selectedList = lists.find((list) => list.id === selectedListId);
+  const selectedList = getSelectedListById(selectedListId);
   selectedList.tasks = selectedList.tasks.filter((task) => !task.complete);
   saveAndRender();
 });
@@ -82,7 +82,7 @@ newTaskForm.addEventListener("submit", (e) => {
   if (!taskName) return;
   const task = createTask(taskName);
   newTaskInput.value = null;
-  const selectedList = lists.find((list) => list.id === selectedListId);
+  const selectedList = getSelectedListById(selectedListId);
   selectedList.tasks.push(task);
   saveAndRender();
 });
@@ -116,7 +116,7 @@ function save() {
 function render() {
   clearElement(listsContainer);
   renderLists();
-  const selectedList = lists.find((list) => list.id === selectedListId);
+  const selectedList = getSelectedListById(selectedListId);
   if (selectedListId === null) {
     todoBody.style.display = "none";
   } else {
@@ -179,6 +179,10 @@ function clearElement(element) {
   while (element.firstChild) {
     element.removeChild(element.firstChild);
   }
+}
+
+function getSelectedListById(selectedListId) {
+  return lists.find((list) => list.id === selectedListId);
 }
 
 function getLocalStorageItem(key) {
