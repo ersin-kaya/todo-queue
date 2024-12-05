@@ -50,7 +50,7 @@ clearCompleteTasksButton.addEventListener("click", (e) => {
   if (!confirm(deleteConfirmationMessage("all completed tasks"))) return;
   const selectedList = getSelectedListById(selectedListId);
   selectedList.tasks = selectedList.tasks.filter((task) => !task.complete);
-  resetTasksOrder(getSelectedListById(selectedListId).tasks);
+  resetTasksOrder(selectedList.tasks);
   saveAndRender();
 });
 
