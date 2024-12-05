@@ -190,7 +190,7 @@ function getSelectedListById(selectedListId) {
 
 function resetTasksOrder(tasks) {
   tasks = tasks.map((task, index) => {
-    task.order = length - 1 - index;
+    task.order = tasks.length - 1 - index;
     return task;
   });
 }
