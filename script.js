@@ -132,7 +132,8 @@ function render() {
 }
 
 function renderTasks(selectedList) {
-  const sortedTasks = selectedList.tasks.sort((a, b) => b.order - a.order);
+  const sortedTasks = [...selectedList.tasks];
+  sortedTasks.sort((a, b) => b.order - a.order);
   sortedTasks.forEach((task) => {
     const taskElement = document.importNode(taskTemplate.content, true);
     const checkbox = taskElement.querySelector("input");
