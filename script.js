@@ -50,7 +50,6 @@ clearCompleteTasksButton.addEventListener("click", (e) => {
   if (!confirm(deleteConfirmationMessage("all completed tasks"))) return;
   const selectedList = getSelectedListById(selectedListId);
   selectedList.tasks = selectedList.tasks.filter((task) => !task.complete);
-  resetTasksOrder(selectedList.tasks);
   saveAndRender();
 });
 
@@ -101,7 +100,6 @@ function createTask(name) {
     id: Date.now().toString(),
     name: name,
     complete: false,
-    order: getSelectedListById(selectedListId).tasks.length,
   };
 }
 
@@ -132,9 +130,7 @@ function render() {
 }
 
 function renderTasks(selectedList) {
-  const sortedTasks = [...selectedList.tasks];
-  sortedTasks.sort((a, b) => b.order - a.order);
-  sortedTasks.forEach((task) => {
+  selectedList.tasks.forEach((task) => {
     const taskElement = document.importNode(taskTemplate.content, true);
     const checkbox = taskElement.querySelector("input");
     checkbox.id = task.id;
@@ -187,13 +183,6 @@ function clearElement(element) {
 
 function getSelectedListById(selectedListId) {
   return lists.find((list) => list.id === selectedListId);
-}
-
-function resetTasksOrder(tasks) {
-  tasks = tasks.map((task, index) => {
-    task.order = tasks.length - 1 - index;
-    return task;
-  });
 }
 
 function getLocalStorageItem(key) {
