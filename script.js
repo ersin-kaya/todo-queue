@@ -138,15 +138,7 @@ function render() {
 }
 
 function renderTasks(selectedList) {
-  const sortedTasks = [...selectedList.tasks].sort((a, b) => {
-    if (a.complete && b.complete) {
-      return b.completedDate - a.completedDate;
-    }
-    if (!a.complete && !b.complete) {
-      return b.createdDate - a.createdDate;
-    }
-    return a.complete - b.complete;
-  });
+  const sortedTasks = sortTasks(selectedList.tasks);
   sortedTasks.forEach((task) => {
     const taskElement = document.importNode(taskTemplate.content, true);
     const checkbox = taskElement.querySelector("input");
@@ -156,6 +148,18 @@ function renderTasks(selectedList) {
     label.htmlFor = task.id;
     label.append(task.name);
     tasksContainer.appendChild(taskElement);
+  });
+}
+
+function sortTasks(tasks) {
+  return [...tasks].sort((a, b) => {
+    if (a.complete && b.complete) {
+      return b.completedDate - a.completedDate;
+    }
+    if (!a.complete && !b.complete) {
+      return b.createdDate - a.createdDate;
+    }
+    return a.complete - b.complete;
   });
 }
 
