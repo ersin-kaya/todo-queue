@@ -40,7 +40,13 @@ tasksContainer.addEventListener("click", (e) => {
       (task) => task.id === e.target.id
     );
     selectedTask.complete = e.target.checked;
-    save();
+    if (selectedTask.complete) {
+      selectedTask.completedDate = Date.now();
+    } else {
+      selectedTask.completedDate = null;
+      selectedTask.createdDate = Date.now();
+    }
+    saveAndRender();
     renderTaskCount(selectedList);
     setClearCompleteTasksButtonVisibility(selectedList);
   }
@@ -100,6 +106,8 @@ function createTask(name) {
     id: Date.now().toString(),
     name: name,
     complete: false,
+    createdDate: Date.now(),
+    completedDate: null,
   };
 }
 
@@ -130,7 +138,16 @@ function render() {
 }
 
 function renderTasks(selectedList) {
-  selectedList.tasks.forEach((task) => {
+  const sortedTasks = [...selectedList.tasks].sort((a, b) => {
+    if (a.complete && b.complete) {
+      return b.completedDate - a.completedDate;
+    }
+    if (!a.complete && !b.complete) {
+      return b.createdDate - a.createdDate;
+    }
+    return a.complete - b.complete;
+  });
+  sortedTasks.forEach((task) => {
     const taskElement = document.importNode(taskTemplate.content, true);
     const checkbox = taskElement.querySelector("input");
     checkbox.id = task.id;
