@@ -59,6 +59,16 @@ body {
   letter-spacing: 1px;
   margin: -0.2em 0 0.5em;
 }
+@media screen and (max-width: 40em) {
+  .title {
+    font-size: calc(6vw + 1.25rem);
+  }
+}
+@media screen and (max-width: 30em) {
+  .title {
+    font-size: calc(5vw + 1.25rem);
+  }
+}
 
 .all-tasks {
   grid-area: lists;

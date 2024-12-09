@@ -39,6 +39,11 @@ $create-button-font-size: $font-size-700;
 $create-button-font-weight: $font-weight-black;
 $create-button-color: $color-primary;
 
+// Title component
+$title-font-size-large-screens: calc(7vw + ($heading-1-font-size / 3));
+$title-font-size-small-screens: calc(6vw + ($heading-1-font-size / 3));
+$title-font-size-extra-small-screens: calc(5vw + ($heading-1-font-size / 3));
+
 // All tasks component
 $all-tasks-font-size: $font-size-400;
 $all-tasks-active-font-weight: $font-weight-bold;
