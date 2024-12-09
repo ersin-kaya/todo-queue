@@ -3,6 +3,10 @@
 .all-tasks {
   grid-area: lists;
 
+  @include mq(medium) {
+    margin-bottom: 20px;
+  }
+
   .task-list-title {
     font-size: $all-tasks-title-font-size;
     font-weight: $all-tasks-title-font-weight;
