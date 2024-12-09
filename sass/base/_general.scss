@@ -14,4 +14,25 @@ body {
     "...... lists active ......";
   grid-template-rows: auto;
   grid-template-columns: 1fr minmax(100px, 300px) minmax(250px, 500px) 1fr;
+
+  @include mq(medium) {
+    grid-template-areas:
+      "header header header header"
+      "lists lists lists lists"
+      "active active active active";
+    padding: 0 30px;
+  }
+
+  @include mq(small) {
+    grid-template-areas:
+      "header"
+      "lists"
+      "active";
+    grid-template-columns: 1fr;
+    padding: 0 20px;
+  }
+
+  @include mq(extra-small) {
+    padding: 0 5px;
+  }
 }

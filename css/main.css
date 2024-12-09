@@ -30,6 +30,24 @@ body {
   grid-template-rows: auto;
   grid-template-columns: 1fr minmax(100px, 300px) minmax(250px, 500px) 1fr;
 }
+@media screen and (max-width: 55em) {
+  body {
+    grid-template-areas: "header header header header" "lists lists lists lists" "active active active active";
+    padding: 0 30px;
+  }
+}
+@media screen and (max-width: 40em) {
+  body {
+    grid-template-areas: "header" "lists" "active";
+    grid-template-columns: 1fr;
+    padding: 0 20px;
+  }
+}
+@media screen and (max-width: 30em) {
+  body {
+    padding: 0 5px;
+  }
+}
 
 .title {
   grid-area: header;
