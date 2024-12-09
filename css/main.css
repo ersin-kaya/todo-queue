@@ -25,6 +25,7 @@ body {
   color: #333333;
   background-color: #d7fffc;
   line-height: 1.5;
+  margin-bottom: 100px;
   display: grid;
   grid-template-areas: "header header header header" "...... lists active ......";
   grid-template-rows: auto;
