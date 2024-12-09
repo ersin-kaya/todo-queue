@@ -73,6 +73,11 @@ body {
 .all-tasks {
   grid-area: lists;
 }
+@media screen and (max-width: 55em) {
+  .all-tasks {
+    margin-bottom: 20px;
+  }
+}
 .all-tasks .task-list-title {
   font-size: 1.75rem;
   font-weight: 700;
