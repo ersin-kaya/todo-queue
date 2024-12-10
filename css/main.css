@@ -23,7 +23,7 @@ body {
   font-weight: 400;
   font-size: 1.125rem;
   color: #333333;
-  background-color: #d7fffc;
+  background-color: #fbfbf2;
   line-height: 1.5;
   margin-bottom: 100px;
   display: grid;
@@ -104,7 +104,7 @@ body {
   justify-content: flex-start;
   align-items: center;
 }
-.all-tasks .new-task-list-creator form input[type=text].new {
+.all-tasks .new-task-list-creator form input[type="text"].new {
   background: transparent;
   border: 0;
   color: inherit;
@@ -116,13 +116,16 @@ body {
   transition: opacity 350ms ease-in;
   order: 1;
 }
-.all-tasks .new-task-list-creator form input[type=text].new:focus {
+.all-tasks .new-task-list-creator form input[type="text"].new:focus {
   opacity: 1;
 }
-.all-tasks .new-task-list-creator form input[type=text].new:focus::placeholder {
+.all-tasks
+  .new-task-list-creator
+  form
+  input[type="text"].new:focus::placeholder {
   opacity: 0.4;
 }
-.all-tasks .new-task-list-creator form input[type=text].new.list {
+.all-tasks .new-task-list-creator form input[type="text"].new.list {
   font-size: 1rem;
 }
 .all-tasks .new-task-list-creator form .btn {
@@ -155,6 +158,11 @@ body {
   background-color: #dee2e6;
   padding: 2rem;
 }
+@media screen and (max-width: 30em) {
+  .todo-list .todo-header {
+    padding: 1rem;
+  }
+}
 .todo-list .todo-header .list-title {
   font-size: 1.75rem;
   font-weight: 700;
@@ -180,7 +188,7 @@ body {
   position: absolute;
   right: 0;
   left: 0;
-  bottom: -50%;
+  bottom: -13px;
   height: 1px;
   background: currentColor;
   opacity: 0.16;
@@ -204,23 +212,23 @@ body {
   transform-origin: right;
   transition: transform 200ms ease-in-out;
 }
-.todo-list .todo-body .tasks .task [type=checkbox] {
+.todo-list .todo-body .tasks .task [type="checkbox"] {
   opacity: 0;
   position: absolute;
 }
-.todo-list .todo-body .tasks .task [type=checkbox]:focus + label .checkbox {
+.todo-list .todo-body .tasks .task [type="checkbox"]:focus + label .checkbox {
   transform: scale(1.1);
   color: #18b3a8;
 }
-.todo-list .todo-body .tasks .task [type=checkbox]:checked + label .checkbox {
+.todo-list .todo-body .tasks .task [type="checkbox"]:checked + label .checkbox {
   background: #18b3a8;
   border-color: #18b3a8;
   box-shadow: inset 0 0 0 2px #ffffff;
 }
-.todo-list .todo-body .tasks .task [type=checkbox]:checked + label {
+.todo-list .todo-body .tasks .task [type="checkbox"]:checked + label {
   opacity: 0.5;
 }
-.todo-list .todo-body .tasks .task [type=checkbox]:checked + label::after {
+.todo-list .todo-body .tasks .task [type="checkbox"]:checked + label::after {
   transform: scaleX(1);
   transform-origin: left;
 }
@@ -230,7 +238,7 @@ body {
   justify-content: flex-start;
   align-items: center;
 }
-.todo-list .todo-body .new-task-creator form input[type=text].new {
+.todo-list .todo-body .new-task-creator form input[type="text"].new {
   background: transparent;
   border: 0;
   color: inherit;
@@ -242,13 +250,17 @@ body {
   transition: opacity 350ms ease-in;
   order: 1;
 }
-.todo-list .todo-body .new-task-creator form input[type=text].new:focus {
+.todo-list .todo-body .new-task-creator form input[type="text"].new:focus {
   opacity: 1;
 }
-.todo-list .todo-body .new-task-creator form input[type=text].new:focus::placeholder {
+.todo-list
+  .todo-body
+  .new-task-creator
+  form
+  input[type="text"].new:focus::placeholder {
   opacity: 0.4;
 }
-.todo-list .todo-body .new-task-creator form input[type=text].new.task {
+.todo-list .todo-body .new-task-creator form input[type="text"].new.task {
   font-size: 1rem;
 }
 .todo-list .todo-body .new-task-creator form .btn {
@@ -307,6 +319,7 @@ body {
   display: inline-block;
   width: 0.75em;
   height: 0.75em;
+  min-width: 0.75em;
   margin-right: 0.75em;
   cursor: pointer;
   border: 2px solid currentColor;

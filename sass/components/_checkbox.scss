@@ -4,6 +4,7 @@
   display: inline-block;
   width: $checkbox-size;
   height: $checkbox-size;
+  min-width: $checkbox-size;
   margin-right: $checkbox-size;
   cursor: pointer;
   border: 2px solid currentColor;
