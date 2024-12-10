@@ -14,6 +14,10 @@
     background-color: $todo-list-header-background-color;
     padding: $todo-list-spacer;
 
+    @include mq(extra-small) {
+      padding: $todo-list-spacer-extra-small-screens;
+    }
+
     .list-title {
       font-size: $todo-list-title-font-size;
       font-weight: $todo-list-title-font-weight;
