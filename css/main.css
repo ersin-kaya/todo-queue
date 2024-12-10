@@ -185,7 +185,7 @@ body {
   position: absolute;
   right: 0;
   left: 0;
-  bottom: -50%;
+  bottom: -13px;
   height: 1px;
   background: currentColor;
   opacity: 0.16;
