@@ -331,6 +331,25 @@ body {
   background-color: #212529;
   margin-top: 8vh;
   height: 6vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.preferences-bar button {
+  cursor: pointer;
+  background: 0;
+  border: 0;
+  color: inherit;
+  font-family: "Nunito", sans-serif;
+  margin-right: 0.25em;
+  transition: opacity 160ms ease-in;
+  color: #f8f9fa;
+  margin: 0 30px;
+  padding: 10px 20px;
+}
+.preferences-bar button:hover {
+  opacity: 0.7;
 }
 
 .fs-900 {
