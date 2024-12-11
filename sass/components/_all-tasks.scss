@@ -4,7 +4,7 @@
   grid-area: lists;
 
   @include mq(medium) {
-    margin: 0 30px 20px;
+    margin: 0 15px 20px;
   }
 
   .task-list-title {

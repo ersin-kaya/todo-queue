@@ -71,7 +71,7 @@ body {
 }
 @media screen and (max-width: 55em) {
   .all-tasks {
-    margin: 0 30px 20px;
+    margin: 0 15px 20px;
   }
 }
 .all-tasks .task-list-title {
@@ -144,7 +144,7 @@ body {
 }
 @media screen and (max-width: 55em) {
   .todo-list {
-    margin: 0 30px;
+    margin: 0 10px;
   }
 }
 .todo-list .todo-header {
@@ -171,6 +171,11 @@ body {
 .todo-list .todo-body {
   padding: 2rem;
   position: relative;
+}
+@media screen and (max-width: 40em) {
+  .todo-list .todo-body {
+    padding: 1rem;
+  }
 }
 .todo-list .todo-body .tasks .task {
   position: relative;

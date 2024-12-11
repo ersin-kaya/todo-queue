@@ -6,7 +6,7 @@
   color: $todo-list-text-color;
 
   @include mq(medium) {
-    margin: 0 30px;
+    margin: 0 10px;
   }
 
   .todo-header {
@@ -36,6 +36,10 @@
   .todo-body {
     padding: $todo-list-spacer;
     position: relative;
+
+    @include mq(small) {
+      padding: calc($todo-list-spacer / 2);
+    }
 
     .tasks {
       .task {
