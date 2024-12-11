@@ -15,6 +15,8 @@ const clearCompleteTasksButton = document.querySelector(
   "[data-clear-complete-tasks-button]"
 );
 const todoBody = listDisplayContainer.querySelector("[data-todo-body]");
+const themeElement = document.querySelector("[data-theme]");
+const themeToggleButton = document.querySelector("[data-theme-toggle-button]");
 
 const welcomeMessage = "Let's create a list to get started!";
 const deleteConfirmationMessage = (dynamicPart = "") =>
@@ -22,9 +24,14 @@ const deleteConfirmationMessage = (dynamicPart = "") =>
 
 const LOCAL_STORAGE_LIST_KEY = "task.lists";
 const LOCAL_STORAGE_SELECTED_LIST_ID_KEY = "task.selectedListId";
+const LOCAL_STORAGE_THEME_KEY = "app.theme";
 
 let lists = JSON.parse(localStorage.getItem(LOCAL_STORAGE_LIST_KEY)) || [];
 let selectedListId = getLocalStorageItem(LOCAL_STORAGE_SELECTED_LIST_ID_KEY);
+let appTheme =
+  getLocalStorageItem(LOCAL_STORAGE_THEME_KEY) ||
+  themeElement.dataset.theme ||
+  "light";
 
 listsContainer.addEventListener("click", (e) => {
   if (e.target.tagName.toLowerCase() === "li") {
@@ -217,8 +224,31 @@ function getLocalStorageItem(key) {
   return value in map ? map[value] : value;
 }
 
+function toggleTheme() {
+  const newTheme =
+    getLocalStorageItem(LOCAL_STORAGE_THEME_KEY) === "light" ? "dark" : "light";
+  applyTheme(newTheme);
+}
+
+themeToggleButton.addEventListener("click", (e) => {
+  toggleTheme();
+});
+
+function applyTheme(theme) {
+  const newTheme = theme || appTheme;
+  themeElement.dataset.theme = newTheme;
+  themeToggleButton.innerText = newTheme === "light" ? "🌙" : "🔆";
+  localStorage.setItem(LOCAL_STORAGE_THEME_KEY, newTheme);
+}
+
+function applyPreferences(theme, lang) {
+  applyTheme(theme);
+}
+
 function initializeApp() {
   listTitleElement.innerText = welcomeMessage;
+
+  applyPreferences();
   render();
 }
 
