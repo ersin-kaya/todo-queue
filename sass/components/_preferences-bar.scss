@@ -1,0 +1,8 @@
+@use "../abstracts/" as *;
+
+.preferences-bar {
+  grid-area: preferences-bar;
+  background-color: $preferences-bar-background-color;
+  margin-top: $preferences-bar-margin-top;
+  height: $preferences-bar-height;
+}
