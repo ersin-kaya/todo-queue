@@ -30,6 +30,10 @@ $heading-2-color-default: $heading-color-default;
 $heading-3-font-size: $font-size-700;
 $heading-3-color-default: $heading-color-default;
 
+// Body - Dark theme
+$body-text-color-dark-theme: $color-text-primary-dark-theme;
+$body-background-color-dark-theme: $color-background-dark-theme;
+
 // Buttons
 $button-font-family: $body-font-family;
 $button-font-size: $font-size-200;
@@ -79,7 +83,3 @@ $preferences-bar-background-color: $color-gray-900;
 $preferences-bar-margin-top: 8vh;
 $preferences-bar-height: 6vh;
 $preferences-bar-button-color: $color-gray-100;
-
-// Dark theme
-$body-text-color-dark-theme: $color-text-primary-dark-theme;
-$body-background-color-dark-theme: $color-background-dark-theme;
