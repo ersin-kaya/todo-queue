@@ -203,7 +203,7 @@ body[data-theme=dark] .preferences-bar button {
 
 .todo-list {
   grid-area: active;
-  background: #f8f9fa;
+  background: #fff8d9;
   color: #333333;
 }
 @media screen and (max-width: 55em) {
@@ -216,7 +216,7 @@ body[data-theme=dark] .preferences-bar button {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  background-color: #dee2e6;
+  background-color: #afafa9;
   padding: 2rem;
 }
 @media screen and (max-width: 30em) {
