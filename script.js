@@ -53,10 +53,7 @@ tasksContainer.addEventListener("click", (e) => {
       selectedTask.completedDate = null;
       selectedTask.createdDate = Date.now();
     }
-    save();
-    setTimeout(() => {
-      render();
-    }, 400);
+    saveAndRender();
     renderTaskCount(selectedList);
     setClearCompleteTasksButtonVisibility(selectedList);
   }

@@ -276,19 +276,6 @@ body[data-theme=dark] .preferences-bar button {
   flex-direction: row;
   justify-content: flex-start;
   align-items: center;
-  position: relative;
-}
-.todo-list .todo-body .tasks .task label::after {
-  content: "";
-  position: absolute;
-  left: 1.5em;
-  right: -0.05em;
-  top: calc(50% - 0.9px);
-  height: 2px;
-  background: currentColor;
-  transform: scaleX(0);
-  transform-origin: right;
-  transition: transform 200ms ease-in-out;
 }
 .todo-list .todo-body .tasks .task [type=checkbox] {
   opacity: 0;
@@ -305,10 +292,8 @@ body[data-theme=dark] .preferences-bar button {
 }
 .todo-list .todo-body .tasks .task [type=checkbox]:checked + label {
   opacity: 0.5;
-}
-.todo-list .todo-body .tasks .task [type=checkbox]:checked + label::after {
-  transform: scaleX(1);
-  transform-origin: left;
+  text-decoration: line-through;
+  text-decoration-thickness: 2px;
 }
 .todo-list .todo-body .new-task-creator form {
   display: flex;
