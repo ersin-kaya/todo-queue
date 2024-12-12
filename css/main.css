@@ -49,6 +49,9 @@ body[data-theme=dark] {
   color: #fdfdfd;
   background-color: #101010;
 }
+body[data-theme=dark] .title {
+  color: #f8f9fa;
+}
 body[data-theme=dark] .all-tasks .new-task-list-creator form input[type=text].new {
   background: transparent;
   border: 0;
@@ -73,7 +76,7 @@ body[data-theme=dark] .all-tasks .new-task-list-creator form input[type=text].ne
   font-family: "Poppins", serif;
   font-size: calc(7vw + 1.25rem);
   font-weight: 700;
-  color: rgba(85, 85, 85, 0.3);
+  color: rgba(248, 249, 250, 0.3);
   text-align: center;
   letter-spacing: 1px;
   margin: -0.2em 0 0.5em;

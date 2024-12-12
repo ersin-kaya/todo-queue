@@ -4,6 +4,10 @@ body[data-theme="dark"] {
   color: $body-text-color-dark-theme;
   background-color: $body-background-color-dark-theme;
 
+  .title {
+    color: $heading-color-default;
+  }
+
   .all-tasks {
     .new-task-list-creator form {
       input[type="text"].new {
