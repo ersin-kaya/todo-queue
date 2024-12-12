@@ -86,6 +86,7 @@ newListForm.addEventListener("submit", (e) => {
   lists.push(list);
   selectedListId = list.id;
   listCountElement.style.display = "";
+  newTaskInput.focus();
   saveAndRender();
 });
 
