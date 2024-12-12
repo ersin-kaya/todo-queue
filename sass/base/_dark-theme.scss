@@ -1,0 +1,14 @@
+@use "../abstracts/" as *;
+
+body[data-theme="dark"] {
+  color: $body-text-color-dark-theme;
+  background-color: $body-background-color-dark-theme;
+
+  .all-tasks {
+    .new-task-list-creator form {
+      input[type="text"].new {
+        @include add-item-input($opacity: 0.8, $order: 1);
+      }
+    }
+  }
+}

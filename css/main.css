@@ -45,6 +45,29 @@ body {
   }
 }
 
+body[data-theme=dark] {
+  color: #fdfdfd;
+  background-color: #101010;
+}
+body[data-theme=dark] .all-tasks .new-task-list-creator form input[type=text].new {
+  background: transparent;
+  border: 0;
+  color: inherit;
+  border-bottom: 2px solid currentColor;
+  font-size: inherit;
+  letter-spacing: 1px;
+  outline: none;
+  opacity: 0.8;
+  transition: opacity 350ms ease-in;
+  order: 1;
+}
+body[data-theme=dark] .all-tasks .new-task-list-creator form input[type=text].new:focus {
+  opacity: 1;
+}
+body[data-theme=dark] .all-tasks .new-task-list-creator form input[type=text].new:focus::placeholder {
+  opacity: 0.4;
+}
+
 .title {
   grid-area: header;
   font-family: "Poppins", serif;
