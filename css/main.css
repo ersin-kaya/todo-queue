@@ -25,7 +25,7 @@ body {
   color: #333333;
   background-color: #fbfbf2;
   line-height: 1.5;
-  min-height: 100vh;
+  min-height: 100dvh;
   display: grid;
   grid-template-areas: "header header header header" "...... lists active ......" "preferences-bar preferences-bar preferences-bar preferences-bar";
   grid-template-rows: auto 1fr auto;
@@ -390,8 +390,8 @@ body[data-theme=dark] .preferences-bar button {
 .preferences-bar {
   grid-area: preferences-bar;
   background-color: #afafa9;
-  margin-top: 8vh;
-  height: 6vh;
+  margin-top: 12vh;
+  height: 10vh;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
