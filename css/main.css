@@ -80,6 +80,24 @@ body[data-theme=dark] .todo-list .todo-header {
 body[data-theme=dark] .todo-list .todo-body .tasks .task [type=checkbox]:checked + label {
   opacity: 0.8;
 }
+body[data-theme=dark] .todo-list .todo-body .new-task-creator form input[type=text].new {
+  background: transparent;
+  border: 0;
+  color: inherit;
+  border-bottom: 2px solid currentColor;
+  font-size: inherit;
+  letter-spacing: 1px;
+  outline: none;
+  opacity: 0.8;
+  transition: opacity 350ms ease-in;
+  order: 1;
+}
+body[data-theme=dark] .todo-list .todo-body .new-task-creator form input[type=text].new:focus {
+  opacity: 1;
+}
+body[data-theme=dark] .todo-list .todo-body .new-task-creator form input[type=text].new:focus::placeholder {
+  opacity: 0.4;
+}
 body[data-theme=dark] .todo-list .todo-body .delete-stuff .btn.delete {
   color: #f8f9fa;
 }

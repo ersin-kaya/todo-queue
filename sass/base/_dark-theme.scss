@@ -38,6 +38,12 @@ body[data-theme="dark"] {
         }
       }
 
+      .new-task-creator form {
+        input[type="text"].new {
+          @include add-item-input($opacity: 0.8, $order: 1);
+        }
+      }
+
       .delete-stuff {
         .btn {
           &.delete {
