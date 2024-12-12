@@ -47,7 +47,7 @@ body {
 
 body[data-theme=dark] {
   color: #fdfdfd;
-  background-color: #0d1116;
+  background-color: #141a21;
 }
 body[data-theme=dark] .title {
   color: #dee2e6;
@@ -100,6 +100,13 @@ body[data-theme=dark] .todo-list .todo-body .new-task-creator form input[type=te
 }
 body[data-theme=dark] .todo-list .todo-body .delete-stuff .btn.delete {
   color: #f8f9fa;
+}
+body[data-theme=dark] .preferences-bar {
+  background-color: #0f1217;
+}
+body[data-theme=dark] .preferences-bar button {
+  color: #000000;
+  background-color: #f8f9fa;
 }
 
 .title {
@@ -385,7 +392,7 @@ body[data-theme=dark] .todo-list .todo-body .delete-stuff .btn.delete {
 
 .preferences-bar {
   grid-area: preferences-bar;
-  background-color: #212529;
+  background-color: #afafa9;
   margin-top: 8vh;
   height: 6vh;
   display: flex;
@@ -403,7 +410,10 @@ body[data-theme=dark] .todo-list .todo-body .delete-stuff .btn.delete {
   transition: opacity 160ms ease-in;
   color: #f8f9fa;
   margin: 0 30px;
-  padding: 10px 20px;
+  padding: 5px 8px;
+  background-color: #343a40;
+  border-radius: 4px;
+  font-size: 22px;
 }
 .preferences-bar button:hover {
   opacity: 0.7;

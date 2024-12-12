@@ -89,7 +89,13 @@ $checkbox-color-primary: $color-primary;
 $checkbox-color-secondary: $color-white;
 
 // Preferences bar component
-$preferences-bar-background-color: $color-gray-900;
+$preferences-bar-background-color: $color-background-muted;
 $preferences-bar-margin-top: 8vh;
 $preferences-bar-height: 6vh;
 $preferences-bar-button-color: $color-gray-100;
+$preferences-bar-button-background-color: $color-gray-800;
+
+// Preferences bar component - Dark theme
+$preferences-bar-background-color-dark-theme: $color-background-muted-dark-theme;
+$preferences-bar-button-color-dark-theme: $color-black;
+$preferences-bar-button-background-color-dark-theme: $color-gray-100;

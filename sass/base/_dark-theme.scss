@@ -53,4 +53,13 @@ body[data-theme="dark"] {
       }
     }
   }
+
+  .preferences-bar {
+    background-color: $preferences-bar-background-color-dark-theme;
+
+    button {
+      color: $preferences-bar-button-color-dark-theme;
+      background-color: $preferences-bar-button-background-color-dark-theme;
+    }
+  }
 }
