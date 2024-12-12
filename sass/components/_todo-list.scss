@@ -66,6 +66,7 @@
 
         label {
           @include layout($display: inline-flex, $align-items: center);
+          word-break: break-word;
           // The animation was canceled due to the possibility of multi-line input, and text-decoration is being used
           // position: relative;
 
