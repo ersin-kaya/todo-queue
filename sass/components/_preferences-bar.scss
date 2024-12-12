@@ -1,0 +1,20 @@
+@use "../abstracts/" as *;
+
+.preferences-bar {
+  grid-area: preferences-bar;
+  background-color: $preferences-bar-background-color;
+  margin-top: $preferences-bar-margin-top;
+  height: $preferences-bar-height;
+
+  @include layout($justify-content: space-between, $align-items: center);
+
+  button {
+    @include btn;
+    color: $preferences-bar-button-color;
+    margin: 0 30px;
+    padding: 5px 8px;
+    background-color: $preferences-bar-button-background-color;
+    border-radius: 4px;
+    font-size: 19px;
+  }
+}

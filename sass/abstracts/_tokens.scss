@@ -30,6 +30,12 @@ $heading-2-color-default: $heading-color-default;
 $heading-3-font-size: $font-size-700;
 $heading-3-color-default: $heading-color-default;
 
+// Body - Dark theme
+$body-text-color-dark-theme: $color-text-primary-dark-theme;
+$body-background-color-dark-theme: $color-background-dark-theme;
+
+$heading-color-default-dark-theme: $color-gray-300;
+
 // Buttons
 $button-font-family: $body-font-family;
 $button-font-size: $font-size-200;
@@ -53,13 +59,13 @@ $all-tasks-title-font-weight: $font-weight-bold;
 
 // To-do list component
 $todo-list-font-size: $font-size-400;
-$todo-list-background-color: $color-gray-100;
+$todo-list-background-color: $color-muted-gold;
 $todo-list-text-color: $body-text-color;
 
 $todo-list-spacer: 2rem;
 $todo-list-spacer-extra-small-screens: 1rem;
 
-$todo-list-header-background-color: $color-gray-300;
+$todo-list-header-background-color: $color-background-muted;
 $todo-list-title-font-size: $font-size-700;
 $todo-list-title-font-weight: $font-weight-bold;
 $todo-list-title-margin: 0 1em 0 0;
@@ -69,7 +75,27 @@ $todo-list-delete-buttons-color: $color-gray-700;
 $todo-list-delete-buttons-hover-color: $color-secondary;
 $todo-list-delete-buttons-font-weight: $font-weight-bold;
 
+// To-do list component - Dark theme
+$todo-list-background-color-dark-theme: $color-gray-800;
+$todo-list-text-color-dark-theme: $color-gray-200;
+
+$todo-list-header-background-color-dark-theme: $color-gray-900;
+
+$todo-list-delete-buttons-color-dark-theme: $color-gray-100;
+
 // Checkbox component
 $checkbox-size: 0.75em;
 $checkbox-color-primary: $color-primary;
 $checkbox-color-secondary: $color-white;
+
+// Preferences bar component
+$preferences-bar-background-color: $color-background-muted;
+$preferences-bar-margin-top: 8vh;
+$preferences-bar-height: 6vh;
+$preferences-bar-button-color: $color-gray-100;
+$preferences-bar-button-background-color: $color-gray-800;
+
+// Preferences bar component - Dark theme
+$preferences-bar-background-color-dark-theme: $color-background-muted-dark-theme;
+$preferences-bar-button-color-dark-theme: $color-black;
+$preferences-bar-button-background-color-dark-theme: $color-gray-100;

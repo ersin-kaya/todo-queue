@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="css/main.css" />
     <script defer src="script.js"></script>
   </head>
-  <body>
+  <body data-theme>
     <h1 class="title">Stuff I need to do</h1>
 
     <div class="all-tasks">
@@ -71,6 +71,16 @@
         </div>
       </div>
     </div>
+
+    <div class="preferences-bar">
+      <button
+        class="btn"
+        aria-label="theme-toggle"
+        data-theme-toggle-button
+      ></button>
+      <button class="btn" aria-label="lang-switcher">EN</button>
+    </div>
+
     <template id="task-template">
       <div class="task">
         <input type="checkbox" />
