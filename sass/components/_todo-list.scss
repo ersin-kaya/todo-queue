@@ -4,6 +4,7 @@
   grid-area: active;
   background: $todo-list-background-color;
   color: $todo-list-text-color;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 
   @include mq(medium) {
     margin: 0 10px;

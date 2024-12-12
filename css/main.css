@@ -73,6 +73,7 @@ body[data-theme=dark] .all-tasks .new-task-list-creator form input[type=text].ne
 body[data-theme=dark] .todo-list {
   background: #343a40;
   color: #e9ecef;
+  box-shadow: rgba(255, 255, 255, 0.07) 0px 3px 8px;
 }
 body[data-theme=dark] .todo-list .todo-header {
   background-color: #212529;
@@ -215,6 +216,7 @@ body[data-theme=dark] .preferences-bar button {
   grid-area: active;
   background: #fff8d9;
   color: #333333;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 @media screen and (max-width: 55em) {
   .todo-list {

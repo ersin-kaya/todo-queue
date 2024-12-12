@@ -22,6 +22,7 @@ body[data-theme="dark"] {
   .todo-list {
     background: $todo-list-background-color-dark-theme;
     color: $todo-list-text-color-dark-theme;
+    box-shadow: rgba(255, 255, 255, 0.07) 0px 3px 8px;
 
     .todo-header {
       background-color: $todo-list-header-background-color-dark-theme;
