@@ -4,14 +4,46 @@ body[data-theme="dark"] {
   color: $body-text-color-dark-theme;
   background-color: $body-background-color-dark-theme;
 
+  // Title component
   .title {
     color: $heading-color-default;
   }
 
+  // All tasks component
   .all-tasks {
     .new-task-list-creator form {
       input[type="text"].new {
         @include add-item-input($opacity: 0.8, $order: 1);
+      }
+    }
+  }
+
+  // Todo list component
+  .todo-list {
+    background: $todo-list-background-color-dark-theme;
+    color: $todo-list-text-color-dark-theme;
+
+    .todo-header {
+      background-color: $todo-list-header-background-color-dark-theme;
+    }
+
+    .todo-body {
+      .tasks {
+        .task {
+          [type="checkbox"] {
+            &:checked + label {
+              opacity: 0.8;
+            }
+          }
+        }
+      }
+
+      .delete-stuff {
+        .btn {
+          &.delete {
+            color: $todo-list-delete-buttons-color-dark-theme;
+          }
+        }
       }
     }
   }
