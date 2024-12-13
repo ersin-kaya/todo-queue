@@ -30,8 +30,9 @@ body {
   display: grid;
   grid-template-areas: "header header header header" "...... lists active ......" "preferences-bar preferences-bar preferences-bar preferences-bar";
   grid-template-rows: auto 1fr auto;
-  grid-template-columns: 1fr minmax(100px, 300px) minmax(250px, 500px) 1fr;
+  grid-template-columns: 1fr minmax(100px, 300px) minmax(250px, 600px) 1fr;
   align-items: start; /* Aligns grid items to the start of their rows; overrides the default 'stretch' behavior */
+  column-gap: 20px;
 }
 @media screen and (max-width: 55em) {
   body {
