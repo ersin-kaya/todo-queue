@@ -279,20 +279,3 @@ function initializeApp() {
 }
 
 initializeApp();
-
-// // // Notes
-
-// // Data attributes
-// getAttribute
-// const listsContainer = document.querySelector(".task-list");
-// const dataValue = listsContainer.getAttribute("data-lists");
-// console.log(dataValue);
-
-// dataset
-// const element = document.querySelector("[data-lists]");
-// console.log(element.dataset.lists);
-
-// matches or hasAttribute
-// const element = document.querySelector("[data-lists]");
-// console.log("matches", element.matches("[data-lists]"));
-// console.log("hasAttribute", element.hasAttribute("data-lists"));
