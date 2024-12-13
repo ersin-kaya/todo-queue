@@ -85,6 +85,14 @@ deleteListButton.addEventListener("click", (e) => {
   saveAndRender();
 });
 
+themeToggleButton.addEventListener("click", (e) => {
+  toggleTheme();
+});
+
+languageToggleButton.addEventListener("click", (e) => {
+  toggleLanguage();
+});
+
 newListForm.addEventListener("submit", (e) => {
   e.preventDefault();
   const listName = newListInput.value.trim();
@@ -239,10 +247,6 @@ function toggleTheme() {
   applyTheme(newTheme);
 }
 
-themeToggleButton.addEventListener("click", (e) => {
-  toggleTheme();
-});
-
 function applyTheme(theme) {
   const newTheme = theme || appTheme;
   themeElement.dataset.theme = newTheme;
@@ -261,10 +265,6 @@ function applyLanguage(language) {
   languageToggleButton.innerText = newLanguage === "tr" ? "EN" : "TR";
   localStorage.setItem(LOCAL_STORAGE_LANGUAGE_KEY, newLanguage);
 }
-
-languageToggleButton.addEventListener("click", (e) => {
-  toggleLanguage();
-});
 
 function applyPreferences(theme, language) {
   applyTheme(theme);
