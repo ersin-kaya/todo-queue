@@ -27,10 +27,15 @@
       font-size: $todo-list-title-font-size;
       font-weight: $todo-list-title-font-weight;
       margin: $todo-list-title-margin;
+
+      @include mq(small) {
+        font-size: $todo-list-title-font-size-small-screens;
+      }
     }
 
     .task-count {
       font-size: $todo-list-task-count-font-size;
+      text-align: right;
     }
   }
 

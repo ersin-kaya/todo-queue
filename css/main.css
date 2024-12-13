@@ -243,8 +243,14 @@ body[data-theme=dark] .preferences-bar button {
   font-weight: 700;
   margin: 0 1em 0 0;
 }
+@media screen and (max-width: 40em) {
+  .todo-list .todo-header .list-title {
+    font-size: 1.3125rem;
+  }
+}
 .todo-list .todo-header .task-count {
   font-size: 0.925rem;
+  text-align: right;
 }
 .todo-list .todo-body {
   padding: 2rem;
