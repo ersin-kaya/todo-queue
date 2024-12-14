@@ -1,0 +1,56 @@
+{
+  "en-US": {
+    "mainTitle": "Stuff I need to do",
+    "taskListTitle": "My lists",
+    "listInputPlaceholder": "new list name",
+    "taskInputPlaceholder": "new task name",
+    "taskCount": {
+      "taskSingular": "task",
+      "taskPlural": "tasks",
+      "remaining": "remaining"
+    },
+    "buttons": {
+      "clearCompleted": "Clear completed tasks",
+      "deleteList": "Delete list",
+      "darkMode": "🌙",
+      "lightMode": "🔆",
+      "tr": "TR",
+      "en": "EN"
+    },
+    "messages": {
+      "welcome": "Let's create a list to get started!",
+      "deleteConfirmation": {
+        "baseMessage": "Are you sure you want to delete",
+        "forTasks": "all completed tasks",
+        "forList": "this list"
+      }
+    }
+  },
+  "tr": {
+    "mainTitle": "Yapmam gerekenler",
+    "taskListTitle": "Listelerim",
+    "listInputPlaceholder": "liste ismi giriniz",
+    "taskInputPlaceholder": "görev ismi giriniz",
+    "taskCount": {
+      "taskSingular": "görev",
+      "taskPlural": "görev",
+      "remaining": "kaldı"
+    },
+    "buttons": {
+      "clearCompleted": "Tamamlanan görevleri temizle",
+      "deleteList": "Listeyi sil",
+      "darkMode": "🌙",
+      "lightMode": "🔆",
+      "tr": "TR",
+      "en": "EN"
+    },
+    "messages": {
+      "welcome": "Başlamak için bir liste oluşturalım!",
+      "deleteConfirmation": {
+        "baseMessage": "silmek istediğinizden emin misiniz",
+        "forTasks": "Tamamlanan tüm görevleri",
+        "forList": "Listeyi"
+      }
+    }
+  }
+}
