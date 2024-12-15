@@ -20,8 +20,10 @@ const themeToggleButton = document.querySelector("[data-theme-toggle-button]");
 const languageToggleButton = document.querySelector(
   "[data-language-toggle-button]"
 );
+const pageTitle = document.querySelector("[data-page-title]");
 
-const welcomeMessage = "Let's create a list to get started!";
+let translations = {};
+let activeTranslations = {};
 const deleteConfirmationMessage = (dynamicPart = "") =>
   `Are you sure you want to delete${dynamicPart ? ` ${dynamicPart}` : ""}?`;
 
@@ -78,10 +80,6 @@ deleteListButton.addEventListener("click", (e) => {
   if (!confirm(deleteConfirmationMessage("this list"))) return;
   lists = lists.filter((list) => list.id !== selectedListId);
   selectedListId = lists[0]?.id || null;
-  if (!lists.length) {
-    listTitleElement.innerText = welcomeMessage;
-    listCountElement.style.display = "none";
-  }
   saveAndRender();
 });
 
@@ -150,8 +148,19 @@ function render() {
   renderLists();
   const selectedList = getSelectedListById(selectedListId);
   if (selectedListId === null) {
+    listCountElement.style.display = "none";
     todoBody.style.display = "none";
+    if (!lists.length) {
+      listTitleElement.innerText =
+        activeTranslations?.messages?.welcome ||
+        "Let's create a list to get started!";
+    } else {
+      listTitleElement.innerText =
+        activeTranslations?.messages?.selectOrCreateList ||
+        "Please select or create a list to continue.";
+    }
   } else {
+    listCountElement.style.display = "";
     todoBody.style.display = "";
     listTitleElement.innerText = selectedList.name;
     renderTaskCount(selectedList);
@@ -159,6 +168,7 @@ function render() {
     renderTasks(selectedList);
     setClearCompleteTasksButtonVisibility(selectedList);
   }
+  setLanguageToggleVisibilityFromTranslations();
 }
 
 function renderTasks(selectedList) {
@@ -264,6 +274,59 @@ function applyLanguage(language) {
   const newLanguage = language || appLanguage;
   languageToggleButton.innerText = newLanguage === "tr" ? "EN" : "TR";
   localStorage.setItem(LOCAL_STORAGE_LANGUAGE_KEY, newLanguage);
+  setActiveTranslations();
+  updateTextsForSelectedLanguage();
+  render();
+}
+
+function updateTextsForSelectedLanguage() {
+  if (activeTranslations) {
+    pageTitle.innerText = activeTranslations.pageTitle;
+    listTitleElement.innerText = activeTranslations.messages.welcome;
+  }
+}
+
+function setLanguageToggleVisibilityFromTranslations() {
+  !activeTranslations
+    ? (languageToggleButton.style.visibility = "hidden")
+    : (languageToggleButton.style.visibility = "");
+}
+
+async function fetchTranslations() {
+  // const xhr = new XMLHttpRequest();
+  // xhr.open("GET", "translations.json", true);
+  // xhr.onreadystatechange = function () {
+  //   if (xhr.readyState === 4 && xhr.status === 200) {
+  //     const translations = JSON.parse(xhr.responseText);
+  //   }
+  // };
+  // xhr.send();
+
+  try {
+    const response = await fetch("translations.json");
+    if (!response.ok) {
+      throw new Error(`HTTP error! Status: ${response.status}`);
+    }
+    return await response.json();
+  } catch (error) {
+    console.error("Failed to fetch translations:", error.message);
+    return null;
+  }
+}
+
+function loadTranslations(translationsData) {
+  if (translationsData) {
+    translations = translationsData;
+  }
+}
+
+function setActiveTranslations() {
+  if (translations) {
+    const language = getLocalStorageItem(LOCAL_STORAGE_LANGUAGE_KEY);
+    activeTranslations = translations ? translations[language] : null;
+    return true;
+  }
+  return false;
 }
 
 function applyPreferences(theme, language) {
@@ -271,9 +334,8 @@ function applyPreferences(theme, language) {
   applyLanguage(language);
 }
 
-function initializeApp() {
-  listTitleElement.innerText = welcomeMessage;
-
+async function initializeApp() {
+  loadTranslations(await fetchTranslations());
   applyPreferences();
   render();
 }

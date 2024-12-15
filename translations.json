@@ -1,6 +1,6 @@
 {
   "en-US": {
-    "mainTitle": "Stuff I need to do",
+    "pageTitle": "Stuff I need to do",
     "taskListTitle": "My lists",
     "listInputPlaceholder": "new list name",
     "taskInputPlaceholder": "new task name",
@@ -19,6 +19,7 @@
     },
     "messages": {
       "welcome": "Let's create a list to get started!",
+      "selectOrCreateList": "Please select or create a list to continue.",
       "deleteConfirmation": {
         "baseMessage": "Are you sure you want to delete",
         "forTasks": "all completed tasks",
@@ -27,7 +28,7 @@
     }
   },
   "tr": {
-    "mainTitle": "Yapmam gerekenler",
+    "pageTitle": "Yapmam gerekenler",
     "taskListTitle": "Listelerim",
     "listInputPlaceholder": "liste ismi giriniz",
     "taskInputPlaceholder": "görev ismi giriniz",
@@ -45,7 +46,8 @@
       "en": "EN"
     },
     "messages": {
-      "welcome": "Hazır mısın? Bir liste oluşturarak başlayabilirsin!",
+      "welcome": "Hazır mısın? Yeni bir liste oluşturarak başlayabilirsin!",
+      "selectOrCreateList": "Lütfen devam etmek için bir liste seçin veya yeni bir liste oluşturun.",
       "deleteConfirmation": {
         "baseMessage": "silmek istediğinizden emin misiniz",
         "forTasks": "Tamamlanan tüm görevleri",
