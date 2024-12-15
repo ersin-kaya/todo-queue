@@ -45,7 +45,7 @@
       "en": "EN"
     },
     "messages": {
-      "welcome": "Başlamak için bir liste oluşturalım!",
+      "welcome": "Hazır mısın? Bir liste oluşturarak başlayabilirsin!",
       "deleteConfirmation": {
         "baseMessage": "silmek istediğinizden emin misiniz",
         "forTasks": "Tamamlanan tüm görevleri",
