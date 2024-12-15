@@ -25,8 +25,6 @@ const taskListTitle = document.querySelector("[data-task-list-title]");
 
 let translations = {};
 let activeTranslations = {};
-const deleteConfirmationMessage = (dynamicPart = "") =>
-  `Are you sure you want to delete${dynamicPart ? ` ${dynamicPart}` : ""}?`;
 
 const LOCAL_STORAGE_LIST_KEY = "task.lists";
 const LOCAL_STORAGE_SELECTED_LIST_ID_KEY = "task.selectedListId";
@@ -70,19 +68,37 @@ tasksContainer.addEventListener("click", (e) => {
   }
 });
 
+// Event listeners are executed only when their corresponding event is triggered
+// therefore, they can reference functions or variables defined later in the code
+// (deleteConfirmationMessage)
 clearCompleteTasksButton.addEventListener("click", (e) => {
-  if (!confirm(deleteConfirmationMessage("all completed tasks"))) return;
+  if (!confirm(deleteConfirmationMessage(dynamicPartForTasks))) return;
   const selectedList = getSelectedListById(selectedListId);
   selectedList.tasks = selectedList.tasks.filter((task) => !task.complete);
   saveAndRender();
 });
 
 deleteListButton.addEventListener("click", (e) => {
-  if (!confirm(deleteConfirmationMessage("this list"))) return;
+  if (!confirm(deleteConfirmationMessage(dynamicPartForList))) return;
   lists = lists.filter((list) => list.id !== selectedListId);
   selectedListId = lists[0]?.id || null;
   saveAndRender();
 });
+
+let baseConfirmationText = "Are you sure you want to delete";
+let dynamicPartForList = "this list";
+let dynamicPartForTasks = "all completed tasks";
+
+const confirmationMessages = {
+  tr: (dynamicPart = "") =>
+    `${dynamicPart ? ` ${dynamicPart}` : ""} ${baseConfirmationText}?`,
+  "en-US": (dynamicPart = "") =>
+    `${baseConfirmationText}${dynamicPart ? ` ${dynamicPart}` : ""}?`,
+};
+
+const deleteConfirmationMessage = (dynamicPart = "") => {
+  return confirmationMessages[appLanguage](dynamicPart);
+};
 
 themeToggleButton.addEventListener("click", (e) => {
   toggleTheme();
@@ -271,10 +287,10 @@ function toggleLanguage() {
   applyLanguage(newLanguage);
 }
 
-function applyLanguage(language) {
-  const newLanguage = language || appLanguage;
-  languageToggleButton.innerText = newLanguage === "tr" ? "EN" : "TR";
-  localStorage.setItem(LOCAL_STORAGE_LANGUAGE_KEY, newLanguage);
+function applyLanguage(newLanguage) {
+  appLanguage = newLanguage || appLanguage;
+  languageToggleButton.innerText = appLanguage === "tr" ? "EN" : "TR";
+  localStorage.setItem(LOCAL_STORAGE_LANGUAGE_KEY, appLanguage);
   setActiveTranslations();
   updateTextsForSelectedLanguage();
   render();
@@ -290,6 +306,11 @@ function updateTextsForSelectedLanguage() {
     clearCompleteTasksButton.textContent =
       activeTranslations.buttons.clearCompleted;
     deleteListButton.textContent = activeTranslations.buttons.deleteList;
+    baseConfirmationText =
+      activeTranslations.messages.deleteConfirmation.baseMessage;
+    dynamicPartForList = activeTranslations.messages.deleteConfirmation.forList;
+    dynamicPartForTasks =
+      activeTranslations.messages.deleteConfirmation.forTasks;
   }
 }
 
@@ -316,6 +337,7 @@ async function fetchTranslations() {
     }
     return await response.json();
   } catch (error) {
+    applyLanguage("en-US");
     console.error("Failed to fetch translations:", error.message);
     return null;
   }
