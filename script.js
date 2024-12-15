@@ -21,6 +21,7 @@ const languageToggleButton = document.querySelector(
   "[data-language-toggle-button]"
 );
 const pageTitle = document.querySelector("[data-page-title]");
+const taskListTitle = document.querySelector("[data-task-list-title]");
 
 let translations = {};
 let activeTranslations = {};
@@ -281,8 +282,14 @@ function applyLanguage(language) {
 
 function updateTextsForSelectedLanguage() {
   if (activeTranslations) {
-    pageTitle.innerText = activeTranslations.pageTitle;
-    listTitleElement.innerText = activeTranslations.messages.welcome;
+    pageTitle.textContent = activeTranslations.pageTitle;
+    taskListTitle.textContent = activeTranslations.taskListTitle;
+    listTitleElement.textContent = activeTranslations.messages.welcome;
+    newListInput.placeholder = activeTranslations.listInputPlaceholder;
+    newTaskInput.placeholder = activeTranslations.taskInputPlaceholder;
+    clearCompleteTasksButton.textContent =
+      activeTranslations.buttons.clearCompleted;
+    deleteListButton.textContent = activeTranslations.buttons.deleteList;
   }
 }
 

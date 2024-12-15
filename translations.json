@@ -31,7 +31,7 @@
     "pageTitle": "Yapmam gerekenler",
     "taskListTitle": "Listelerim",
     "listInputPlaceholder": "liste ismi giriniz",
-    "taskInputPlaceholder": "görev ismi giriniz",
+    "taskInputPlaceholder": "yeni görev giriniz",
     "taskCount": {
       "taskSingular": "görev",
       "taskPlural": "görev",
