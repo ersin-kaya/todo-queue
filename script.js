@@ -280,13 +280,13 @@ function toggleTheme() {
 }
 
 function applyTheme(theme) {
-  const newTheme = theme || appTheme;
-  themeElement.dataset.theme = newTheme;
+  appTheme = theme || appTheme;
+  themeElement.dataset.theme = appTheme;
   themeToggleButton.innerText =
-    newTheme === "light"
+    appTheme === "light"
       ? activeTranslations?.buttons?.theme?.darkModeContent || "🌙"
       : activeTranslations?.buttons?.theme?.lightModeContent || "🔆";
-  localStorage.setItem(LOCAL_STORAGE_THEME_KEY, newTheme);
+  localStorage.setItem(LOCAL_STORAGE_THEME_KEY, appTheme);
 }
 
 function toggleLanguage() {
