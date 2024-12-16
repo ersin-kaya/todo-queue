@@ -33,7 +33,7 @@ const LOCAL_STORAGE_SELECTED_LIST_ID_KEY = "task.selectedListId";
 const LOCAL_STORAGE_THEME_KEY = "app.theme";
 const LOCAL_STORAGE_LANGUAGE_KEY = "app.language";
 
-let lists = JSON.parse(localStorage.getItem(LOCAL_STORAGE_LIST_KEY)) || [];
+let lists = JSON.parse(getLocalStorageItem(LOCAL_STORAGE_LIST_KEY)) || [];
 let selectedListId = getLocalStorageItem(LOCAL_STORAGE_SELECTED_LIST_ID_KEY);
 let appTheme =
   getLocalStorageItem(LOCAL_STORAGE_THEME_KEY) ||
@@ -158,8 +158,8 @@ function saveAndRender() {
 }
 
 function save() {
-  localStorage.setItem(LOCAL_STORAGE_LIST_KEY, JSON.stringify(lists));
-  localStorage.setItem(LOCAL_STORAGE_SELECTED_LIST_ID_KEY, selectedListId);
+  setLocalStorageItem(LOCAL_STORAGE_LIST_KEY, lists);
+  setLocalStorageItem(LOCAL_STORAGE_SELECTED_LIST_ID_KEY, selectedListId);
 }
 
 function render() {
@@ -275,6 +275,22 @@ function getLocalStorageItem(key) {
   return value in map ? map[value] : value;
 }
 
+function setLocalStorageItem(key, value) {
+  if (!key) {
+    console.log("Key is required to set an item in localStorage");
+    return;
+  }
+
+  try {
+    localStorage.setItem(
+      key,
+      typeof value === "object" ? JSON.stringify(value) : value
+    );
+  } catch (error) {
+    console.log("Failed to set item in localStorage:", error);
+  }
+}
+
 function toggleTheme() {
   const newTheme =
     getLocalStorageItem(LOCAL_STORAGE_THEME_KEY) === "light" ? "dark" : "light";
@@ -288,7 +304,7 @@ function applyTheme(theme) {
     appTheme === "light"
       ? activeTranslations?.buttons?.theme?.darkModeContent || "🌙"
       : activeTranslations?.buttons?.theme?.lightModeContent || "🔆";
-  localStorage.setItem(LOCAL_STORAGE_THEME_KEY, appTheme);
+  setLocalStorageItem(LOCAL_STORAGE_THEME_KEY, appTheme);
 }
 
 function toggleLanguage() {
@@ -303,7 +319,7 @@ function applyLanguage(newLanguage) {
     appLanguage === "tr"
       ? activeTranslations?.buttons?.languageSupport?.enContent || "EN"
       : activeTranslations?.buttons?.languageSupport?.trContent || "TR";
-  localStorage.setItem(LOCAL_STORAGE_LANGUAGE_KEY, appLanguage);
+  setLocalStorageItem(LOCAL_STORAGE_LANGUAGE_KEY, appLanguage);
   setActiveTranslations();
   updateTextsForSelectedLanguage();
   render();
