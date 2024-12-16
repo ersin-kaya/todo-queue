@@ -20,10 +20,11 @@ const themeToggleButton = document.querySelector("[data-theme-toggle-button]");
 const languageToggleButton = document.querySelector(
   "[data-language-toggle-button]"
 );
+const pageTitle = document.querySelector("[data-page-title]");
+const taskListTitle = document.querySelector("[data-task-list-title]");
 
-const welcomeMessage = "Let's create a list to get started!";
-const deleteConfirmationMessage = (dynamicPart = "") =>
-  `Are you sure you want to delete${dynamicPart ? ` ${dynamicPart}` : ""}?`;
+let translations = {};
+let activeTranslations = {};
 
 const LOCAL_STORAGE_LIST_KEY = "task.lists";
 const LOCAL_STORAGE_SELECTED_LIST_ID_KEY = "task.selectedListId";
@@ -67,23 +68,37 @@ tasksContainer.addEventListener("click", (e) => {
   }
 });
 
+// Event listeners are executed only when their corresponding event is triggered
+// therefore, they can reference functions or variables defined later in the code
+// (deleteConfirmationMessage)
 clearCompleteTasksButton.addEventListener("click", (e) => {
-  if (!confirm(deleteConfirmationMessage("all completed tasks"))) return;
+  if (!confirm(deleteConfirmationMessage(dynamicPartForTasks))) return;
   const selectedList = getSelectedListById(selectedListId);
   selectedList.tasks = selectedList.tasks.filter((task) => !task.complete);
   saveAndRender();
 });
 
 deleteListButton.addEventListener("click", (e) => {
-  if (!confirm(deleteConfirmationMessage("this list"))) return;
+  if (!confirm(deleteConfirmationMessage(dynamicPartForList))) return;
   lists = lists.filter((list) => list.id !== selectedListId);
   selectedListId = lists[0]?.id || null;
-  if (!lists.length) {
-    listTitleElement.innerText = welcomeMessage;
-    listCountElement.style.display = "none";
-  }
   saveAndRender();
 });
+
+let baseConfirmationText = "Are you sure you want to delete";
+let dynamicPartForList = "this list";
+let dynamicPartForTasks = "all completed tasks";
+
+const confirmationMessages = {
+  tr: (dynamicPart = "") =>
+    `${dynamicPart ? ` ${dynamicPart}` : ""} ${baseConfirmationText}?`,
+  "en-US": (dynamicPart = "") =>
+    `${baseConfirmationText}${dynamicPart ? ` ${dynamicPart}` : ""}?`,
+};
+
+const deleteConfirmationMessage = (dynamicPart = "") => {
+  return confirmationMessages[appLanguage](dynamicPart);
+};
 
 themeToggleButton.addEventListener("click", (e) => {
   toggleTheme();
@@ -150,8 +165,19 @@ function render() {
   renderLists();
   const selectedList = getSelectedListById(selectedListId);
   if (selectedListId === null) {
+    listCountElement.style.display = "none";
     todoBody.style.display = "none";
+    if (!lists.length) {
+      listTitleElement.innerText =
+        activeTranslations?.messages?.welcome ||
+        "Let's create a list to get started!";
+    } else {
+      listTitleElement.innerText =
+        activeTranslations?.messages?.selectOrCreateList ||
+        "Please select or create a list to continue.";
+    }
   } else {
+    listCountElement.style.display = "";
     todoBody.style.display = "";
     listTitleElement.innerText = selectedList.name;
     renderTaskCount(selectedList);
@@ -159,6 +185,7 @@ function render() {
     renderTasks(selectedList);
     setClearCompleteTasksButtonVisibility(selectedList);
   }
+  setLanguageToggleVisibilityFromTranslations();
 }
 
 function renderTasks(selectedList) {
@@ -191,8 +218,13 @@ function renderTaskCount(selectedList) {
   const incompleteTaskCount = selectedList.tasks.filter(
     (task) => !task.complete
   ).length;
-  const taskString = incompleteTaskCount === 1 ? "task" : "tasks";
-  listCountElement.innerText = `${incompleteTaskCount} ${taskString} remaining`;
+  const taskString =
+    incompleteTaskCount === 1
+      ? activeTranslations?.taskCount?.taskSingular ?? "task"
+      : activeTranslations?.taskCount?.taskPlural ?? "tasks";
+  listCountElement.innerText = `${incompleteTaskCount} ${taskString} ${
+    activeTranslations?.taskCount?.remaining ?? "remaining"
+  }`;
 }
 
 function setClearCompleteTasksButtonVisibility(selectedList) {
@@ -250,7 +282,10 @@ function toggleTheme() {
 function applyTheme(theme) {
   const newTheme = theme || appTheme;
   themeElement.dataset.theme = newTheme;
-  themeToggleButton.innerText = newTheme === "light" ? "🌙" : "🔆";
+  themeToggleButton.innerText =
+    newTheme === "light"
+      ? activeTranslations?.buttons?.theme?.darkModeContent || "🌙"
+      : activeTranslations?.buttons?.theme?.lightModeContent || "🔆";
   localStorage.setItem(LOCAL_STORAGE_THEME_KEY, newTheme);
 }
 
@@ -260,10 +295,88 @@ function toggleLanguage() {
   applyLanguage(newLanguage);
 }
 
-function applyLanguage(language) {
-  const newLanguage = language || appLanguage;
-  languageToggleButton.innerText = newLanguage === "tr" ? "EN" : "TR";
-  localStorage.setItem(LOCAL_STORAGE_LANGUAGE_KEY, newLanguage);
+function applyLanguage(newLanguage) {
+  appLanguage = newLanguage || appLanguage;
+  languageToggleButton.innerText =
+    appLanguage === "tr"
+      ? activeTranslations?.buttons?.languageSupport?.enContent || "EN"
+      : activeTranslations?.buttons?.languageSupport?.trContent || "TR";
+  localStorage.setItem(LOCAL_STORAGE_LANGUAGE_KEY, appLanguage);
+  setActiveTranslations();
+  updateTextsForSelectedLanguage();
+  render();
+}
+
+function updateTextsForSelectedLanguage() {
+  if (activeTranslations) {
+    pageTitle.textContent = activeTranslations.pageTitle;
+    taskListTitle.textContent = activeTranslations.taskListTitle;
+    listTitleElement.textContent = activeTranslations.messages.welcome;
+    newListInput.placeholder = activeTranslations.listInputPlaceholder;
+    newTaskInput.placeholder = activeTranslations.taskInputPlaceholder;
+    clearCompleteTasksButton.textContent =
+      activeTranslations.buttons.clearCompleted;
+    deleteListButton.textContent = activeTranslations.buttons.deleteList;
+
+    baseConfirmationText =
+      activeTranslations.messages.deleteConfirmation.baseMessage;
+    dynamicPartForList = activeTranslations.messages.deleteConfirmation.forList;
+    dynamicPartForTasks =
+      activeTranslations.messages.deleteConfirmation.forTasks;
+
+    themeToggleButton.textContent =
+      getLocalStorageItem(LOCAL_STORAGE_THEME_KEY) === "light"
+        ? activeTranslations.buttons.theme.darkModeContent
+        : activeTranslations.buttons.theme.lightModeContent;
+    languageToggleButton.textContent =
+      appLanguage === "tr"
+        ? activeTranslations.buttons.languageSupport.enContent
+        : activeTranslations.buttons.languageSupport.trContent;
+  }
+}
+
+function setLanguageToggleVisibilityFromTranslations() {
+  !activeTranslations
+    ? (languageToggleButton.style.visibility = "hidden")
+    : (languageToggleButton.style.visibility = "");
+}
+
+async function fetchTranslations() {
+  // const xhr = new XMLHttpRequest();
+  // xhr.open("GET", "translations.json", true);
+  // xhr.onreadystatechange = function () {
+  //   if (xhr.readyState === 4 && xhr.status === 200) {
+  //     const translations = JSON.parse(xhr.responseText);
+  //   }
+  // };
+  // xhr.send();
+
+  try {
+    const response = await fetch("translations.json");
+    if (!response.ok) {
+      throw new Error(`HTTP error! Status: ${response.status}`);
+    }
+    return await response.json();
+  } catch (error) {
+    applyLanguage("en-US");
+    console.error("Failed to fetch translations:", error.message);
+    return null;
+  }
+}
+
+function loadTranslations(translationsData) {
+  if (translationsData) {
+    translations = translationsData;
+  }
+}
+
+function setActiveTranslations() {
+  if (translations) {
+    const language = getLocalStorageItem(LOCAL_STORAGE_LANGUAGE_KEY);
+    activeTranslations = translations ? translations[language] : null;
+    return true;
+  }
+  return false;
 }
 
 function applyPreferences(theme, language) {
@@ -271,9 +384,8 @@ function applyPreferences(theme, language) {
   applyLanguage(language);
 }
 
-function initializeApp() {
-  listTitleElement.innerText = welcomeMessage;
-
+async function initializeApp() {
+  loadTranslations(await fetchTranslations());
   applyPreferences();
   render();
 }
