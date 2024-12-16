@@ -12,10 +12,14 @@
     "buttons": {
       "clearCompleted": "Clear completed tasks",
       "deleteList": "Delete list",
-      "darkMode": "🌙",
-      "lightMode": "🔆",
-      "tr": "TR",
-      "en": "EN"
+      "theme": {
+        "darkModeContent": "🌙",
+        "lightModeContent": "🔆"
+      },
+      "languageSupport": {
+        "trContent": "TR",
+        "enContent": "EN"
+      }
     },
     "messages": {
       "welcome": "Let's create a list to get started!",
@@ -40,10 +44,14 @@
     "buttons": {
       "clearCompleted": "Tamamlanan görevleri temizle",
       "deleteList": "Listeyi sil",
-      "darkMode": "🌙",
-      "lightMode": "🔆",
-      "tr": "TR",
-      "en": "EN"
+      "theme": {
+        "darkModeContent": "🌙",
+        "lightModeContent": "🔆"
+      },
+      "languageSupport": {
+        "trContent": "TR",
+        "enContent": "EN"
+      }
     },
     "messages": {
       "welcome": "Hazır mısın? Yeni bir liste oluşturarak başlayabilirsin!",
