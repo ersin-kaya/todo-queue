@@ -325,7 +325,7 @@ function updateTextsForSelectedLanguage() {
       activeTranslations.messages.deleteConfirmation.forTasks;
 
     themeToggleButton.textContent =
-      getLocalStorageItem(LOCAL_STORAGE_THEME_KEY) === "light"
+      appTheme === "light"
         ? activeTranslations.buttons.theme.darkModeContent
         : activeTranslations.buttons.theme.lightModeContent;
     languageToggleButton.textContent =
