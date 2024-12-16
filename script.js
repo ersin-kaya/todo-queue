@@ -218,8 +218,13 @@ function renderTaskCount(selectedList) {
   const incompleteTaskCount = selectedList.tasks.filter(
     (task) => !task.complete
   ).length;
-  const taskString = incompleteTaskCount === 1 ? "task" : "tasks";
-  listCountElement.innerText = `${incompleteTaskCount} ${taskString} remaining`;
+  const taskString =
+    incompleteTaskCount === 1
+      ? activeTranslations?.taskCount?.taskSingular ?? "task"
+      : activeTranslations?.taskCount?.taskPlural ?? "tasks";
+  listCountElement.innerText = `${incompleteTaskCount} ${taskString} ${
+    activeTranslations?.taskCount?.remaining ?? "remaining"
+  }`;
 }
 
 function setClearCompleteTasksButtonVisibility(selectedList) {
