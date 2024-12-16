@@ -277,7 +277,10 @@ function toggleTheme() {
 function applyTheme(theme) {
   const newTheme = theme || appTheme;
   themeElement.dataset.theme = newTheme;
-  themeToggleButton.innerText = newTheme === "light" ? "🌙" : "🔆";
+  themeToggleButton.innerText =
+    newTheme === "light"
+      ? activeTranslations?.buttons?.theme?.darkModeContent || "🌙"
+      : activeTranslations?.buttons?.theme?.lightModeContent || "🔆";
   localStorage.setItem(LOCAL_STORAGE_THEME_KEY, newTheme);
 }
 
@@ -289,7 +292,10 @@ function toggleLanguage() {
 
 function applyLanguage(newLanguage) {
   appLanguage = newLanguage || appLanguage;
-  languageToggleButton.innerText = appLanguage === "tr" ? "EN" : "TR";
+  languageToggleButton.innerText =
+    appLanguage === "tr"
+      ? activeTranslations?.buttons?.languageSupport?.enContent || "EN"
+      : activeTranslations?.buttons?.languageSupport?.trContent || "TR";
   localStorage.setItem(LOCAL_STORAGE_LANGUAGE_KEY, appLanguage);
   setActiveTranslations();
   updateTextsForSelectedLanguage();
@@ -306,11 +312,21 @@ function updateTextsForSelectedLanguage() {
     clearCompleteTasksButton.textContent =
       activeTranslations.buttons.clearCompleted;
     deleteListButton.textContent = activeTranslations.buttons.deleteList;
+
     baseConfirmationText =
       activeTranslations.messages.deleteConfirmation.baseMessage;
     dynamicPartForList = activeTranslations.messages.deleteConfirmation.forList;
     dynamicPartForTasks =
       activeTranslations.messages.deleteConfirmation.forTasks;
+
+    themeToggleButton.textContent =
+      getLocalStorageItem(LOCAL_STORAGE_THEME_KEY) === "light"
+        ? activeTranslations.buttons.theme.darkModeContent
+        : activeTranslations.buttons.theme.lightModeContent;
+    languageToggleButton.textContent =
+      appLanguage === "tr"
+        ? activeTranslations.buttons.languageSupport.enContent
+        : activeTranslations.buttons.languageSupport.trContent;
   }
 }
 
