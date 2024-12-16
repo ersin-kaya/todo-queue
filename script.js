@@ -17,6 +17,9 @@ const clearCompleteTasksButton = document.querySelector(
 const todoBody = listDisplayContainer.querySelector("[data-todo-body]");
 const themeElement = document.querySelector("[data-theme]");
 const themeToggleButton = document.querySelector("[data-theme-toggle-button]");
+const languageToggleButton = document.querySelector(
+  "[data-language-toggle-button]"
+);
 
 const welcomeMessage = "Let's create a list to get started!";
 const deleteConfirmationMessage = (dynamicPart = "") =>
@@ -25,6 +28,7 @@ const deleteConfirmationMessage = (dynamicPart = "") =>
 const LOCAL_STORAGE_LIST_KEY = "task.lists";
 const LOCAL_STORAGE_SELECTED_LIST_ID_KEY = "task.selectedListId";
 const LOCAL_STORAGE_THEME_KEY = "app.theme";
+const LOCAL_STORAGE_LANGUAGE_KEY = "app.language";
 
 let lists = JSON.parse(localStorage.getItem(LOCAL_STORAGE_LIST_KEY)) || [];
 let selectedListId = getLocalStorageItem(LOCAL_STORAGE_SELECTED_LIST_ID_KEY);
@@ -32,6 +36,10 @@ let appTheme =
   getLocalStorageItem(LOCAL_STORAGE_THEME_KEY) ||
   themeElement.dataset.theme ||
   "light";
+let appLanguage =
+  getLocalStorageItem(LOCAL_STORAGE_LANGUAGE_KEY) ||
+  navigator.language ||
+  "en-US";
 
 listsContainer.addEventListener("click", (e) => {
   if (e.target.tagName.toLowerCase() === "li") {
@@ -77,6 +85,14 @@ deleteListButton.addEventListener("click", (e) => {
   saveAndRender();
 });
 
+themeToggleButton.addEventListener("click", (e) => {
+  toggleTheme();
+});
+
+languageToggleButton.addEventListener("click", (e) => {
+  toggleLanguage();
+});
+
 newListForm.addEventListener("submit", (e) => {
   e.preventDefault();
   const listName = newListInput.value.trim();
@@ -86,6 +102,7 @@ newListForm.addEventListener("submit", (e) => {
   lists.push(list);
   selectedListId = list.id;
   listCountElement.style.display = "";
+  newTaskInput.focus();
   saveAndRender();
 });
 
@@ -230,10 +247,6 @@ function toggleTheme() {
   applyTheme(newTheme);
 }
 
-themeToggleButton.addEventListener("click", (e) => {
-  toggleTheme();
-});
-
 function applyTheme(theme) {
   const newTheme = theme || appTheme;
   themeElement.dataset.theme = newTheme;
@@ -241,8 +254,21 @@ function applyTheme(theme) {
   localStorage.setItem(LOCAL_STORAGE_THEME_KEY, newTheme);
 }
 
-function applyPreferences(theme, lang) {
+function toggleLanguage() {
+  const newLanguage =
+    getLocalStorageItem(LOCAL_STORAGE_LANGUAGE_KEY) === "tr" ? "en-US" : "tr";
+  applyLanguage(newLanguage);
+}
+
+function applyLanguage(language) {
+  const newLanguage = language || appLanguage;
+  languageToggleButton.innerText = newLanguage === "tr" ? "EN" : "TR";
+  localStorage.setItem(LOCAL_STORAGE_LANGUAGE_KEY, newLanguage);
+}
+
+function applyPreferences(theme, language) {
   applyTheme(theme);
+  applyLanguage(language);
 }
 
 function initializeApp() {
@@ -253,20 +279,3 @@ function initializeApp() {
 }
 
 initializeApp();
-
-// // // Notes
-
-// // Data attributes
-// getAttribute
-// const listsContainer = document.querySelector(".task-list");
-// const dataValue = listsContainer.getAttribute("data-lists");
-// console.log(dataValue);
-
-// dataset
-// const element = document.querySelector("[data-lists]");
-// console.log(element.dataset.lists);
-
-// matches or hasAttribute
-// const element = document.querySelector("[data-lists]");
-// console.log("matches", element.matches("[data-lists]"));
-// console.log("hasAttribute", element.hasAttribute("data-lists"));

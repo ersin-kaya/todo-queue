@@ -67,6 +67,7 @@ $todo-list-spacer-extra-small-screens: 1rem;
 
 $todo-list-header-background-color: $color-background-muted;
 $todo-list-title-font-size: $font-size-700;
+$todo-list-title-font-size-small-screens: $font-size-600;
 $todo-list-title-font-weight: $font-weight-bold;
 $todo-list-title-margin: 0 1em 0 0;
 $todo-list-task-count-font-size: $font-size-300;
@@ -90,8 +91,8 @@ $checkbox-color-secondary: $color-white;
 
 // Preferences bar component
 $preferences-bar-background-color: $color-background-muted;
-$preferences-bar-margin-top: 8vh;
-$preferences-bar-height: 6vh;
+$preferences-bar-margin-top: 12vh;
+$preferences-bar-height: 10vh;
 $preferences-bar-button-color: $color-gray-100;
 $preferences-bar-button-background-color: $color-gray-800;
 

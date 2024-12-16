@@ -25,12 +25,14 @@ body {
   color: #333333;
   background-color: #fbfbf2;
   line-height: 1.5;
-  min-height: 100vh;
+  min-height: 100dvh;
+  word-break: break-word;
   display: grid;
   grid-template-areas: "header header header header" "...... lists active ......" "preferences-bar preferences-bar preferences-bar preferences-bar";
   grid-template-rows: auto 1fr auto;
-  grid-template-columns: 1fr minmax(100px, 300px) minmax(250px, 500px) 1fr;
+  grid-template-columns: 1fr minmax(100px, 300px) minmax(250px, 600px) 1fr;
   align-items: start; /* Aligns grid items to the start of their rows; overrides the default 'stretch' behavior */
+  column-gap: 20px;
 }
 @media screen and (max-width: 55em) {
   body {
@@ -230,6 +232,11 @@ body[data-theme=dark] .preferences-bar button {
   align-items: center;
   background-color: #afafa9;
   padding: 2rem;
+  border-radius: 2px;
+  box-shadow: rgba(6, 24, 44, 0.3) 0px 0px 0px 2px, rgba(6, 24, 44, 0.35) 0px 4px 6px -1px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
+}
+body[data-theme=dark] .todo-list .todo-header {
+  box-shadow: rgba(255, 245, 244, 0.3) 0px 0px 0px 2px, rgba(255, 245, 244, 0.35) 0px 4px 6px -1px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
 }
 @media screen and (max-width: 30em) {
   .todo-list .todo-header {
@@ -241,8 +248,14 @@ body[data-theme=dark] .preferences-bar button {
   font-weight: 700;
   margin: 0 1em 0 0;
 }
+@media screen and (max-width: 40em) {
+  .todo-list .todo-header .list-title {
+    font-size: 1.3125rem;
+  }
+}
 .todo-list .todo-header .task-count {
   font-size: 0.925rem;
+  text-align: right;
 }
 .todo-list .todo-body {
   padding: 2rem;
@@ -276,19 +289,6 @@ body[data-theme=dark] .preferences-bar button {
   flex-direction: row;
   justify-content: flex-start;
   align-items: center;
-  position: relative;
-}
-.todo-list .todo-body .tasks .task label::after {
-  content: "";
-  position: absolute;
-  left: 1.5em;
-  right: -0.05em;
-  top: calc(50% - 0.9px);
-  height: 2px;
-  background: currentColor;
-  transform: scaleX(0);
-  transform-origin: right;
-  transition: transform 200ms ease-in-out;
 }
 .todo-list .todo-body .tasks .task [type=checkbox] {
   opacity: 0;
@@ -305,10 +305,8 @@ body[data-theme=dark] .preferences-bar button {
 }
 .todo-list .todo-body .tasks .task [type=checkbox]:checked + label {
   opacity: 0.5;
-}
-.todo-list .todo-body .tasks .task [type=checkbox]:checked + label::after {
-  transform: scaleX(1);
-  transform-origin: left;
+  text-decoration: line-through;
+  text-decoration-thickness: 2px;
 }
 .todo-list .todo-body .new-task-creator form {
   display: flex;
@@ -405,8 +403,8 @@ body[data-theme=dark] .preferences-bar button {
 .preferences-bar {
   grid-area: preferences-bar;
   background-color: #afafa9;
-  margin-top: 8vh;
-  height: 6vh;
+  margin-top: 12vh;
+  height: 10vh;
   display: flex;
   flex-direction: row;
   justify-content: space-between;

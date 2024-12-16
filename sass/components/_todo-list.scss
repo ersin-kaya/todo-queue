@@ -18,6 +18,16 @@
     );
     background-color: $todo-list-header-background-color;
     padding: $todo-list-spacer;
+    border-radius: 2px;
+    box-shadow: rgba(6, 24, 44, 0.3) 0px 0px 0px 2px,
+      rgba(6, 24, 44, 0.35) 0px 4px 6px -1px,
+      rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
+
+    body[data-theme="dark"] & {
+      box-shadow: rgba(255, 245, 244, 0.3) 0px 0px 0px 2px,
+        rgba(255, 245, 244, 0.35) 0px 4px 6px -1px,
+        rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
+    }
 
     @include mq(extra-small) {
       padding: $todo-list-spacer-extra-small-screens;
@@ -27,10 +37,15 @@
       font-size: $todo-list-title-font-size;
       font-weight: $todo-list-title-font-weight;
       margin: $todo-list-title-margin;
+
+      @include mq(small) {
+        font-size: $todo-list-title-font-size-small-screens;
+      }
     }
 
     .task-count {
       font-size: $todo-list-task-count-font-size;
+      text-align: right;
     }
   }
 
@@ -66,20 +81,21 @@
 
         label {
           @include layout($display: inline-flex, $align-items: center);
-          position: relative;
+          // The animation was canceled due to the possibility of multi-line input, and text-decoration is being used
+          // position: relative;
 
-          &::after {
-            content: "";
-            position: absolute;
-            left: 1.5em;
-            right: -0.05em;
-            top: calc(50% - 0.9px);
-            height: 2px;
-            background: currentColor;
-            transform: scaleX(0);
-            transform-origin: right;
-            transition: transform 200ms ease-in-out;
-          }
+          // &::after {
+          //   content: "";
+          //   position: absolute;
+          //   left: 1.5em;
+          //   right: -0.05em;
+          //   top: calc(50% - 0.9px);
+          //   height: 2px;
+          //   background: currentColor;
+          //   transform: scaleX(0);
+          //   transform-origin: right;
+          //   transition: transform 200ms ease-in-out;
+          // }
         }
 
         [type="checkbox"] {
@@ -98,10 +114,12 @@
 
           &:checked + label {
             opacity: 0.5;
+            text-decoration: line-through;
+            text-decoration-thickness: 2px;
 
             &::after {
-              transform: scaleX(1);
-              transform-origin: left;
+              // transform: scaleX(1);
+              // transform-origin: left;
             }
           }
         }
