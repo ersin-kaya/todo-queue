@@ -1,3 +1,9 @@
+// If translations.json cannot be loaded, the app defaults to English. Default value assignments have been added in some parts of the code to ensure this behavior
+
+import LOCAL_STORAGE_KEYS from "./constants/localStorageConstants.js";
+import THEME from "./constants/themeConstants.js";
+import LANGUAGE from "./constants/languageConstants.js";
+
 const listsContainer = document.querySelector("[data-lists]");
 const newListForm = document.querySelector("[data-new-list-form]");
 const newListInput = document.querySelector("[data-new-list-input]");
@@ -26,21 +32,16 @@ const taskListTitle = document.querySelector("[data-task-list-title]");
 let translations = {};
 let activeTranslations = {};
 
-const LOCAL_STORAGE_LIST_KEY = "task.lists";
-const LOCAL_STORAGE_SELECTED_LIST_ID_KEY = "task.selectedListId";
-const LOCAL_STORAGE_THEME_KEY = "app.theme";
-const LOCAL_STORAGE_LANGUAGE_KEY = "app.language";
-
-let lists = JSON.parse(localStorage.getItem(LOCAL_STORAGE_LIST_KEY)) || [];
-let selectedListId = getLocalStorageItem(LOCAL_STORAGE_SELECTED_LIST_ID_KEY);
+let lists = JSON.parse(getLocalStorageItem(LOCAL_STORAGE_KEYS.LISTS)) || [];
+let selectedListId = getLocalStorageItem(LOCAL_STORAGE_KEYS.SELECTED_LIST_ID);
 let appTheme =
-  getLocalStorageItem(LOCAL_STORAGE_THEME_KEY) ||
+  getLocalStorageItem(LOCAL_STORAGE_KEYS.THEME) ||
   themeElement.dataset.theme ||
-  "light";
+  THEME.LIGHT;
 let appLanguage =
-  getLocalStorageItem(LOCAL_STORAGE_LANGUAGE_KEY) ||
+  getLocalStorageItem(LOCAL_STORAGE_KEYS.LANGUAGE) ||
   navigator.language ||
-  "en-US";
+  LANGUAGE.EN;
 
 listsContainer.addEventListener("click", (e) => {
   if (e.target.tagName.toLowerCase() === "li") {
@@ -156,8 +157,8 @@ function saveAndRender() {
 }
 
 function save() {
-  localStorage.setItem(LOCAL_STORAGE_LIST_KEY, JSON.stringify(lists));
-  localStorage.setItem(LOCAL_STORAGE_SELECTED_LIST_ID_KEY, selectedListId);
+  setLocalStorageItem(LOCAL_STORAGE_KEYS.LISTS, lists);
+  setLocalStorageItem(LOCAL_STORAGE_KEYS.SELECTED_LIST_ID, selectedListId);
 }
 
 function render() {
@@ -168,18 +169,18 @@ function render() {
     listCountElement.style.display = "none";
     todoBody.style.display = "none";
     if (!lists.length) {
-      listTitleElement.innerText =
+      listTitleElement.textContent =
         activeTranslations?.messages?.welcome ||
         "Let's create a list to get started!";
     } else {
-      listTitleElement.innerText =
+      listTitleElement.textContent =
         activeTranslations?.messages?.selectOrCreateList ||
         "Please select or create a list to continue.";
     }
   } else {
     listCountElement.style.display = "";
     todoBody.style.display = "";
-    listTitleElement.innerText = selectedList.name;
+    listTitleElement.textContent = selectedList.name;
     renderTaskCount(selectedList);
     clearElement(tasksContainer);
     renderTasks(selectedList);
@@ -222,7 +223,7 @@ function renderTaskCount(selectedList) {
     incompleteTaskCount === 1
       ? activeTranslations?.taskCount?.taskSingular ?? "task"
       : activeTranslations?.taskCount?.taskPlural ?? "tasks";
-  listCountElement.innerText = `${incompleteTaskCount} ${taskString} ${
+  listCountElement.textContent = `${incompleteTaskCount} ${taskString} ${
     activeTranslations?.taskCount?.remaining ?? "remaining"
   }`;
 }
@@ -244,7 +245,7 @@ function renderLists() {
     const listElement = document.createElement("li");
     listElement.dataset.listId = list.id;
     listElement.classList.add("list-name");
-    listElement.innerText = list.name;
+    listElement.textContent = list.name;
     if (list.id === selectedListId) {
       listElement.classList.add("active-list");
     }
@@ -273,38 +274,58 @@ function getLocalStorageItem(key) {
   return value in map ? map[value] : value;
 }
 
+function setLocalStorageItem(key, value) {
+  if (!key) {
+    console.log("Key is required to set an item in localStorage");
+    return;
+  }
+
+  try {
+    localStorage.setItem(
+      key,
+      typeof value === "object" ? JSON.stringify(value) : value
+    );
+  } catch (error) {
+    console.log("Failed to set item in localStorage:", error);
+  }
+}
+
 function toggleTheme() {
   const newTheme =
-    getLocalStorageItem(LOCAL_STORAGE_THEME_KEY) === "light" ? "dark" : "light";
+    getLocalStorageItem(LOCAL_STORAGE_KEYS.THEME) === THEME.LIGHT
+      ? THEME.DARK
+      : THEME.LIGHT;
   applyTheme(newTheme);
 }
 
 function applyTheme(theme) {
-  const newTheme = theme || appTheme;
-  themeElement.dataset.theme = newTheme;
-  themeToggleButton.innerText =
-    newTheme === "light"
+  appTheme = theme || appTheme;
+  themeElement.dataset.theme = appTheme;
+  themeToggleButton.textContent =
+    appTheme === THEME.LIGHT
       ? activeTranslations?.buttons?.theme?.darkModeContent || "🌙"
       : activeTranslations?.buttons?.theme?.lightModeContent || "🔆";
-  localStorage.setItem(LOCAL_STORAGE_THEME_KEY, newTheme);
+  setLocalStorageItem(LOCAL_STORAGE_KEYS.THEME, appTheme);
 }
 
 function toggleLanguage() {
   const newLanguage =
-    getLocalStorageItem(LOCAL_STORAGE_LANGUAGE_KEY) === "tr" ? "en-US" : "tr";
+    getLocalStorageItem(LOCAL_STORAGE_KEYS.LANGUAGE) === LANGUAGE.TR
+      ? LANGUAGE.EN
+      : LANGUAGE.TR;
   applyLanguage(newLanguage);
+  render();
 }
 
 function applyLanguage(newLanguage) {
   appLanguage = newLanguage || appLanguage;
-  languageToggleButton.innerText =
-    appLanguage === "tr"
+  languageToggleButton.textContent =
+    appLanguage === LANGUAGE.TR
       ? activeTranslations?.buttons?.languageSupport?.enContent || "EN"
       : activeTranslations?.buttons?.languageSupport?.trContent || "TR";
-  localStorage.setItem(LOCAL_STORAGE_LANGUAGE_KEY, appLanguage);
+  setLocalStorageItem(LOCAL_STORAGE_KEYS.LANGUAGE, appLanguage);
   setActiveTranslations();
   updateTextsForSelectedLanguage();
-  render();
 }
 
 function updateTextsForSelectedLanguage() {
@@ -325,11 +346,11 @@ function updateTextsForSelectedLanguage() {
       activeTranslations.messages.deleteConfirmation.forTasks;
 
     themeToggleButton.textContent =
-      getLocalStorageItem(LOCAL_STORAGE_THEME_KEY) === "light"
+      appTheme === THEME.LIGHT
         ? activeTranslations.buttons.theme.darkModeContent
         : activeTranslations.buttons.theme.lightModeContent;
     languageToggleButton.textContent =
-      appLanguage === "tr"
+      appLanguage === LANGUAGE.TR
         ? activeTranslations.buttons.languageSupport.enContent
         : activeTranslations.buttons.languageSupport.trContent;
   }
@@ -358,7 +379,7 @@ async function fetchTranslations() {
     }
     return await response.json();
   } catch (error) {
-    applyLanguage("en-US");
+    applyLanguage(LANGUAGE.EN);
     console.error("Failed to fetch translations:", error.message);
     return null;
   }
@@ -372,8 +393,7 @@ function loadTranslations(translationsData) {
 
 function setActiveTranslations() {
   if (translations) {
-    const language = getLocalStorageItem(LOCAL_STORAGE_LANGUAGE_KEY);
-    activeTranslations = translations ? translations[language] : null;
+    activeTranslations = translations ? translations[appLanguage] : null;
     return true;
   }
   return false;
