@@ -2,6 +2,7 @@
 
 import LOCAL_STORAGE_KEYS from "./constants/localStorageConstants.js";
 import THEME from "./constants/themeConstants.js";
+import LANGUAGE from "./constants/languageConstants.js";
 
 const listsContainer = document.querySelector("[data-lists]");
 const newListForm = document.querySelector("[data-new-list-form]");
@@ -40,7 +41,7 @@ let appTheme =
 let appLanguage =
   getLocalStorageItem(LOCAL_STORAGE_KEYS.LANGUAGE) ||
   navigator.language ||
-  "en-US";
+  LANGUAGE.EN;
 
 listsContainer.addEventListener("click", (e) => {
   if (e.target.tagName.toLowerCase() === "li") {
@@ -309,7 +310,9 @@ function applyTheme(theme) {
 
 function toggleLanguage() {
   const newLanguage =
-    getLocalStorageItem(LOCAL_STORAGE_KEYS.LANGUAGE) === "tr" ? "en-US" : "tr";
+    getLocalStorageItem(LOCAL_STORAGE_KEYS.LANGUAGE) === LANGUAGE.TR
+      ? LANGUAGE.EN
+      : LANGUAGE.TR;
   applyLanguage(newLanguage);
   render();
 }
@@ -317,7 +320,7 @@ function toggleLanguage() {
 function applyLanguage(newLanguage) {
   appLanguage = newLanguage || appLanguage;
   languageToggleButton.innerText =
-    appLanguage === "tr"
+    appLanguage === LANGUAGE.TR
       ? activeTranslations?.buttons?.languageSupport?.enContent || "EN"
       : activeTranslations?.buttons?.languageSupport?.trContent || "TR";
   setLocalStorageItem(LOCAL_STORAGE_KEYS.LANGUAGE, appLanguage);
@@ -347,7 +350,7 @@ function updateTextsForSelectedLanguage() {
         ? activeTranslations.buttons.theme.darkModeContent
         : activeTranslations.buttons.theme.lightModeContent;
     languageToggleButton.textContent =
-      appLanguage === "tr"
+      appLanguage === LANGUAGE.TR
         ? activeTranslations.buttons.languageSupport.enContent
         : activeTranslations.buttons.languageSupport.trContent;
   }
@@ -376,7 +379,7 @@ async function fetchTranslations() {
     }
     return await response.json();
   } catch (error) {
-    applyLanguage("en-US");
+    applyLanguage(LANGUAGE.EN);
     console.error("Failed to fetch translations:", error.message);
     return null;
   }
