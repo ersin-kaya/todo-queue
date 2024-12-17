@@ -17,5 +17,6 @@
 
   @include mq(extra-small) {
     font-size: $title-font-size-extra-small-screens;
+    margin-top: 0;
   }
 }
