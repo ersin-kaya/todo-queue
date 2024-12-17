@@ -1,6 +1,7 @@
 // If translations.json cannot be loaded, the app defaults to English. Default value assignments have been added in some parts of the code to ensure this behavior
 
 import LOCAL_STORAGE_KEYS from "./constants/localStorageConstants.js";
+import THEME from "./constants/themeConstants.js";
 
 const listsContainer = document.querySelector("[data-lists]");
 const newListForm = document.querySelector("[data-new-list-form]");
@@ -35,7 +36,7 @@ let selectedListId = getLocalStorageItem(LOCAL_STORAGE_KEYS.SELECTED_LIST_ID);
 let appTheme =
   getLocalStorageItem(LOCAL_STORAGE_KEYS.THEME) ||
   themeElement.dataset.theme ||
-  "light";
+  THEME.LIGHT;
 let appLanguage =
   getLocalStorageItem(LOCAL_STORAGE_KEYS.LANGUAGE) ||
   navigator.language ||
@@ -290,9 +291,9 @@ function setLocalStorageItem(key, value) {
 
 function toggleTheme() {
   const newTheme =
-    getLocalStorageItem(LOCAL_STORAGE_KEYS.THEME) === "light"
-      ? "dark"
-      : "light";
+    getLocalStorageItem(LOCAL_STORAGE_KEYS.THEME) === THEME.LIGHT
+      ? THEME.DARK
+      : THEME.LIGHT;
   applyTheme(newTheme);
 }
 
@@ -300,7 +301,7 @@ function applyTheme(theme) {
   appTheme = theme || appTheme;
   themeElement.dataset.theme = appTheme;
   themeToggleButton.innerText =
-    appTheme === "light"
+    appTheme === THEME.LIGHT
       ? activeTranslations?.buttons?.theme?.darkModeContent || "🌙"
       : activeTranslations?.buttons?.theme?.lightModeContent || "🔆";
   setLocalStorageItem(LOCAL_STORAGE_KEYS.THEME, appTheme);
@@ -342,7 +343,7 @@ function updateTextsForSelectedLanguage() {
       activeTranslations.messages.deleteConfirmation.forTasks;
 
     themeToggleButton.textContent =
-      appTheme === "light"
+      appTheme === THEME.LIGHT
         ? activeTranslations.buttons.theme.darkModeContent
         : activeTranslations.buttons.theme.lightModeContent;
     languageToggleButton.textContent =
