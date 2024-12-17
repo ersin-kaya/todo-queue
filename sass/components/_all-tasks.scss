@@ -27,6 +27,12 @@
 
       &.active-list {
         font-weight: $all-tasks-active-font-weight;
+        text-shadow: $all-tasks-active-text-shadow;
+        list-style: disc;
+
+        body[data-theme="dark"] & {
+          text-shadow: $all-tasks-active-text-shadow-dark-theme;
+        }
       }
     }
   }

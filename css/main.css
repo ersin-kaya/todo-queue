@@ -169,6 +169,11 @@ body[data-theme=dark] .preferences-bar button {
 }
 .all-tasks .task-list .list-name.active-list {
   font-weight: 700;
+  text-shadow: slategray 0 0 2px;
+  list-style: disc;
+}
+body[data-theme=dark] .all-tasks .task-list .list-name.active-list {
+  text-shadow: indianred 1px 1px 3px;
 }
 .all-tasks .new-task-list-creator form {
   display: flex;

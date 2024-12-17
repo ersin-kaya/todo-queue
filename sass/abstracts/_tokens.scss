@@ -57,6 +57,11 @@ $all-tasks-active-font-weight: $font-weight-bold;
 $all-tasks-title-font-size: $font-size-700;
 $all-tasks-title-font-weight: $font-weight-bold;
 
+$all-tasks-active-text-shadow: slategray 0 0 2px;
+
+// All tasks component - Dark theme
+$all-tasks-active-text-shadow-dark-theme: indianred 1px 1px 3px;
+
 // To-do list component
 $todo-list-font-size: $font-size-400;
 $todo-list-background-color: $color-muted-gold;
