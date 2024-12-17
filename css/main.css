@@ -173,7 +173,7 @@ body[data-theme=dark] .preferences-bar button {
   list-style: disc;
 }
 body[data-theme=dark] .all-tasks .task-list .list-name.active-list {
-  text-shadow: indianred 1px 1px 3px;
+  text-shadow: rgba(245, 245, 245, 0.75) 0 0 2px;
 }
 .all-tasks .new-task-list-creator form {
   display: flex;
