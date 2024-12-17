@@ -169,18 +169,18 @@ function render() {
     listCountElement.style.display = "none";
     todoBody.style.display = "none";
     if (!lists.length) {
-      listTitleElement.innerText =
+      listTitleElement.textContent =
         activeTranslations?.messages?.welcome ||
         "Let's create a list to get started!";
     } else {
-      listTitleElement.innerText =
+      listTitleElement.textContent =
         activeTranslations?.messages?.selectOrCreateList ||
         "Please select or create a list to continue.";
     }
   } else {
     listCountElement.style.display = "";
     todoBody.style.display = "";
-    listTitleElement.innerText = selectedList.name;
+    listTitleElement.textContent = selectedList.name;
     renderTaskCount(selectedList);
     clearElement(tasksContainer);
     renderTasks(selectedList);
@@ -223,7 +223,7 @@ function renderTaskCount(selectedList) {
     incompleteTaskCount === 1
       ? activeTranslations?.taskCount?.taskSingular ?? "task"
       : activeTranslations?.taskCount?.taskPlural ?? "tasks";
-  listCountElement.innerText = `${incompleteTaskCount} ${taskString} ${
+  listCountElement.textContent = `${incompleteTaskCount} ${taskString} ${
     activeTranslations?.taskCount?.remaining ?? "remaining"
   }`;
 }
@@ -245,7 +245,7 @@ function renderLists() {
     const listElement = document.createElement("li");
     listElement.dataset.listId = list.id;
     listElement.classList.add("list-name");
-    listElement.innerText = list.name;
+    listElement.textContent = list.name;
     if (list.id === selectedListId) {
       listElement.classList.add("active-list");
     }
@@ -301,7 +301,7 @@ function toggleTheme() {
 function applyTheme(theme) {
   appTheme = theme || appTheme;
   themeElement.dataset.theme = appTheme;
-  themeToggleButton.innerText =
+  themeToggleButton.textContent =
     appTheme === THEME.LIGHT
       ? activeTranslations?.buttons?.theme?.darkModeContent || "🌙"
       : activeTranslations?.buttons?.theme?.lightModeContent || "🔆";
@@ -319,7 +319,7 @@ function toggleLanguage() {
 
 function applyLanguage(newLanguage) {
   appLanguage = newLanguage || appLanguage;
-  languageToggleButton.innerText =
+  languageToggleButton.textContent =
     appLanguage === LANGUAGE.TR
       ? activeTranslations?.buttons?.languageSupport?.enContent || "EN"
       : activeTranslations?.buttons?.languageSupport?.trContent || "TR";
