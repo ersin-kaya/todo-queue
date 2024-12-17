@@ -390,8 +390,7 @@ function loadTranslations(translationsData) {
 
 function setActiveTranslations() {
   if (translations) {
-    const language = getLocalStorageItem(LOCAL_STORAGE_LANGUAGE_KEY);
-    activeTranslations = translations ? translations[language] : null;
+    activeTranslations = translations ? translations[appLanguage] : null;
     return true;
   }
   return false;
