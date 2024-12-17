@@ -139,7 +139,8 @@ body[data-theme=dark] .preferences-bar button {
 }
 @media screen and (max-width: 30em) {
   .title {
-    font-size: calc(5vw + 1.25rem);
+    font-size: calc(3vw + 1.25rem);
+    margin-top: 0;
   }
 }
 
@@ -169,6 +170,11 @@ body[data-theme=dark] .preferences-bar button {
 }
 .all-tasks .task-list .list-name.active-list {
   font-weight: 700;
+  text-shadow: slategray 0 0 2px;
+  list-style: disc;
+}
+body[data-theme=dark] .all-tasks .task-list .list-name.active-list {
+  text-shadow: rgba(245, 245, 245, 0.75) 0 0 2px;
 }
 .all-tasks .new-task-list-creator form {
   display: flex;
@@ -236,7 +242,7 @@ body[data-theme=dark] .preferences-bar button {
   box-shadow: rgba(6, 24, 44, 0.3) 0px 0px 0px 2px, rgba(6, 24, 44, 0.35) 0px 4px 6px -1px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
 }
 body[data-theme=dark] .todo-list .todo-header {
-  box-shadow: rgba(255, 245, 244, 0.3) 0px 0px 0px 2px, rgba(255, 245, 244, 0.35) 0px 4px 6px -1px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
+  box-shadow: rgba(255, 245, 244, 0.3) 0px 0px 0px 2px, rgba(255, 245, 244, 0.35) 0px 4px 0px -1px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
 }
 @media screen and (max-width: 30em) {
   .todo-list .todo-header {

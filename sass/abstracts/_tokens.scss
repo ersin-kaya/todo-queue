@@ -48,7 +48,7 @@ $create-button-color: $color-primary;
 // Title component
 $title-font-size-large-screens: calc(7vw + ($heading-1-font-size / 3));
 $title-font-size-small-screens: calc(6vw + ($heading-1-font-size / 3));
-$title-font-size-extra-small-screens: calc(5vw + ($heading-1-font-size / 3));
+$title-font-size-extra-small-screens: calc(3vw + ($heading-1-font-size / 3));
 
 // All tasks component
 $all-tasks-font-size: $font-size-400;
@@ -56,6 +56,11 @@ $all-tasks-active-font-weight: $font-weight-bold;
 
 $all-tasks-title-font-size: $font-size-700;
 $all-tasks-title-font-weight: $font-weight-bold;
+
+$all-tasks-active-text-shadow: slategray 0 0 2px;
+
+// All tasks component - Dark theme
+$all-tasks-active-text-shadow-dark-theme: rgba(245, 245, 245, 0.75) 0 0 2px;
 
 // To-do list component
 $todo-list-font-size: $font-size-400;
