@@ -311,6 +311,7 @@ function toggleLanguage() {
   const newLanguage =
     getLocalStorageItem(LOCAL_STORAGE_LANGUAGE_KEY) === "tr" ? "en-US" : "tr";
   applyLanguage(newLanguage);
+  render();
 }
 
 function applyLanguage(newLanguage) {
@@ -322,7 +323,6 @@ function applyLanguage(newLanguage) {
   setLocalStorageItem(LOCAL_STORAGE_LANGUAGE_KEY, appLanguage);
   setActiveTranslations();
   updateTextsForSelectedLanguage();
-  render();
 }
 
 function updateTextsForSelectedLanguage() {
