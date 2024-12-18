@@ -28,6 +28,8 @@ const languageToggleButton = document.querySelector(
 );
 const pageTitle = document.querySelector("[data-page-title]");
 const taskListTitle = document.querySelector("[data-task-list-title]");
+const emptyStateLists = document.querySelector("[data-empty-state-lists]");
+const emptyStateTasks = document.querySelector("[data-empty-state-tasks]");
 
 let translations = {};
 let activeTranslations = {};
@@ -76,6 +78,7 @@ clearCompleteTasksButton.addEventListener("click", (e) => {
   if (!confirm(deleteConfirmationMessage(dynamicPartForTasks))) return;
   const selectedList = getSelectedListById(selectedListId);
   selectedList.tasks = selectedList.tasks.filter((task) => !task.complete);
+  if (!selectedList.tasks.length) emptyStateTasks.style.display = "";
   saveAndRender();
 });
 
@@ -165,6 +168,7 @@ function render() {
   clearElement(listsContainer);
   renderLists();
   const selectedList = getSelectedListById(selectedListId);
+  emptyStateLists.style.display = "none";
   if (selectedListId === null) {
     listCountElement.style.display = "none";
     todoBody.style.display = "none";
@@ -172,6 +176,7 @@ function render() {
       listTitleElement.textContent =
         activeTranslations?.messages?.welcome ||
         "Let's create a list to get started!";
+      emptyStateLists.style.display = "";
     } else {
       listTitleElement.textContent =
         activeTranslations?.messages?.selectOrCreateList ||
@@ -192,6 +197,7 @@ function render() {
 function renderTasks(selectedList) {
   const sortedTasks = sortTasks(selectedList.tasks);
   sortedTasks.forEach((task) => {
+    emptyStateTasks.style.display = "none";
     const taskElement = document.importNode(taskTemplate.content, true);
     const checkbox = taskElement.querySelector("input");
     checkbox.id = task.id;
