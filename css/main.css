@@ -171,7 +171,7 @@ body[data-theme=dark] .all-tasks .empty-state {
   margin: 25px auto 20px;
 }
 .all-tasks .empty-state.empty-state-lists .empty-state-lists-message {
-  color: steelblue;
+  color: rebeccapurple;
 }
 body[data-theme=dark] .all-tasks .empty-state.empty-state-lists .empty-state-lists-message {
   color: cornflowerblue;
@@ -312,7 +312,7 @@ body[data-theme=dark] .todo-list .todo-body .empty-state {
   }
 }
 .todo-list .todo-body .empty-state.empty-state-tasks .empty-state-tasks-message {
-  color: gray;
+  color: rebeccapurple;
 }
 body[data-theme=dark] .todo-list .todo-body .empty-state.empty-state-tasks .empty-state-tasks-message {
   color: cornflowerblue;
