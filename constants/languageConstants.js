@@ -1,6 +1,6 @@
 const LANGUAGE = {
   TR: "tr",
-  EN: "en-US",
+  EN: "en",
 };
 
 export default LANGUAGE;
