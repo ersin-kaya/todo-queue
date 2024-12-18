@@ -1,0 +1,17 @@
+{
+  "name": "webpack-setup",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "build": "webpack"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "terser-webpack-plugin": "^5.3.11",
+    "webpack": "^5.97.1",
+    "webpack-cli": "^5.1.4"
+  }
+}
