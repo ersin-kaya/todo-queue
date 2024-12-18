@@ -202,6 +202,7 @@ function render() {
 }
 
 function renderTasks(selectedList) {
+  emptyStateTasks.style.display = "";
   const sortedTasks = sortTasks(selectedList.tasks);
   sortedTasks.forEach((task) => {
     emptyStateTasks.style.display = "none";
