@@ -4,8 +4,6 @@
     "taskListTitle": "My lists",
     "listInputPlaceholder": "new list name",
     "taskInputPlaceholder": "new task name",
-    "emptyStateForList": "No lists yet",
-    "emptyStateForTask": "No tasks yet",
     "taskCount": {
       "taskSingular": "task",
       "taskPlural": "tasks",
@@ -26,6 +24,8 @@
     "messages": {
       "welcome": "Let's create a list to get started!",
       "selectOrCreateList": "Please select or create a list to continue.",
+      "emptyStateForList": "No lists yet",
+      "emptyStateForTask": "No tasks yet",
       "deleteConfirmation": {
         "baseMessage": "Are you sure you want to delete",
         "forTasks": "all completed tasks",
@@ -38,8 +38,6 @@
     "taskListTitle": "Listelerim",
     "listInputPlaceholder": "liste ismi giriniz",
     "taskInputPlaceholder": "yeni görev giriniz",
-    "emptyStateForList": "Henüz liste yok",
-    "emptyStateForTask": "Henüz görev yok",
     "taskCount": {
       "taskSingular": "görev",
       "taskPlural": "görev",
@@ -60,6 +58,8 @@
     "messages": {
       "welcome": "Hazır mısın? Yeni bir liste oluşturarak başlayabilirsin!",
       "selectOrCreateList": "Lütfen devam etmek için bir liste seçin veya yeni bir liste oluşturun.",
+      "emptyStateForList": "Henüz liste yok",
+      "emptyStateForTask": "Henüz görev yok",
       "deleteConfirmation": {
         "baseMessage": "silmek istediğinizden emin misiniz",
         "forTasks": "Tamamlanan tüm görevleri",
