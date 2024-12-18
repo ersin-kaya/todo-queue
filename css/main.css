@@ -157,11 +157,11 @@ body[data-theme=dark] .preferences-bar button {
   font-weight: 700;
 }
 .all-tasks .empty-state {
-  border-block: 2px solid gainsboro;
+  border-block: 2px dashed gainsboro;
   font-weight: 600;
   opacity: 0.75;
   display: inline-block;
-  width: 234px;
+  width: 210px;
 }
 body[data-theme=dark] .all-tasks .empty-state {
   border-block-color: rgba(220, 220, 220, 0.178);
@@ -293,11 +293,11 @@ body[data-theme=dark] .todo-list .todo-header {
   }
 }
 .todo-list .todo-body .empty-state {
-  border-block: 2px solid gainsboro;
+  border-block: 2px dashed gainsboro;
   font-weight: 600;
   opacity: 0.75;
   display: inline-block;
-  width: 234px;
+  width: 210px;
 }
 body[data-theme=dark] .todo-list .todo-body .empty-state {
   border-block-color: rgba(220, 220, 220, 0.178);
