@@ -30,6 +30,12 @@ const pageTitle = document.querySelector("[data-page-title]");
 const taskListTitle = document.querySelector("[data-task-list-title]");
 const emptyStateLists = document.querySelector("[data-empty-state-lists]");
 const emptyStateTasks = document.querySelector("[data-empty-state-tasks]");
+const emptyStateListsMessage = emptyStateLists.querySelector(
+  "[data-empty-state-lists-message]"
+);
+const emptyStateTasksMessage = emptyStateTasks.querySelector(
+  "[data-empty-state-tasks-message]"
+);
 
 let translations = {};
 let activeTranslations = {};
@@ -360,8 +366,10 @@ function updateTextsForSelectedLanguage() {
         ? activeTranslations.buttons.languageSupport.enContent
         : activeTranslations.buttons.languageSupport.trContent;
 
-    emptyStateLists.textContent = activeTranslations.emptyStateForList;
-    emptyStateTasks.textContent = activeTranslations.emptyStateForTask;
+    emptyStateListsMessage.textContent =
+      activeTranslations.messages.emptyStateForList;
+    emptyStateTasksMessage.textContent =
+      activeTranslations.messages.emptyStateForTask;
   }
 }
 
