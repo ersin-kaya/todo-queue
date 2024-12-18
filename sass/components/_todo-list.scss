@@ -62,10 +62,10 @@
 
       &.empty-state-tasks {
         padding: 5px;
-        margin: 5px auto 20px;
+        margin: 5px auto 15px;
 
         @include mq(small) {
-          margin-top: 20px;
+          margin: 10px auto;
         }
 
         .empty-state-tasks-message {

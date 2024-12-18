@@ -164,7 +164,7 @@ body[data-theme=dark] .preferences-bar button {
 .all-tasks .empty-state {
   border-block: 2px dashed gainsboro;
   font-weight: 600;
-  opacity: 0.75;
+  opacity: 0.65;
   display: inline-block;
   width: 210px;
 }
@@ -300,7 +300,7 @@ body[data-theme=dark] .todo-list .todo-header {
 .todo-list .todo-body .empty-state {
   border-block: 2px dashed gainsboro;
   font-weight: 600;
-  opacity: 0.75;
+  opacity: 0.65;
   display: inline-block;
   width: 210px;
 }
@@ -309,11 +309,11 @@ body[data-theme=dark] .todo-list .todo-body .empty-state {
 }
 .todo-list .todo-body .empty-state.empty-state-tasks {
   padding: 5px;
-  margin: 5px auto 20px;
+  margin: 5px auto 15px;
 }
 @media screen and (max-width: 40em) {
   .todo-list .todo-body .empty-state.empty-state-tasks {
-    margin-top: 20px;
+    margin: 10px auto;
   }
 }
 .todo-list .todo-body .empty-state.empty-state-tasks .empty-state-tasks-message {
