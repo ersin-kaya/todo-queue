@@ -48,7 +48,7 @@ let appTheme =
   THEME.LIGHT;
 let appLanguage =
   getLocalStorageItem(LOCAL_STORAGE_KEYS.LANGUAGE) ||
-  navigator.language ||
+  navigator.language.split("-")[0] ||
   LANGUAGE.EN;
 
 listsContainer.addEventListener("click", (e) => {
@@ -102,11 +102,12 @@ let dynamicPartForTasks = "all completed tasks";
 const confirmationMessages = {
   tr: (dynamicPart = "") =>
     `${dynamicPart ? ` ${dynamicPart}` : ""} ${baseConfirmationText}?`,
-  "en-US": (dynamicPart = "") =>
+  en: (dynamicPart = "") =>
     `${baseConfirmationText}${dynamicPart ? ` ${dynamicPart}` : ""}?`,
 };
 
 const deleteConfirmationMessage = (dynamicPart = "") => {
+  console.log(appLanguage);
   return confirmationMessages[appLanguage](dynamicPart);
 };
 
