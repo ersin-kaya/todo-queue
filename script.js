@@ -359,6 +359,9 @@ function updateTextsForSelectedLanguage() {
       appLanguage === LANGUAGE.TR
         ? activeTranslations.buttons.languageSupport.enContent
         : activeTranslations.buttons.languageSupport.trContent;
+
+    emptyStateLists.textContent = activeTranslations.emptyStateForList;
+    emptyStateTasks.textContent = activeTranslations.emptyStateForTask;
   }
 }
 
