@@ -156,6 +156,26 @@ body[data-theme=dark] .preferences-bar button {
   font-size: 1.75rem;
   font-weight: 700;
 }
+.all-tasks .empty-state {
+  border-block: 2px dashed gainsboro;
+  font-weight: 600;
+  opacity: 0.75;
+  display: inline-block;
+  width: 210px;
+}
+body[data-theme=dark] .all-tasks .empty-state {
+  border-block-color: rgba(220, 220, 220, 0.178);
+}
+.all-tasks .empty-state.empty-state-lists {
+  padding: 5px;
+  margin: 25px auto 20px;
+}
+.all-tasks .empty-state.empty-state-lists .empty-state-lists-message {
+  color: steelblue;
+}
+body[data-theme=dark] .all-tasks .empty-state.empty-state-lists .empty-state-lists-message {
+  color: cornflowerblue;
+}
 .all-tasks .task-list {
   font-size: 1rem;
   line-height: 2;
@@ -271,6 +291,31 @@ body[data-theme=dark] .todo-list .todo-header {
   .todo-list .todo-body {
     padding: 1rem;
   }
+}
+.todo-list .todo-body .empty-state {
+  border-block: 2px dashed gainsboro;
+  font-weight: 600;
+  opacity: 0.75;
+  display: inline-block;
+  width: 210px;
+}
+body[data-theme=dark] .todo-list .todo-body .empty-state {
+  border-block-color: rgba(220, 220, 220, 0.178);
+}
+.todo-list .todo-body .empty-state.empty-state-tasks {
+  padding: 5px;
+  margin: 5px auto 20px;
+}
+@media screen and (max-width: 40em) {
+  .todo-list .todo-body .empty-state.empty-state-tasks {
+    margin-top: 20px;
+  }
+}
+.todo-list .todo-body .empty-state.empty-state-tasks .empty-state-tasks-message {
+  color: gray;
+}
+body[data-theme=dark] .todo-list .todo-body .empty-state.empty-state-tasks .empty-state-tasks-message {
+  color: cornflowerblue;
 }
 .todo-list .todo-body .tasks .task {
   position: relative;

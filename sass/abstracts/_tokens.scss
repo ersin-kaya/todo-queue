@@ -105,3 +105,11 @@ $preferences-bar-button-background-color: $color-gray-800;
 $preferences-bar-background-color-dark-theme: $color-background-muted-dark-theme;
 $preferences-bar-button-color-dark-theme: $color-black;
 $preferences-bar-button-background-color-dark-theme: $color-gray-100;
+
+// Empty state elements
+$empty-state-border-block: 2px dashed gainsboro;
+$empty-state-font-weight: $font-weight-medium-bold;
+$empty-state-opacity: 0.75;
+
+// Empty state elements - Dark theme
+$empty-state-border-block-color-dark-theme: rgba(220, 220, 220, 0.178);

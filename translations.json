@@ -4,6 +4,8 @@
     "taskListTitle": "My lists",
     "listInputPlaceholder": "new list name",
     "taskInputPlaceholder": "new task name",
+    "emptyStateForList": "No lists yet",
+    "emptyStateForTask": "No tasks yet",
     "taskCount": {
       "taskSingular": "task",
       "taskPlural": "tasks",
@@ -36,6 +38,8 @@
     "taskListTitle": "Listelerim",
     "listInputPlaceholder": "liste ismi giriniz",
     "taskInputPlaceholder": "yeni görev giriniz",
+    "emptyStateForList": "Henüz liste yok",
+    "emptyStateForTask": "Henüz görev yok",
     "taskCount": {
       "taskSingular": "görev",
       "taskPlural": "görev",

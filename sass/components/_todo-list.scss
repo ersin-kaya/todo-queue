@@ -57,6 +57,27 @@
       padding: calc($todo-list-spacer / 2);
     }
 
+    .empty-state {
+      @include empty-state;
+
+      &.empty-state-tasks {
+        padding: 5px;
+        margin: 5px auto 20px;
+
+        @include mq(small) {
+          margin-top: 20px;
+        }
+
+        .empty-state-tasks-message {
+          color: gray;
+
+          body[data-theme="dark"] & {
+            color: cornflowerblue;
+          }
+        }
+      }
+    }
+
     .tasks {
       .task {
         position: relative;

@@ -12,6 +12,23 @@
     font-weight: $all-tasks-title-font-weight;
   }
 
+  .empty-state {
+    @include empty-state;
+
+    &.empty-state-lists {
+      padding: 5px;
+      margin: 25px auto 20px;
+
+      .empty-state-lists-message {
+        color: steelblue;
+
+        body[data-theme="dark"] & {
+          color: cornflowerblue;
+        }
+      }
+    }
+  }
+
   .task-list {
     font-size: $all-tasks-font-size;
     line-height: 2;
