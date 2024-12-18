@@ -156,6 +156,11 @@ body[data-theme=dark] .preferences-bar button {
   font-size: 1.75rem;
   font-weight: 700;
 }
+@media screen and (max-width: 30em) {
+  .all-tasks .task-list-title {
+    font-size: 1.3125rem;
+  }
+}
 .all-tasks .empty-state {
   border-block: 2px dashed gainsboro;
   font-weight: 600;

@@ -10,6 +10,10 @@
   .task-list-title {
     font-size: $all-tasks-title-font-size;
     font-weight: $all-tasks-title-font-weight;
+
+    @include mq(extra-small) {
+      font-size: $all-tasks-title-font-size-extra-small-screens;
+    }
   }
 
   .empty-state {
