@@ -158,7 +158,7 @@ body[data-theme=dark] .preferences-bar button {
 }
 @media screen and (max-width: 30em) {
   .all-tasks .task-list-title {
-    font-size: 1.3125rem;
+    font-size: 1.4125rem;
   }
 }
 .all-tasks .empty-state {
@@ -173,7 +173,7 @@ body[data-theme=dark] .all-tasks .empty-state {
 }
 .all-tasks .empty-state.empty-state-lists {
   padding: 5px;
-  margin: 25px auto 20px;
+  margin: 15px auto 10px;
 }
 .all-tasks .empty-state.empty-state-lists .empty-state-lists-message {
   color: rebeccapurple;
@@ -281,7 +281,7 @@ body[data-theme=dark] .todo-list .todo-header {
 }
 @media screen and (max-width: 40em) {
   .todo-list .todo-header .list-title {
-    font-size: 1.3125rem;
+    font-size: 1.4125rem;
   }
 }
 .todo-list .todo-header .task-count {
@@ -498,7 +498,7 @@ body[data-theme=dark] .todo-list .todo-body .empty-state.empty-state-tasks .empt
 }
 
 .fs-600 {
-  font-size: 1.3125rem;
+  font-size: 1.4125rem;
 }
 
 .fs-500 {
