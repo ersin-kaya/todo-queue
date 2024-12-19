@@ -22,7 +22,7 @@ body {
   font-family: "Nunito", sans-serif;
   font-weight: 400;
   font-size: 1.125rem;
-  color: #333333;
+  color: #444444;
   background-color: #fbfbf2;
   line-height: 1.5;
   min-height: 100dvh;
@@ -48,7 +48,7 @@ body {
 }
 
 body[data-theme=dark] {
-  color: #fdfdfd;
+  color: #f5f5f5;
   background-color: #141a21;
 }
 body[data-theme=dark] .title {
@@ -262,7 +262,7 @@ body[data-theme=dark] .all-tasks .task-list .list-name.active-list {
 .todo-list {
   grid-area: active;
   background: #fff8d9;
-  color: #333333;
+  color: #444444;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 @media screen and (max-width: 55em) {
