@@ -18,6 +18,7 @@
     font-size: $all-tasks-title-font-size;
     font-weight: $all-tasks-title-font-weight;
     box-shadow: $all-tasks-task-list-title-box-shadow;
+    margin-bottom: 10px;
 
     @include mq(extra-small) {
       font-size: $all-tasks-title-font-size-extra-small-screens;
@@ -33,7 +34,7 @@
 
     &.empty-state-lists {
       padding: 5px;
-      margin: 15px auto 10px;
+      margin: 30px auto 10px;
 
       .empty-state-lists-message {
         color: rebeccapurple;

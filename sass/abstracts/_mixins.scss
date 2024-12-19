@@ -103,13 +103,6 @@
 }
 
 @mixin empty-state {
-  border-block: $empty-state-border-block;
   font-weight: $empty-state-font-weight;
   opacity: $empty-state-opacity;
-  display: inline-block;
-  width: 210px;
-
-  body[data-theme="dark"] & {
-    border-block-color: $empty-state-border-block-color-dark-theme;
-  }
 }

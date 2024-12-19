@@ -3,25 +3,34 @@
 .title {
   grid-area: header;
 
+  background-color: $title-background-color;
   font-family: $heading-font-family;
   font-size: $title-font-size-large-screens;
   font-weight: $heading-font-weight;
   color: rgba($heading-color-default, 0.3);
   text-align: center;
   letter-spacing: 1px;
-  margin: -0.2em 0 0.5em;
+  margin: -0.15em 0 0.5em;
   box-shadow: $title-box-shadow;
+
+  @include mq(medium) {
+    font-size: $title-font-size-medium-screens;
+    margin-bottom: 0.75em;
+  }
 
   @include mq(small) {
     font-size: $title-font-size-small-screens;
+    margin-bottom: 1em;
   }
 
   @include mq(extra-small) {
     font-size: $title-font-size-extra-small-screens;
     margin-top: 0;
+    margin-bottom: 1.2em;
   }
 
   body[data-theme="dark"] & {
+    background-color: $title-background-color-dark-theme;
     box-shadow: $title-box-shadow-dark-theme;
   }
 }

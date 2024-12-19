@@ -124,28 +124,38 @@ body[data-theme=dark] .preferences-bar button {
 
 .title {
   grid-area: header;
+  background-color: #fff5e1;
   font-family: "Poppins", serif;
-  font-size: calc(7vw + 1.25rem);
+  font-size: calc(4vw + 1.875rem);
   font-weight: 700;
   color: rgba(85, 85, 85, 0.3);
   text-align: center;
   letter-spacing: 1px;
-  margin: -0.2em 0 0.5em;
-  box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 25px -5px, rgba(0, 0, 0, 0.04) 0px 10px 10px -5px;
+  margin: -0.15em 0 0.5em;
+  box-shadow: rgba(255, 183, 120, 0.3) 0px 5px, rgba(255, 183, 120, 0.2) 0px 10px, rgba(255, 183, 120, 0.15) 0px 15px, rgba(255, 183, 120, 0.1) 0px 20px, rgba(255, 183, 120, 0.05) 0px 25px;
+}
+@media screen and (max-width: 55em) {
+  .title {
+    font-size: calc(5vw + 1.25rem);
+    margin-bottom: 0.75em;
+  }
 }
 @media screen and (max-width: 40em) {
   .title {
-    font-size: calc(6vw + 1.25rem);
+    font-size: calc(5vw + 0.9375rem);
+    margin-bottom: 1em;
   }
 }
 @media screen and (max-width: 30em) {
   .title {
     font-size: calc(3vw + 1.25rem);
     margin-top: 0;
+    margin-bottom: 1.2em;
   }
 }
 body[data-theme=dark] .title {
-  box-shadow: rgba(255, 255, 255, 0.15) 0px 5px 10px -5px, rgba(255, 255, 255, 0.04) 0px 10px 10px -5px;
+  background-color: rgba(255, 162, 107, 0.85);
+  box-shadow: rgba(70, 130, 180, 0.4) 0px 5px, rgba(70, 130, 180, 0.3) 0px 10px, rgba(70, 130, 180, 0.2) 0px 15px, rgba(70, 130, 180, 0.1) 0px 20px, rgba(70, 130, 180, 0.05) 0px 25px;
 }
 
 .all-tasks {
@@ -165,7 +175,8 @@ body[data-theme=dark] .all-tasks {
 .all-tasks .task-list-title {
   font-size: 1.75rem;
   font-weight: 700;
-  box-shadow: rgba(17, 17, 26, 0.04) 0px 3px 1px 0px;
+  box-shadow: rgba(17, 17, 26, 0.08) 0px 3px 1px 0px;
+  margin-bottom: 10px;
 }
 @media screen and (max-width: 30em) {
   .all-tasks .task-list-title {
@@ -173,21 +184,15 @@ body[data-theme=dark] .all-tasks {
   }
 }
 body[data-theme=dark] .all-tasks .task-list-title {
-  box-shadow: rgba(255, 255, 255, 0.04) 0px 3px 1px 0px;
+  box-shadow: rgba(255, 255, 255, 0.13) 0px 3px 1px 0px;
 }
 .all-tasks .empty-state {
-  border-block: 2px dashed gainsboro;
-  font-weight: 600;
-  opacity: 0.65;
-  display: inline-block;
-  width: 210px;
-}
-body[data-theme=dark] .all-tasks .empty-state {
-  border-block-color: rgba(220, 220, 220, 0.178);
+  font-weight: 900;
+  opacity: 0.55;
 }
 .all-tasks .empty-state.empty-state-lists {
   padding: 5px;
-  margin: 15px auto 10px;
+  margin: 30px auto 10px;
 }
 .all-tasks .empty-state.empty-state-lists .empty-state-lists-message {
   color: rebeccapurple;
@@ -312,14 +317,8 @@ body[data-theme=dark] .todo-list .todo-header {
   }
 }
 .todo-list .todo-body .empty-state {
-  border-block: 2px dashed gainsboro;
-  font-weight: 600;
-  opacity: 0.65;
-  display: inline-block;
-  width: 210px;
-}
-body[data-theme=dark] .todo-list .todo-body .empty-state {
-  border-block-color: rgba(220, 220, 220, 0.178);
+  font-weight: 900;
+  opacity: 0.55;
 }
 .todo-list .todo-body .empty-state.empty-state-tasks {
   padding: 5px;
