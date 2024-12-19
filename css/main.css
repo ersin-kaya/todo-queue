@@ -73,12 +73,12 @@ body[data-theme=dark] .all-tasks .new-task-list-creator form input[type=text].ne
   opacity: 0.4;
 }
 body[data-theme=dark] .todo-list {
-  background: #343a40;
+  background: #181a1b;
   color: #e9ecef;
-  box-shadow: rgba(255, 255, 255, 0.07) 0px 3px 8px;
+  box-shadow: rgba(255, 255, 255, 0.07) 0px 2px 2px;
 }
 body[data-theme=dark] .todo-list .todo-header {
-  background-color: #212529;
+  background-color: #1e2a35;
 }
 body[data-theme=dark] .todo-list .todo-body .tasks .task [type=checkbox]:checked + label {
   opacity: 0.8;
@@ -115,7 +115,8 @@ body[data-theme=dark] .todo-list .todo-body .delete-stuff .btn.delete:hover {
   color: #e74c3c;
 }
 body[data-theme=dark] .preferences-bar {
-  background-color: #0f1217;
+  background-color: #1e2a35;
+  box-shadow: rgba(255, 255, 255, 0.4) 0px 0px 0px 2px, rgba(255, 255, 255, 0.65) 0px 4px 6px -1px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
 }
 body[data-theme=dark] .preferences-bar button {
   color: #000000;
@@ -124,11 +125,11 @@ body[data-theme=dark] .preferences-bar button {
 
 .title {
   grid-area: header;
-  background-color: #fff5e1;
+  background-color: #468faf;
   font-family: "Poppins", serif;
   font-size: calc(4vw + 1.875rem);
   font-weight: 700;
-  color: rgba(85, 85, 85, 0.3);
+  color: #fff8d9;
   text-align: center;
   letter-spacing: 1px;
   margin: -0.15em 0 0.5em;
@@ -154,7 +155,7 @@ body[data-theme=dark] .preferences-bar button {
   }
 }
 body[data-theme=dark] .title {
-  background-color: rgba(255, 162, 107, 0.85);
+  background-color: rgba(255, 162, 107, 0.8);
   box-shadow: rgba(70, 130, 180, 0.4) 0px 5px, rgba(70, 130, 180, 0.3) 0px 10px, rgba(70, 130, 180, 0.2) 0px 15px, rgba(70, 130, 180, 0.1) 0px 20px, rgba(70, 130, 180, 0.05) 0px 25px;
 }
 
@@ -268,7 +269,7 @@ body[data-theme=dark] .all-tasks .task-list .list-name.active-list {
   grid-area: active;
   background: #fff8d9;
   color: #444444;
-  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  box-shadow: rgba(0, 0, 0, 0.14) 0px 2px 2px;
 }
 @media screen and (max-width: 55em) {
   .todo-list {
@@ -280,12 +281,13 @@ body[data-theme=dark] .all-tasks .task-list .list-name.active-list {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  background-color: #afafa9;
+  background-color: #f2f2f2;
   padding: 2rem;
   border-radius: 2px;
   box-shadow: rgba(6, 24, 44, 0.3) 0px 0px 0px 2px, rgba(6, 24, 44, 0.35) 0px 4px 6px -1px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
 }
 body[data-theme=dark] .todo-list .todo-header {
+  background-color: #1e2a35;
   box-shadow: rgba(255, 245, 244, 0.3) 0px 0px 0px 2px, rgba(255, 245, 244, 0.35) 0px 4px 0px -1px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
 }
 @media screen and (max-width: 30em) {
@@ -471,9 +473,10 @@ body[data-theme=dark] .todo-list .todo-body .empty-state.empty-state-tasks .empt
 
 .preferences-bar {
   grid-area: preferences-bar;
-  background-color: #afafa9;
+  background-color: #f2f2f2;
   margin-top: 12vh;
   height: 10vh;
+  box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px, rgba(6, 24, 44, 0.65) 0px 4px 6px -1px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
