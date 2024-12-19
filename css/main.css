@@ -150,7 +150,7 @@ body[data-theme=dark] .preferences-bar button {
   color: #fff8d9;
   text-align: center;
   letter-spacing: 1px;
-  margin: -0.15em 0 0.5em;
+  margin: -0.15em 0 1em;
   box-shadow: rgba(255, 183, 120, 0.3) 0px 5px, rgba(255, 183, 120, 0.2) 0px 10px, rgba(255, 183, 120, 0.15) 0px 15px, rgba(255, 183, 120, 0.1) 0px 20px, rgba(255, 183, 120, 0.05) 0px 25px;
 }
 @media screen and (max-width: 55em) {
