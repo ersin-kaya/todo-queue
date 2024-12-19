@@ -53,6 +53,20 @@ body[data-theme=dark] {
 }
 body[data-theme=dark] .title {
   color: #dee2e6;
+  background-color: rgba(255, 162, 107, 0.8);
+  box-shadow: rgba(70, 130, 180, 0.4) 0px 5px, rgba(70, 130, 180, 0.3) 0px 10px, rgba(70, 130, 180, 0.2) 0px 15px, rgba(70, 130, 180, 0.1) 0px 20px, rgba(70, 130, 180, 0.05) 0px 25px;
+}
+body[data-theme=dark] .all-tasks {
+  box-shadow: rgba(235, 235, 235, 0.02) 0px 1px 3px 0px, rgba(255, 255, 255, 0.15) 0px 0px 0px 2px;
+}
+body[data-theme=dark] .all-tasks .task-list-title {
+  box-shadow: rgba(255, 255, 255, 0.13) 0px 3px 1px 0px;
+}
+body[data-theme=dark] .all-tasks .empty-state.empty-state-lists .empty-state-lists-message {
+  color: cornflowerblue;
+}
+body[data-theme=dark] .all-tasks .task-list .list-name.active-list {
+  text-shadow: rgba(245, 245, 245, 0.75) 0 0 2px;
 }
 body[data-theme=dark] .all-tasks .new-task-list-creator form input[type=text].new {
   background: transparent;
@@ -79,6 +93,10 @@ body[data-theme=dark] .todo-list {
 }
 body[data-theme=dark] .todo-list .todo-header {
   background-color: #1e2a35;
+  box-shadow: rgba(255, 245, 244, 0.3) 0px 0px 0px 2px, rgba(255, 245, 244, 0.35) 0px 4px 0px -1px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
+}
+body[data-theme=dark] .todo-list .todo-body .empty-state.empty-state-tasks .empty-state-tasks-message {
+  color: cornflowerblue;
 }
 body[data-theme=dark] .todo-list .todo-body .tasks .task [type=checkbox]:checked + label {
   opacity: 0.8;
@@ -154,10 +172,6 @@ body[data-theme=dark] .preferences-bar button {
     margin-bottom: 1.2em;
   }
 }
-body[data-theme=dark] .title {
-  background-color: rgba(255, 162, 107, 0.8);
-  box-shadow: rgba(70, 130, 180, 0.4) 0px 5px, rgba(70, 130, 180, 0.3) 0px 10px, rgba(70, 130, 180, 0.2) 0px 15px, rgba(70, 130, 180, 0.1) 0px 20px, rgba(70, 130, 180, 0.05) 0px 25px;
-}
 
 .all-tasks {
   grid-area: lists;
@@ -170,9 +184,6 @@ body[data-theme=dark] .title {
     margin: 10px 10px 20px;
   }
 }
-body[data-theme=dark] .all-tasks {
-  box-shadow: rgba(235, 235, 235, 0.02) 0px 1px 3px 0px, rgba(255, 255, 255, 0.15) 0px 0px 0px 2px;
-}
 .all-tasks .task-list-title {
   font-size: 1.75rem;
   font-weight: 700;
@@ -184,9 +195,6 @@ body[data-theme=dark] .all-tasks {
     font-size: 1.4125rem;
   }
 }
-body[data-theme=dark] .all-tasks .task-list-title {
-  box-shadow: rgba(255, 255, 255, 0.13) 0px 3px 1px 0px;
-}
 .all-tasks .empty-state {
   font-weight: 900;
   opacity: 0.55;
@@ -197,9 +205,6 @@ body[data-theme=dark] .all-tasks .task-list-title {
 }
 .all-tasks .empty-state.empty-state-lists .empty-state-lists-message {
   color: rebeccapurple;
-}
-body[data-theme=dark] .all-tasks .empty-state.empty-state-lists .empty-state-lists-message {
-  color: cornflowerblue;
 }
 .all-tasks .task-list {
   font-size: 1rem;
@@ -217,9 +222,6 @@ body[data-theme=dark] .all-tasks .empty-state.empty-state-lists .empty-state-lis
   font-weight: 700;
   text-shadow: slategray 0 0 2px;
   list-style: disc;
-}
-body[data-theme=dark] .all-tasks .task-list .list-name.active-list {
-  text-shadow: rgba(245, 245, 245, 0.75) 0 0 2px;
 }
 .all-tasks .new-task-list-creator form {
   display: flex;
@@ -286,10 +288,6 @@ body[data-theme=dark] .all-tasks .task-list .list-name.active-list {
   border-radius: 2px;
   box-shadow: rgba(6, 24, 44, 0.3) 0px 0px 0px 2px, rgba(6, 24, 44, 0.35) 0px 4px 6px -1px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
 }
-body[data-theme=dark] .todo-list .todo-header {
-  background-color: #1e2a35;
-  box-shadow: rgba(255, 245, 244, 0.3) 0px 0px 0px 2px, rgba(255, 245, 244, 0.35) 0px 4px 0px -1px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
-}
 @media screen and (max-width: 30em) {
   .todo-list .todo-header {
     padding: 1rem;
@@ -333,9 +331,6 @@ body[data-theme=dark] .todo-list .todo-header {
 }
 .todo-list .todo-body .empty-state.empty-state-tasks .empty-state-tasks-message {
   color: rebeccapurple;
-}
-body[data-theme=dark] .todo-list .todo-body .empty-state.empty-state-tasks .empty-state-tasks-message {
-  color: cornflowerblue;
 }
 .todo-list .todo-body .tasks .task {
   position: relative;

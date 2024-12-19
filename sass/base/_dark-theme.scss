@@ -7,10 +7,34 @@ body[data-theme="dark"] {
   // Title component
   .title {
     color: $heading-color-default-dark-theme;
+    background-color: $title-background-color-dark-theme;
+    box-shadow: $title-box-shadow-dark-theme;
   }
 
   // All tasks component
   .all-tasks {
+    box-shadow: $all-tasks-box-shadow-dark-theme;
+
+    .task-list-title {
+      box-shadow: $all-tasks-task-list-title-box-shadow-dark-theme;
+    }
+
+    .empty-state {
+      &.empty-state-lists {
+        .empty-state-lists-message {
+          color: cornflowerblue;
+        }
+      }
+    }
+
+    .task-list {
+      .list-name {
+        &.active-list {
+          text-shadow: $all-tasks-active-text-shadow-dark-theme;
+        }
+      }
+    }
+
     .new-task-list-creator form {
       input[type="text"].new {
         @include add-item-input($opacity: 0.8, $order: 1);
@@ -26,9 +50,20 @@ body[data-theme="dark"] {
 
     .todo-header {
       background-color: $todo-list-header-background-color-dark-theme;
+      box-shadow: rgba(255, 245, 244, 0.3) 0px 0px 0px 2px,
+        rgba(255, 245, 244, 0.35) 0px 4px 0px -1px,
+        rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
     }
 
     .todo-body {
+      .empty-state {
+        &.empty-state-tasks {
+          .empty-state-tasks-message {
+            color: cornflowerblue;
+          }
+        }
+      }
+
       .tasks {
         .task {
           [type="checkbox"] {

@@ -10,10 +10,6 @@
     margin: 10px 10px 20px;
   }
 
-  body[data-theme="dark"] & {
-    box-shadow: $all-tasks-box-shadow-dark-theme;
-  }
-
   .task-list-title {
     font-size: $all-tasks-title-font-size;
     font-weight: $all-tasks-title-font-weight;
@@ -22,10 +18,6 @@
 
     @include mq(extra-small) {
       font-size: $all-tasks-title-font-size-extra-small-screens;
-    }
-
-    body[data-theme="dark"] & {
-      box-shadow: $all-tasks-task-list-title-box-shadow-dark-theme;
     }
   }
 
@@ -38,10 +30,6 @@
 
       .empty-state-lists-message {
         color: rebeccapurple;
-
-        body[data-theme="dark"] & {
-          color: cornflowerblue;
-        }
       }
     }
   }
@@ -63,10 +51,6 @@
         font-weight: $all-tasks-active-font-weight;
         text-shadow: $all-tasks-active-text-shadow;
         list-style: disc;
-
-        body[data-theme="dark"] & {
-          text-shadow: $all-tasks-active-text-shadow-dark-theme;
-        }
       }
     }
   }
