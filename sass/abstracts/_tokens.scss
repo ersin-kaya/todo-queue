@@ -50,6 +50,20 @@ $title-font-size-large-screens: calc(7vw + ($heading-1-font-size / 3));
 $title-font-size-small-screens: calc(6vw + ($heading-1-font-size / 3));
 $title-font-size-extra-small-screens: calc(3vw + ($heading-1-font-size / 3));
 
+$title-box-shadow-top-color: rgba(0, 0, 0, 0.15);
+$title-box-shadow-bottom-color: rgba(0, 0, 0, 0.04);
+
+$title-box-shadow: $title-box-shadow-top-color 0px 5px 25px -5px,
+  $title-box-shadow-bottom-color 0px 10px 10px -5px;
+
+// Title component - Dark theme
+$title-box-shadow-top-color-dark-theme: rgba(255, 255, 255, 0.15);
+$title-box-shadow-bottom-color-dark-theme: rgba(255, 255, 255, 0.04);
+
+$title-box-shadow-dark-theme: $title-box-shadow-top-color-dark-theme 0px 5px
+    10px -5px,
+  $title-box-shadow-bottom-color-dark-theme 0px 10px 10px -5px;
+
 // All tasks component
 $all-tasks-font-size: $font-size-400;
 $all-tasks-active-font-weight: $font-weight-bold;

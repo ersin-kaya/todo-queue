@@ -10,6 +10,7 @@
   text-align: center;
   letter-spacing: 1px;
   margin: -0.2em 0 0.5em;
+  box-shadow: $title-box-shadow;
 
   @include mq(small) {
     font-size: $title-font-size-small-screens;
@@ -18,5 +19,9 @@
   @include mq(extra-small) {
     font-size: $title-font-size-extra-small-screens;
     margin-top: 0;
+  }
+
+  body[data-theme="dark"] & {
+    box-shadow: $title-box-shadow-dark-theme;
   }
 }
