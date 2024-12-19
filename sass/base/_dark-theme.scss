@@ -50,9 +50,20 @@ body[data-theme="dark"] {
 
     .todo-header {
       background-color: $todo-list-header-background-color-dark-theme;
+      box-shadow: rgba(255, 245, 244, 0.3) 0px 0px 0px 2px,
+        rgba(255, 245, 244, 0.35) 0px 4px 0px -1px,
+        rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
     }
 
     .todo-body {
+      .empty-state {
+        &.empty-state-tasks {
+          .empty-state-tasks-message {
+            color: cornflowerblue;
+          }
+        }
+      }
+
       .tasks {
         .task {
           [type="checkbox"] {
