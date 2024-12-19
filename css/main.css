@@ -159,11 +159,15 @@ body[data-theme=dark] .title {
 .all-tasks .task-list-title {
   font-size: 1.75rem;
   font-weight: 700;
+  box-shadow: rgba(17, 17, 26, 0.04) 0px 3px 1px 0px;
 }
 @media screen and (max-width: 30em) {
   .all-tasks .task-list-title {
     font-size: 1.4125rem;
   }
+}
+body[data-theme=dark] .all-tasks .task-list-title {
+  box-shadow: rgba(255, 255, 255, 0.04) 0px 3px 1px 0px;
 }
 .all-tasks .empty-state {
   border-block: 2px dashed gainsboro;

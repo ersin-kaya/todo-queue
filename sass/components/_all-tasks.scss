@@ -10,9 +10,14 @@
   .task-list-title {
     font-size: $all-tasks-title-font-size;
     font-weight: $all-tasks-title-font-weight;
+    box-shadow: $all-tasks-task-list-title-box-shadow;
 
     @include mq(extra-small) {
       font-size: $all-tasks-title-font-size-extra-small-screens;
+    }
+
+    body[data-theme="dark"] & {
+      box-shadow: $all-tasks-task-list-title-box-shadow-dark-theme;
     }
   }
 

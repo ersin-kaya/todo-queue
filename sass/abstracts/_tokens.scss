@@ -65,6 +65,8 @@ $title-box-shadow-dark-theme: $title-box-shadow-top-color-dark-theme 0px 5px
   $title-box-shadow-bottom-color-dark-theme 0px 10px 10px -5px;
 
 // All tasks component
+$all-tasks-task-list-title-box-shadow: rgba(17, 17, 26, 0.04) 0px 3px 1px 0px;
+
 $all-tasks-font-size: $font-size-400;
 $all-tasks-active-font-weight: $font-weight-bold;
 
@@ -76,6 +78,8 @@ $all-tasks-title-font-size-extra-small-screens: $font-size-600;
 $all-tasks-active-text-shadow: slategray 0 0 2px;
 
 // All tasks component - Dark theme
+$all-tasks-task-list-title-box-shadow-dark-theme: rgba(255, 255, 255, 0.04) 0px
+  3px 1px 0px;
 $all-tasks-active-text-shadow-dark-theme: rgba(245, 245, 245, 0.75) 0 0 2px;
 
 // To-do list component
