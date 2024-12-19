@@ -100,9 +100,9 @@ let dynamicPartForList = "this list";
 let dynamicPartForTasks = "all completed tasks";
 
 const confirmationMessages = {
-  tr: (dynamicPart = "") =>
+  [LANGUAGE.TR]: (dynamicPart = "") =>
     `${dynamicPart ? ` ${dynamicPart}` : ""} ${baseConfirmationText}?`,
-  en: (dynamicPart = "") =>
+  [LANGUAGE.EN]: (dynamicPart = "") =>
     `${baseConfirmationText}${dynamicPart ? ` ${dynamicPart}` : ""}?`,
 };
 
