@@ -53,6 +53,8 @@ body[data-theme=dark] {
 }
 body[data-theme=dark] .title {
   color: #dee2e6;
+  background-color: rgba(255, 162, 107, 0.8);
+  box-shadow: rgba(70, 130, 180, 0.4) 0px 5px, rgba(70, 130, 180, 0.3) 0px 10px, rgba(70, 130, 180, 0.2) 0px 15px, rgba(70, 130, 180, 0.1) 0px 20px, rgba(70, 130, 180, 0.05) 0px 25px;
 }
 body[data-theme=dark] .all-tasks {
   box-shadow: rgba(235, 235, 235, 0.02) 0px 1px 3px 0px, rgba(255, 255, 255, 0.15) 0px 0px 0px 2px;
@@ -165,10 +167,6 @@ body[data-theme=dark] .preferences-bar button {
     margin-top: 0;
     margin-bottom: 1.2em;
   }
-}
-body[data-theme=dark] .title {
-  background-color: rgba(255, 162, 107, 0.8);
-  box-shadow: rgba(70, 130, 180, 0.4) 0px 5px, rgba(70, 130, 180, 0.3) 0px 10px, rgba(70, 130, 180, 0.2) 0px 15px, rgba(70, 130, 180, 0.1) 0px 20px, rgba(70, 130, 180, 0.05) 0px 25px;
 }
 
 .all-tasks {

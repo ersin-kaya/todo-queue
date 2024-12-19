@@ -28,9 +28,4 @@
     margin-top: 0;
     margin-bottom: 1.2em;
   }
-
-  body[data-theme="dark"] & {
-    background-color: $title-background-color-dark-theme;
-    box-shadow: $title-box-shadow-dark-theme;
-  }
 }
