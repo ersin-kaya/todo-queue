@@ -22,7 +22,7 @@ body {
   font-family: "Nunito", sans-serif;
   font-weight: 400;
   font-size: 1.125rem;
-  color: #333333;
+  color: #444444;
   background-color: #fbfbf2;
   line-height: 1.5;
   min-height: 100dvh;
@@ -48,7 +48,7 @@ body {
 }
 
 body[data-theme=dark] {
-  color: #fdfdfd;
+  color: #f5f5f5;
   background-color: #141a21;
 }
 body[data-theme=dark] .title {
@@ -124,56 +124,75 @@ body[data-theme=dark] .preferences-bar button {
 
 .title {
   grid-area: header;
+  background-color: #fff5e1;
   font-family: "Poppins", serif;
-  font-size: calc(7vw + 1.25rem);
+  font-size: calc(4vw + 1.875rem);
   font-weight: 700;
   color: rgba(85, 85, 85, 0.3);
   text-align: center;
   letter-spacing: 1px;
-  margin: -0.2em 0 0.5em;
+  margin: -0.15em 0 0.5em;
+  box-shadow: rgba(255, 183, 120, 0.3) 0px 5px, rgba(255, 183, 120, 0.2) 0px 10px, rgba(255, 183, 120, 0.15) 0px 15px, rgba(255, 183, 120, 0.1) 0px 20px, rgba(255, 183, 120, 0.05) 0px 25px;
+}
+@media screen and (max-width: 55em) {
+  .title {
+    font-size: calc(5vw + 1.25rem);
+    margin-bottom: 0.75em;
+  }
 }
 @media screen and (max-width: 40em) {
   .title {
-    font-size: calc(6vw + 1.25rem);
+    font-size: calc(5vw + 0.9375rem);
+    margin-bottom: 1em;
   }
 }
 @media screen and (max-width: 30em) {
   .title {
     font-size: calc(3vw + 1.25rem);
     margin-top: 0;
+    margin-bottom: 1.2em;
   }
+}
+body[data-theme=dark] .title {
+  background-color: rgba(255, 162, 107, 0.85);
+  box-shadow: rgba(70, 130, 180, 0.4) 0px 5px, rgba(70, 130, 180, 0.3) 0px 10px, rgba(70, 130, 180, 0.2) 0px 15px, rgba(70, 130, 180, 0.1) 0px 20px, rgba(70, 130, 180, 0.05) 0px 25px;
 }
 
 .all-tasks {
   grid-area: lists;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 2px;
 }
 @media screen and (max-width: 55em) {
   .all-tasks {
-    margin: 0 15px 20px;
+    margin: 10px 10px 20px;
   }
+}
+body[data-theme=dark] .all-tasks {
+  box-shadow: rgba(235, 235, 235, 0.02) 0px 1px 3px 0px, rgba(255, 255, 255, 0.15) 0px 0px 0px 2px;
 }
 .all-tasks .task-list-title {
   font-size: 1.75rem;
   font-weight: 700;
+  box-shadow: rgba(17, 17, 26, 0.08) 0px 3px 1px 0px;
+  margin-bottom: 10px;
 }
 @media screen and (max-width: 30em) {
   .all-tasks .task-list-title {
     font-size: 1.4125rem;
   }
 }
-.all-tasks .empty-state {
-  border-block: 2px dashed gainsboro;
-  font-weight: 600;
-  opacity: 0.65;
-  display: inline-block;
-  width: 210px;
+body[data-theme=dark] .all-tasks .task-list-title {
+  box-shadow: rgba(255, 255, 255, 0.13) 0px 3px 1px 0px;
 }
-body[data-theme=dark] .all-tasks .empty-state {
-  border-block-color: rgba(220, 220, 220, 0.178);
+.all-tasks .empty-state {
+  font-weight: 900;
+  opacity: 0.55;
 }
 .all-tasks .empty-state.empty-state-lists {
   padding: 5px;
-  margin: 15px auto 10px;
+  margin: 30px auto 10px;
 }
 .all-tasks .empty-state.empty-state-lists .empty-state-lists-message {
   color: rebeccapurple;
@@ -248,7 +267,7 @@ body[data-theme=dark] .all-tasks .task-list .list-name.active-list {
 .todo-list {
   grid-area: active;
   background: #fff8d9;
-  color: #333333;
+  color: #444444;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 @media screen and (max-width: 55em) {
@@ -298,14 +317,8 @@ body[data-theme=dark] .todo-list .todo-header {
   }
 }
 .todo-list .todo-body .empty-state {
-  border-block: 2px dashed gainsboro;
-  font-weight: 600;
-  opacity: 0.65;
-  display: inline-block;
-  width: 210px;
-}
-body[data-theme=dark] .todo-list .todo-body .empty-state {
-  border-block-color: rgba(220, 220, 220, 0.178);
+  font-weight: 900;
+  opacity: 0.55;
 }
 .todo-list .todo-body .empty-state.empty-state-tasks {
   padding: 5px;

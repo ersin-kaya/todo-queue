@@ -46,11 +46,27 @@ $create-button-font-weight: $font-weight-black;
 $create-button-color: $color-primary;
 
 // Title component
-$title-font-size-large-screens: calc(7vw + ($heading-1-font-size / 3));
-$title-font-size-small-screens: calc(6vw + ($heading-1-font-size / 3));
+$title-background-color: #fff5e1;
+$title-font-size-large-screens: calc(4vw + ($heading-1-font-size / 2));
+$title-font-size-medium-screens: calc(5vw + ($heading-1-font-size / 3));
+$title-font-size-small-screens: calc(5vw + ($heading-1-font-size / 4));
 $title-font-size-extra-small-screens: calc(3vw + ($heading-1-font-size / 3));
+$title-box-shadow: rgba(255, 183, 120, 0.3) 0px 5px,
+  rgba(255, 183, 120, 0.2) 0px 10px, rgba(255, 183, 120, 0.15) 0px 15px,
+  rgba(255, 183, 120, 0.1) 0px 20px, rgba(255, 183, 120, 0.05) 0px 25px;
+
+// Title component - Dark theme
+$title-background-color-dark-theme: rgba(255, 162, 107, 0.85);
+$title-box-shadow-dark-theme: rgba(70, 130, 180, 0.4) 0px 5px,
+  rgba(70, 130, 180, 0.3) 0px 10px, rgba(70, 130, 180, 0.2) 0px 15px,
+  rgba(70, 130, 180, 0.1) 0px 20px, rgba(70, 130, 180, 0.05) 0px 25px;
 
 // All tasks component
+$all-tasks-box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px,
+  rgba(27, 31, 35, 0.15) 0px 0px 0px 2px;
+
+$all-tasks-task-list-title-box-shadow: rgba(17, 17, 26, 0.08) 0px 3px 1px 0px;
+
 $all-tasks-font-size: $font-size-400;
 $all-tasks-active-font-weight: $font-weight-bold;
 
@@ -62,6 +78,11 @@ $all-tasks-title-font-size-extra-small-screens: $font-size-600;
 $all-tasks-active-text-shadow: slategray 0 0 2px;
 
 // All tasks component - Dark theme
+$all-tasks-box-shadow-dark-theme: rgba(235, 235, 235, 0.02) 0px 1px 3px 0px,
+  rgba(255, 255, 255, 0.15) 0px 0px 0px 2px;
+
+$all-tasks-task-list-title-box-shadow-dark-theme: rgba(255, 255, 255, 0.13) 0px
+  3px 1px 0px;
 $all-tasks-active-text-shadow-dark-theme: rgba(245, 245, 245, 0.75) 0 0 2px;
 
 // To-do list component
@@ -109,9 +130,5 @@ $preferences-bar-button-color-dark-theme: $color-black;
 $preferences-bar-button-background-color-dark-theme: $color-gray-100;
 
 // Empty state elements
-$empty-state-border-block: 2px dashed gainsboro;
-$empty-state-font-weight: $font-weight-medium-bold;
-$empty-state-opacity: 0.65;
-
-// Empty state elements - Dark theme
-$empty-state-border-block-color-dark-theme: rgba(220, 220, 220, 0.178);
+$empty-state-font-weight: $font-weight-black;
+$empty-state-opacity: 0.55;

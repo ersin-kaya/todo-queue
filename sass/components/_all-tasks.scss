@@ -2,17 +2,30 @@
 
 .all-tasks {
   grid-area: lists;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: $all-tasks-box-shadow;
 
   @include mq(medium) {
-    margin: 0 15px 20px;
+    margin: 10px 10px 20px;
+  }
+
+  body[data-theme="dark"] & {
+    box-shadow: $all-tasks-box-shadow-dark-theme;
   }
 
   .task-list-title {
     font-size: $all-tasks-title-font-size;
     font-weight: $all-tasks-title-font-weight;
+    box-shadow: $all-tasks-task-list-title-box-shadow;
+    margin-bottom: 10px;
 
     @include mq(extra-small) {
       font-size: $all-tasks-title-font-size-extra-small-screens;
+    }
+
+    body[data-theme="dark"] & {
+      box-shadow: $all-tasks-task-list-title-box-shadow-dark-theme;
     }
   }
 
@@ -21,7 +34,7 @@
 
     &.empty-state-lists {
       padding: 5px;
-      margin: 15px auto 10px;
+      margin: 30px auto 10px;
 
       .empty-state-lists-message {
         color: rebeccapurple;
