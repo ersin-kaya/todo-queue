@@ -22,7 +22,7 @@ body[data-theme="dark"] {
     .empty-state {
       &.empty-state-lists {
         .empty-state-lists-message {
-          color: cornflowerblue;
+          color: $empty-state-text-color-dark-theme;
         }
       }
     }
@@ -59,7 +59,7 @@ body[data-theme="dark"] {
       .empty-state {
         &.empty-state-tasks {
           .empty-state-tasks-message {
-            color: cornflowerblue;
+            color: $empty-state-text-color-dark-theme;
           }
         }
       }
