@@ -391,15 +391,19 @@ function setLanguageToggleVisibilityFromTranslations() {
 }
 
 function saveDefaultList() {
-  setLocalStorageItem(LOCAL_STORAGE_KEYS.DEFAULT_LIST_CREATED, true);
+  setLocalStorageItem(
+    LOCAL_STORAGE_KEYS.DEFAULT_LIST_CREATED,
+    defaultListCreated
+  );
   setLocalStorageItem(LOCAL_STORAGE_KEYS.DEFAULT_LIST_ID, defaultListId);
 }
 
 function createDefaultList() {
-  if (!defaultListCreated) {
+  if (!defaultListCreated && !lists.length) {
     const listName = activeTranslations?.defaultListName ?? "Tasks";
     const defaultList = createList(listName);
     defaultListId = defaultList.id;
+    defaultListCreated = true;
     saveDefaultList();
     selectedListId = defaultListId;
     lists.unshift(defaultList);
