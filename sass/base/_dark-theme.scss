@@ -22,7 +22,7 @@ body[data-theme="dark"] {
     .empty-state {
       &.empty-state-lists {
         .empty-state-lists-message {
-          color: cornflowerblue;
+          color: $empty-state-text-color-dark-theme;
         }
       }
     }
@@ -59,7 +59,7 @@ body[data-theme="dark"] {
       .empty-state {
         &.empty-state-tasks {
           .empty-state-tasks-message {
-            color: cornflowerblue;
+            color: $empty-state-text-color-dark-theme;
           }
         }
       }
@@ -94,9 +94,8 @@ body[data-theme="dark"] {
   // Preferences bar
   .preferences-bar {
     background-color: $preferences-bar-background-color-dark-theme;
-    box-shadow: rgba(255, 255, 255, 0.4) 0px 0px 0px 2px,
-      rgba(255, 255, 255, 0.65) 0px 4px 6px -1px,
-      rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
+    border-top: $preferences-bar-border-dark-theme;
+    border-bottom: $preferences-bar-border-dark-theme;
 
     button {
       color: $preferences-bar-button-color-dark-theme;

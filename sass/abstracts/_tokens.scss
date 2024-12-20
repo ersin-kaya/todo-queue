@@ -9,6 +9,7 @@ $color-text-default: $color-text-primary;
 $color-background-default: $color-background;
 $color-text-interactive-default: $color-text-primary;
 $color-text-interactive-hover: $color-text-secondary;
+$color-text-warning: $color-vivid-orange;
 
 // Body
 $body-font-family: $font-family-base;
@@ -34,7 +35,7 @@ $heading-3-color-default: $heading-color-default;
 $body-text-color-dark-theme: $color-text-primary-dark-theme;
 $body-background-color-dark-theme: $color-background-dark-theme;
 
-$heading-color-default-dark-theme: $color-gray-300;
+$heading-color-default-dark-theme: $color-gray-400;
 
 // Buttons
 $button-font-family: $body-font-family;
@@ -46,7 +47,7 @@ $create-button-font-weight: $font-weight-black;
 $create-button-color: $color-primary;
 
 // Title component
-$title-background-color: #468faf;
+$title-background-color: $color-steel-blue;
 $title-font-size-large-screens: calc(4vw + ($heading-1-font-size / 2));
 $title-font-size-medium-screens: calc(5vw + ($heading-1-font-size / 3));
 $title-font-size-small-screens: calc(5vw + ($heading-1-font-size / 4));
@@ -56,10 +57,10 @@ $title-box-shadow: rgba(255, 183, 120, 0.3) 0px 5px,
   rgba(255, 183, 120, 0.1) 0px 20px, rgba(255, 183, 120, 0.05) 0px 25px;
 
 // Title component - Dark theme
-$title-background-color-dark-theme: rgba(255, 162, 107, 0.8);
-$title-box-shadow-dark-theme: rgba(70, 130, 180, 0.4) 0px 5px,
-  rgba(70, 130, 180, 0.3) 0px 10px, rgba(70, 130, 180, 0.2) 0px 15px,
-  rgba(70, 130, 180, 0.1) 0px 20px, rgba(70, 130, 180, 0.05) 0px 25px;
+$title-background-color-dark-theme: $color-night-black;
+$title-box-shadow-dark-theme: rgba(70, 130, 180, 0.2) 0px 5px,
+  rgba(70, 130, 180, 0.18) 0px 10px, rgba(70, 130, 180, 0.15) 0px 15px,
+  rgba(70, 130, 180, 0.1) 0px 20px, rgba(70, 130, 180, 0.08) 0px 25px;
 
 // All tasks component
 $all-tasks-box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px,
@@ -124,11 +125,22 @@ $preferences-bar-height: 10vh;
 $preferences-bar-button-color: $color-gray-100;
 $preferences-bar-button-background-color: $color-gray-800;
 
+$preferences-bar-border-color: rgba(6, 24, 44, 0.25);
+$preferences-bar-border: 2px solid $preferences-bar-border-color;
+
 // Preferences bar component - Dark theme
 $preferences-bar-background-color-dark-theme: $color-background-muted-dark-theme;
 $preferences-bar-button-color-dark-theme: $color-black;
 $preferences-bar-button-background-color-dark-theme: $color-gray-100;
 
+$preferences-bar-border-color-dark-theme: rgba(gray, 0.2);
+$preferences-bar-border-dark-theme: 2px solid
+  $preferences-bar-border-color-dark-theme;
+
 // Empty state elements
 $empty-state-font-weight: $font-weight-black;
-$empty-state-opacity: 0.55;
+$empty-state-opacity: 0.8;
+$empty-state-text-color: $color-text-warning;
+
+// Empty state elements - Dark theme
+$empty-state-text-color-dark-theme: $color-text-warning;
