@@ -42,6 +42,10 @@ let activeTranslations = {};
 
 let lists = JSON.parse(getLocalStorageItem(LOCAL_STORAGE_KEYS.LISTS)) || [];
 let selectedListId = getLocalStorageItem(LOCAL_STORAGE_KEYS.SELECTED_LIST_ID);
+let defaultListCreated = JSON.parse(
+  getLocalStorageItem(LOCAL_STORAGE_KEYS.DEFAULT_LIST_CREATED) || false
+);
+let defaultListId = getLocalStorageItem(LOCAL_STORAGE_KEYS.DEFAULT_LIST_ID);
 let appTheme =
   getLocalStorageItem(LOCAL_STORAGE_KEYS.THEME) ||
   themeElement.dataset.theme ||
@@ -90,6 +94,8 @@ clearCompleteTasksButton.addEventListener("click", (e) => {
 
 deleteListButton.addEventListener("click", (e) => {
   if (!confirm(deleteConfirmationMessage(dynamicPartForList))) return;
+  defaultListId = defaultListId === selectedListId ? null : defaultListId;
+  saveDefaultList();
   lists = lists.filter((list) => list.id !== selectedListId);
   selectedListId = lists[0]?.id || null;
   saveAndRender();
@@ -107,7 +113,6 @@ const confirmationMessages = {
 };
 
 const deleteConfirmationMessage = (dynamicPart = "") => {
-  console.log(appLanguage);
   return confirmationMessages[appLanguage](dynamicPart);
 };
 
@@ -372,6 +377,10 @@ function updateTextsForSelectedLanguage() {
       activeTranslations.messages.emptyStateForList;
     emptyStateTasksMessage.textContent =
       activeTranslations.messages.emptyStateForTask;
+
+    if (defaultListId) {
+      updateDefaultListNameByLanguage();
+    }
   }
 }
 
@@ -379,6 +388,31 @@ function setLanguageToggleVisibilityFromTranslations() {
   !activeTranslations
     ? (languageToggleButton.style.visibility = "hidden")
     : (languageToggleButton.style.visibility = "");
+}
+
+function saveDefaultList() {
+  setLocalStorageItem(LOCAL_STORAGE_KEYS.DEFAULT_LIST_CREATED, true);
+  setLocalStorageItem(LOCAL_STORAGE_KEYS.DEFAULT_LIST_ID, defaultListId);
+}
+
+function createDefaultList() {
+  if (!defaultListCreated) {
+    const listName = activeTranslations?.defaultListName ?? "Tasks";
+    const defaultList = createList(listName);
+    defaultListId = defaultList.id;
+    saveDefaultList();
+    selectedListId = defaultListId;
+    lists.unshift(defaultList);
+    save();
+  }
+}
+
+function updateDefaultListNameByLanguage() {
+  lists = lists.map((list) => {
+    return list.id === defaultListId
+      ? { ...list, name: activeTranslations.defaultListName }
+      : list;
+  });
 }
 
 async function fetchTranslations() {
@@ -426,6 +460,7 @@ function applyPreferences(theme, language) {
 async function initializeApp() {
   loadTranslations(await fetchTranslations());
   applyPreferences();
+  createDefaultList();
   render();
 }
 

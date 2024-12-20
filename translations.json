@@ -1,5 +1,6 @@
 {
   "en": {
+    "defaultListName": "Tasks",
     "pageTitle": "Stuff I need to do",
     "taskListTitle": "My lists",
     "listInputPlaceholder": "new list name",
@@ -34,6 +35,7 @@
     }
   },
   "tr": {
+    "defaultListName": "Yapılacaklar",
     "pageTitle": "Yapmam gerekenler",
     "taskListTitle": "Listelerim",
     "listInputPlaceholder": "liste ismi giriniz",
