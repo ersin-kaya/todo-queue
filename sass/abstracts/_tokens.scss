@@ -125,10 +125,17 @@ $preferences-bar-height: 10vh;
 $preferences-bar-button-color: $color-gray-100;
 $preferences-bar-button-background-color: $color-gray-800;
 
+$preferences-bar-border-color: rgba(6, 24, 44, 0.25);
+$preferences-bar-border: 2px solid $preferences-bar-border-color;
+
 // Preferences bar component - Dark theme
 $preferences-bar-background-color-dark-theme: $color-background-muted-dark-theme;
 $preferences-bar-button-color-dark-theme: $color-black;
 $preferences-bar-button-background-color-dark-theme: $color-gray-100;
+
+$preferences-bar-border-color-dark-theme: rgba(gray, 0.2);
+$preferences-bar-border-dark-theme: 2px solid
+  $preferences-bar-border-color-dark-theme;
 
 // Empty state elements
 $empty-state-font-weight: $font-weight-black;
