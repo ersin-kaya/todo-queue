@@ -54,7 +54,7 @@ body[data-theme=dark] {
 body[data-theme=dark] .title {
   color: #ced4da;
   background-color: #111827;
-  box-shadow: rgba(70, 130, 180, 0.2) 0px 5px, rgba(70, 130, 180, 0.18) 0px 10px, rgba(70, 130, 180, 0.15) 0px 15px, rgba(70, 130, 180, 0.1) 0px 20px, rgba(70, 130, 180, 0.08) 0px 25px;
+  box-shadow: rgba(70, 130, 180, 0.1) 0px 5px, rgba(70, 130, 180, 0.08) 0px 10px, rgba(70, 130, 180, 0.06) 0px 15px, rgba(70, 130, 180, 0.04) 0px 20px, rgba(70, 130, 180, 0.02) 0px 25px;
 }
 body[data-theme=dark] .all-tasks {
   box-shadow: rgba(235, 235, 235, 0.02) 0px 1px 3px 0px, rgba(255, 255, 255, 0.15) 0px 0px 0px 2px;
