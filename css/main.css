@@ -87,7 +87,7 @@ body[data-theme=dark] .all-tasks .new-task-list-creator form input[type=text].ne
   opacity: 0.4;
 }
 body[data-theme=dark] .todo-list {
-  background: #181a1b;
+  background: #011011;
   color: #e9ecef;
   box-shadow: rgba(255, 255, 255, 0.07) 0px 2px 2px;
 }
