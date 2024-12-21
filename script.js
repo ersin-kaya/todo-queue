@@ -127,7 +127,7 @@ languageToggleButton.addEventListener("click", (e) => {
 newListForm.addEventListener("submit", (e) => {
   e.preventDefault();
   const listName = newListInput.value.trim();
-  if (!listName) return;
+  if (!isValidListName(listName)) return;
   const list = createList(listName);
   newListInput.value = null;
   lists.push(list);
@@ -280,6 +280,11 @@ function clearElement(element) {
 
 function getSelectedListById(selectedListId) {
   return lists.find((list) => list.id === selectedListId);
+}
+
+function isValidListName(listName) {
+  listName = listName.trim();
+  return !listName ? false : true;
 }
 
 function getLocalStorageItem(key) {
