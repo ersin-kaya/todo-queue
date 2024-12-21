@@ -3,6 +3,7 @@
 import LOCAL_STORAGE_KEYS from "./constants/localStorageConstants.js";
 import THEME from "./constants/themeConstants.js";
 import LANGUAGE from "./constants/languageConstants.js";
+import TIMINGS from "./constants/timingConstants.js";
 
 const listsContainer = document.querySelector("[data-lists]");
 const newListForm = document.querySelector("[data-new-list-form]");
@@ -61,6 +62,27 @@ listsContainer.addEventListener("click", (e) => {
     saveAndRender();
   }
 });
+
+function handleTouchForListRename(listContainer) {
+  let pressTimer;
+
+  listContainer.addEventListener("touchstart", (e) => {
+    const targetElement = e.target;
+    if (
+      targetElement.matches("li") &&
+      targetElement.dataset.listId !== defaultListId
+    ) {
+      pressTimer = setTimeout(() => {
+        renameInputForList(targetElement);
+      }, TIMINGS.RENAME.MOBILE_PRESS_DURATION);
+    }
+  });
+
+  listContainer.addEventListener("touchend", () => {
+    clearTimeout(pressTimer);
+  });
+}
+handleTouchForListRename(listsContainer);
 
 tasksContainer.addEventListener("click", (e) => {
   if (e.target.tagName.toLowerCase() === "input") {
@@ -273,13 +295,55 @@ function renderLists() {
 }
 
 function clearElement(element) {
-  while (element.firstChild) {
-    element.removeChild(element.firstChild);
-  }
+  element.innerHTML = "";
 }
 
 function getSelectedListById(selectedListId) {
   return lists.find((list) => list.id === selectedListId);
+}
+
+function renameInputForList(listElement) {
+  const listToRenameId = listElement.dataset.listId;
+  const renameListFormTemplate = `
+    <form action="" data-rename-list-form>
+      <input
+        type="text"
+        class="rename list"
+        data-rename-list-input
+        placeholder="${listElement.innerText}"
+        value="${listElement.innerText}"
+        aria-label="rename list name"
+      />
+    </form>
+  `;
+  listElement.innerHTML = renameListFormTemplate;
+  const renameListForm = listElement.querySelector("[data-rename-list-form]");
+  const renameInput = renameListForm.querySelector(
+    "input[data-rename-list-input]"
+  );
+  const listNameLenght = renameInput.value.length;
+
+  renameInput.focus();
+  renameInput.setSelectionRange(listNameLenght, listNameLenght);
+  renameInput.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") {
+      renameInput.blur();
+    }
+  });
+
+  renameListForm.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const newListName = renameInput.value;
+    if (!isValidListName(newListName)) return;
+    lists = lists.map((list) => {
+      return list.id === listToRenameId ? { ...list, name: newListName } : list;
+    });
+    saveAndRender();
+  });
+
+  renameListForm.addEventListener("focusout", () => {
+    render();
+  });
 }
 
 function isValidListName(listName) {
