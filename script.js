@@ -66,6 +66,7 @@ listsContainer.addEventListener("click", (e) => {
 function handleTouchForListRename(listContainer) {
   let pressTimer;
 
+  // Touch events - Start
   listContainer.addEventListener("touchstart", (e) => {
     const targetElement = e.target;
     if (
@@ -81,6 +82,17 @@ function handleTouchForListRename(listContainer) {
   listContainer.addEventListener("touchend", () => {
     clearTimeout(pressTimer);
   });
+  // Touch events - End
+
+  // Mouse events - Start
+  listContainer.addEventListener("mouseover", () => {
+    console.log("mouseover");
+  });
+
+  listContainer.addEventListener("mouseout", () => {
+    console.log("mouseout");
+  });
+  // Mouse events - End
 }
 handleTouchForListRename(listsContainer);
 
