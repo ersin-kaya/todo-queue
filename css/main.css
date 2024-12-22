@@ -67,8 +67,13 @@ body[data-theme=dark] .all-tasks .empty-state.empty-state-lists .empty-state-lis
 }
 body[data-theme=dark] .all-tasks .task-list .list-item.active-list {
   text-shadow: rgba(245, 245, 245, 0.75) 0 0 1px;
-  border-bottom-color: rgba(16, 185, 129, 0.5);
-  border-top-color: rgba(16, 185, 129, 0.5);
+  border-bottom-color: rgba(16, 185, 129, 0.7);
+  border-top-color: rgba(16, 185, 129, 0.7);
+}
+body[data-theme=dark] .all-tasks .task-list .list-item form[data-rename-list-form] input {
+  background-color: #011011;
+  color: #f8f9fa;
+  border-bottom-color: rgba(16, 185, 129, 0.7);
 }
 body[data-theme=dark] .all-tasks .new-task-list-creator form input[type=text].new {
   background: transparent;
@@ -146,7 +151,7 @@ body[data-theme=dark] .preferences-bar button {
 
 .title {
   grid-area: header;
-  background-color: #468faf;
+  background-color: rgba(70, 143, 175, 0.9);
   font-family: "Poppins", serif;
   font-size: calc(4vw + 1.875rem);
   font-weight: 700;
@@ -230,6 +235,10 @@ body[data-theme=dark] .preferences-bar button {
 }
 .all-tasks .task-list .list-item .list-container .list-name {
   font-weight: 500;
+  width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .all-tasks .task-list .list-item .list-container .list-name:hover {
   opacity: 0.8;
@@ -244,8 +253,8 @@ body[data-theme=dark] .preferences-bar button {
 .all-tasks .task-list .list-item.active-list {
   font-weight: 700;
   text-shadow: slategray 0 0 1px;
-  border-bottom: 2px solid rgba(70, 143, 175, 0.6);
-  border-top: 2px solid rgba(70, 143, 175, 0.6);
+  border-bottom: 2px solid rgba(70, 143, 175, 0.7);
+  border-top: 2px solid rgba(70, 143, 175, 0.7);
   border-radius: 5px;
 }
 .all-tasks .task-list .list-item.active-list .list-container {
@@ -255,7 +264,7 @@ body[data-theme=dark] .preferences-bar button {
 .all-tasks .task-list .list-item.active-list .list-container .rename-list-text {
   display: flex;
   justify-content: flex-end;
-  width: 150px;
+  width: 130px;
   font-size: 13px;
   font-weight: 600;
 }
@@ -263,6 +272,19 @@ body[data-theme=dark] .preferences-bar button {
   .all-tasks .task-list .list-item.active-list .list-container .rename-list-text {
     display: none;
   }
+}
+.all-tasks .task-list .list-item form[data-rename-list-form] input {
+  background-color: #dee2e6;
+  color: #343a40;
+  border: none;
+  border-bottom: 3px solid rgba(70, 143, 175, 0.7);
+  border-radius: 4px;
+  width: 100%;
+  margin: 10px auto;
+  padding: 5px;
+}
+.all-tasks .task-list .list-item form[data-rename-list-form] input:focus {
+  outline: none;
 }
 .all-tasks .new-task-list-creator form {
   display: flex;

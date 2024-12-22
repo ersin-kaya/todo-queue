@@ -56,6 +56,10 @@
 
         .list-name {
           font-weight: 500;
+          width: 100%;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
 
           &:hover {
             opacity: 0.8;
@@ -86,13 +90,30 @@
           .rename-list-text {
             display: flex;
             justify-content: flex-end;
-            width: 150px;
+            width: 130px;
             font-size: 13px;
             font-weight: 600;
 
             @include mq(extra-small) {
               display: none;
             }
+          }
+        }
+      }
+
+      form[data-rename-list-form] {
+        input {
+          background-color: $all-tasks-rename-list-input-background-color;
+          color: $all-tasks-rename-list-input-text-color;
+          border: none;
+          border-bottom: 3px solid $all-tasks-active-border-color;
+          border-radius: 4px;
+          width: 100%;
+          margin: 10px auto;
+          padding: 5px;
+
+          &:focus {
+            outline: none;
           }
         }
       }
