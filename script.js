@@ -6,6 +6,7 @@ import LANGUAGE from "./constants/languageConstants.js";
 import TIMINGS from "./constants/timingConstants.js";
 
 const listsContainer = document.querySelector("[data-lists]");
+const listTemplate = document.getElementById("list-template");
 const newListForm = document.querySelector("[data-new-list-form]");
 const newListInput = document.querySelector("[data-new-list-input]");
 const deleteListButton = document.querySelector("[data-delete-list-button]");
@@ -295,9 +296,9 @@ function getCompleteTasksCount(selectedList) {
 
 function renderLists() {
   lists.forEach((list) => {
-    const listElement = document.createElement("li");
+    const importedContent = document.importNode(listTemplate.content, true);
+    const listElement = importedContent.firstElementChild;
     listElement.dataset.listId = list.id;
-    listElement.classList.add("list-name");
     listElement.textContent = list.name;
     if (list.id === selectedListId) {
       listElement.classList.add("active-list");
