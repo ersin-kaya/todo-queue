@@ -65,8 +65,9 @@ body[data-theme=dark] .all-tasks .task-list-title {
 body[data-theme=dark] .all-tasks .empty-state.empty-state-lists .empty-state-lists-message {
   color: #f97316;
 }
-body[data-theme=dark] .all-tasks .task-list .list-name.active-list {
-  text-shadow: rgba(245, 245, 245, 0.75) 0 0 2px;
+body[data-theme=dark] .all-tasks .task-list .list-container.active-list {
+  text-shadow: rgba(245, 245, 245, 0.75) 0 0 1px;
+  text-decoration-color: rgba(255, 255, 255, 0.1);
 }
 body[data-theme=dark] .all-tasks .new-task-list-creator form input[type=text].new {
   background: transparent;
@@ -179,6 +180,7 @@ body[data-theme=dark] .preferences-bar button {
   padding: 10px;
   border-radius: 5px;
   box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 2px;
+  letter-spacing: 0.5px;
 }
 @media screen and (max-width: 55em) {
   .all-tasks {
@@ -210,19 +212,22 @@ body[data-theme=dark] .preferences-bar button {
 .all-tasks .task-list {
   font-size: 1rem;
   line-height: 2;
-  list-style: circle;
-  padding-left: 1.1em;
+  list-style: none;
+  padding-left: 0.5em;
 }
-.all-tasks .task-list .list-name {
+.all-tasks .task-list .list-container {
   cursor: pointer;
 }
-.all-tasks .task-list .list-name:hover {
+.all-tasks .task-list .list-container:hover {
   opacity: 0.66;
 }
-.all-tasks .task-list .list-name.active-list {
+.all-tasks .task-list .list-container.active-list {
   font-weight: 700;
-  text-shadow: slategray 0 0 2px;
-  list-style: disc;
+  text-shadow: slategray 0 0 1px;
+  text-decoration: underline;
+  text-underline-offset: 6px;
+  text-decoration-thickness: 2px;
+  text-decoration-color: rgba(0, 0, 0, 0.3);
 }
 .all-tasks .new-task-list-creator form {
   display: flex;

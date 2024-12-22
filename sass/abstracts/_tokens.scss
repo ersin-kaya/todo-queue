@@ -76,7 +76,7 @@ $all-tasks-title-font-weight: $font-weight-bold;
 
 $all-tasks-title-font-size-extra-small-screens: $font-size-600;
 
-$all-tasks-active-text-shadow: slategray 0 0 2px;
+$all-tasks-active-text-shadow: slategray 0 0 1px;
 
 // All tasks component - Dark theme
 $all-tasks-box-shadow-dark-theme: rgba(235, 235, 235, 0.02) 0px 1px 3px 0px,
@@ -84,7 +84,7 @@ $all-tasks-box-shadow-dark-theme: rgba(235, 235, 235, 0.02) 0px 1px 3px 0px,
 
 $all-tasks-task-list-title-box-shadow-dark-theme: rgba(255, 255, 255, 0.13) 0px
   3px 1px 0px;
-$all-tasks-active-text-shadow-dark-theme: rgba(245, 245, 245, 0.75) 0 0 2px;
+$all-tasks-active-text-shadow-dark-theme: rgba(245, 245, 245, 0.75) 0 0 1px;
 
 // To-do list component
 $todo-list-font-size: $font-size-400;

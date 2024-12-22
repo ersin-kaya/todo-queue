@@ -28,9 +28,10 @@ body[data-theme="dark"] {
     }
 
     .task-list {
-      .list-name {
+      .list-container {
         &.active-list {
           text-shadow: $all-tasks-active-text-shadow-dark-theme;
+          text-decoration-color: rgba(white, 0.1);
         }
       }
     }
