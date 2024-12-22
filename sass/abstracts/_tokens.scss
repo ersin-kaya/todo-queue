@@ -70,6 +70,8 @@ $all-tasks-task-list-title-box-shadow: rgba(17, 17, 26, 0.08) 0px 3px 1px 0px;
 
 $all-tasks-font-size: $font-size-400;
 $all-tasks-active-font-weight: $font-weight-bold;
+$all-tasks-active-border-color: rgba($color-steel-blue, 0.6);
+$all-tasks-active-border: 2px solid $all-tasks-active-border-color;
 
 $all-tasks-title-font-size: $font-size-700;
 $all-tasks-title-font-weight: $font-weight-bold;
@@ -85,6 +87,8 @@ $all-tasks-box-shadow-dark-theme: rgba(235, 235, 235, 0.02) 0px 1px 3px 0px,
 $all-tasks-task-list-title-box-shadow-dark-theme: rgba(255, 255, 255, 0.13) 0px
   3px 1px 0px;
 $all-tasks-active-text-shadow-dark-theme: rgba(245, 245, 245, 0.75) 0 0 1px;
+
+$all-tasks-active-border-color-dark-theme: rgba($color-mint-green, 0.5);
 
 // To-do list component
 $todo-list-font-size: $font-size-400;

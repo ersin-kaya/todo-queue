@@ -37,24 +37,60 @@
 
   .task-list {
     font-size: $all-tasks-font-size;
-    line-height: 2;
     list-style: none;
     padding-left: 0.5em;
 
-    .list-container {
-      cursor: pointer;
+    .list-item {
+      margin: 10px auto;
 
-      &:hover {
-        opacity: 0.66;
+      .list-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        column-gap: 15px;
+
+        .list-name,
+        .rename-list-text {
+          cursor: pointer;
+        }
+
+        .list-name {
+          font-weight: 500;
+
+          &:hover {
+            opacity: 0.8;
+          }
+        }
+
+        .rename-list-text {
+          display: none;
+          opacity: 0.9;
+
+          &:hover {
+            opacity: 0.7;
+          }
+        }
       }
 
       &.active-list {
         font-weight: $all-tasks-active-font-weight;
         text-shadow: $all-tasks-active-text-shadow;
-        text-decoration: underline;
-        text-underline-offset: 6px;
-        text-decoration-thickness: 2px;
-        text-decoration-color: rgba(black, 0.3);
+        border-bottom: $all-tasks-active-border;
+        border-top: $all-tasks-active-border;
+        border-radius: 5px;
+
+        .list-container {
+          padding: 10px 0px;
+          line-height: 1.3;
+
+          .rename-list-text {
+            display: flex;
+            justify-content: flex-end;
+            width: 150px;
+            font-size: 13px;
+            font-weight: 600;
+          }
+        }
       }
     }
   }

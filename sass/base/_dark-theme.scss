@@ -28,10 +28,11 @@ body[data-theme="dark"] {
     }
 
     .task-list {
-      .list-container {
+      .list-item {
         &.active-list {
           text-shadow: $all-tasks-active-text-shadow-dark-theme;
-          text-decoration-color: rgba(white, 0.1);
+          border-bottom-color: $all-tasks-active-border-color-dark-theme;
+          border-top-color: $all-tasks-active-border-color-dark-theme;
         }
       }
     }

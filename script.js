@@ -58,8 +58,11 @@ let appLanguage =
   LANGUAGE.EN;
 
 listsContainer.addEventListener("click", (e) => {
-  if (e.target.tagName.toLowerCase() === "li") {
-    selectedListId = e.target.dataset.listId;
+  if (
+    e.target.tagName.toLowerCase() === "span" &&
+    e.target.classList.contains("list-name")
+  ) {
+    selectedListId = e.target.parentElement.parentElement.dataset.listId;
     saveAndRender();
   }
 });
@@ -69,7 +72,7 @@ function handleTouchForListRename(listContainer) {
 
   // Touch events - Start
   listContainer.addEventListener("touchstart", (e) => {
-    const targetElement = e.target;
+    const targetElement = e.target.parentElement.parentElement;
     if (
       targetElement.matches("li") &&
       targetElement.dataset.listId !== defaultListId
@@ -299,10 +302,17 @@ function renderLists() {
     const importedContent = document.importNode(listTemplate.content, true);
     const listElement = importedContent.firstElementChild;
     listElement.dataset.listId = list.id;
-    listElement.textContent = list.name;
     if (list.id === selectedListId) {
       listElement.classList.add("active-list");
     }
+
+    const listName = listElement.querySelector("#list-name");
+    listName.textContent = list.name;
+
+    const renameListText = listElement.querySelector("#rename-list-text");
+    renameListText.textContent =
+      activeTranslations?.buttons?.rename?.forList || "Rename list";
+
     listsContainer.appendChild(listElement);
   });
 }
@@ -317,14 +327,15 @@ function getSelectedListById(selectedListId) {
 
 function renameInputForList(listElement) {
   const listToRenameId = listElement.dataset.listId;
+  const listNameElement = listElement.querySelector("#list-name");
   const renameListFormTemplate = `
     <form action="" data-rename-list-form>
       <input
         type="text"
         class="rename list"
         data-rename-list-input
-        placeholder="${listElement.innerText}"
-        value="${listElement.innerText}"
+        placeholder="${listNameElement.innerText}"
+        value="${listNameElement.innerText}"
         aria-label="rename list name"
       />
     </form>

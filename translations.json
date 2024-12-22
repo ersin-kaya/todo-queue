@@ -11,6 +11,9 @@
       "remaining": "remaining"
     },
     "buttons": {
+      "rename": {
+        "forList": "Rename list"
+      },
       "clearCompleted": "Clear completed tasks",
       "deleteList": "Delete list",
       "theme": {
@@ -46,6 +49,9 @@
       "remaining": "kaldı"
     },
     "buttons": {
+      "rename": {
+        "forList": "Düzenle"
+      },
       "clearCompleted": "Tamamlanan görevleri temizle",
       "deleteList": "Listeyi sil",
       "theme": {
