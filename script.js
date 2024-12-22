@@ -58,12 +58,14 @@ let appLanguage =
   LANGUAGE.EN;
 
 listsContainer.addEventListener("click", (e) => {
-  if (
-    e.target.tagName.toLowerCase() === "span" &&
-    e.target.classList.contains("list-name")
-  ) {
-    selectedListId = e.target.parentElement.parentElement.dataset.listId;
-    saveAndRender();
+  const targetElement = e.target.parentElement.parentElement;
+  if (e.target.tagName.toLowerCase() === "span") {
+    if (e.target.classList.contains("list-name")) {
+      selectedListId = targetElement.dataset.listId;
+      saveAndRender();
+    } else if (e.target.classList.contains("rename-list-text")) {
+      renameInputForList(targetElement);
+    }
   }
 });
 

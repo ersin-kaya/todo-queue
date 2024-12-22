@@ -89,6 +89,10 @@
             width: 150px;
             font-size: 13px;
             font-weight: 600;
+
+            @include mq(extra-small) {
+              display: none;
+            }
           }
         }
       }

@@ -259,6 +259,11 @@ body[data-theme=dark] .preferences-bar button {
   font-size: 13px;
   font-weight: 600;
 }
+@media screen and (max-width: 30em) {
+  .all-tasks .task-list .list-item.active-list .list-container .rename-list-text {
+    display: none;
+  }
+}
 .all-tasks .new-task-list-creator form {
   display: flex;
   flex-direction: row;
