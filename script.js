@@ -77,7 +77,8 @@ function handleTouchForListRename(listContainer) {
     const targetElement = e.target.parentElement.parentElement;
     if (
       targetElement.matches("li") &&
-      targetElement.dataset.listId !== defaultListId
+      targetElement.dataset.listId !== defaultListId &&
+      targetElement.dataset.listId === selectedListId
     ) {
       pressTimer = setTimeout(() => {
         renameInputForList(targetElement);
@@ -89,16 +90,6 @@ function handleTouchForListRename(listContainer) {
     clearTimeout(pressTimer);
   });
   // Touch events - End
-
-  // Mouse events - Start
-  listContainer.addEventListener("mouseover", () => {
-    console.log("mouseover");
-  });
-
-  listContainer.addEventListener("mouseout", () => {
-    console.log("mouseout");
-  });
-  // Mouse events - End
 }
 handleTouchForListRename(listsContainer);
 
@@ -311,9 +302,15 @@ function renderLists() {
     const listName = listElement.querySelector("#list-name");
     listName.textContent = list.name;
 
-    const renameListText = listElement.querySelector("#rename-list-text");
-    renameListText.textContent =
-      activeTranslations?.buttons?.rename?.forList || "Rename list";
+    if (listElement.dataset.listId !== defaultListId) {
+      const renameListText = listElement.querySelector("#rename-list-text");
+      renameListText.textContent =
+        activeTranslations?.buttons?.rename?.forList || "Rename list";
+    } else {
+      const listContainer = listElement.querySelector("#list-container");
+      const renameButton = listContainer.querySelector("#rename-list-text");
+      listContainer.removeChild(renameButton);
+    }
 
     listsContainer.appendChild(listElement);
   });
@@ -349,8 +346,10 @@ function renameInputForList(listElement) {
   );
   const listNameLenght = renameInput.value.length;
 
+  // renameInput.setSelectionRange(listNameLenght, listNameLenght);
+  // renameInput.scrollLeft = renameInput.scrollWidth;
   renameInput.focus();
-  renameInput.setSelectionRange(listNameLenght, listNameLenght);
+  renameInput.select();
   renameInput.addEventListener("keydown", (e) => {
     if (e.key === "Escape") {
       renameInput.blur();
