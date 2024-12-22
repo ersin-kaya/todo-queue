@@ -5,6 +5,7 @@
   padding: 10px;
   border-radius: 5px;
   box-shadow: $all-tasks-box-shadow;
+  letter-spacing: 0.5px;
 
   @include mq(medium) {
     margin: 10px 10px 20px;
@@ -36,21 +37,85 @@
 
   .task-list {
     font-size: $all-tasks-font-size;
-    line-height: 2;
-    list-style: circle;
-    padding-left: 1.1em;
+    list-style: none;
+    padding-left: 0.5em;
 
-    .list-name {
-      cursor: pointer;
+    .list-item {
+      margin: 10px auto;
 
-      &:hover {
-        opacity: 0.66;
+      .list-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        column-gap: 15px;
+
+        .list-name,
+        .rename-list-text {
+          cursor: pointer;
+        }
+
+        .list-name {
+          font-weight: 500;
+          width: 100%;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+
+          &:hover {
+            opacity: 0.8;
+          }
+        }
+
+        .rename-list-text {
+          display: none;
+          opacity: 0.9;
+
+          &:hover {
+            opacity: 0.7;
+          }
+        }
       }
 
       &.active-list {
         font-weight: $all-tasks-active-font-weight;
         text-shadow: $all-tasks-active-text-shadow;
-        list-style: disc;
+        border-bottom: $all-tasks-active-border;
+        border-top: $all-tasks-active-border;
+        border-radius: 5px;
+
+        .list-container {
+          padding: 10px 0px;
+          line-height: 1.3;
+
+          .rename-list-text {
+            display: flex;
+            justify-content: flex-end;
+            width: 130px;
+            font-size: 13px;
+            font-weight: 600;
+
+            @include mq(extra-small) {
+              display: none;
+            }
+          }
+        }
+      }
+
+      form[data-rename-list-form] {
+        input {
+          background-color: $all-tasks-rename-list-input-background-color;
+          color: $all-tasks-rename-list-input-text-color;
+          border: none;
+          border-bottom: 3px solid $all-tasks-active-border-color;
+          border-radius: 4px;
+          width: 100%;
+          margin: 10px auto;
+          padding: 5px;
+
+          &:focus {
+            outline: none;
+          }
+        }
       }
     }
   }

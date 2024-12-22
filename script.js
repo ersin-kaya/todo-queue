@@ -58,9 +58,14 @@ let appLanguage =
   LANGUAGE.EN;
 
 listsContainer.addEventListener("click", (e) => {
-  if (e.target.tagName.toLowerCase() === "li") {
-    selectedListId = e.target.dataset.listId;
-    saveAndRender();
+  const targetElement = e.target.parentElement.parentElement;
+  if (e.target.tagName.toLowerCase() === "span") {
+    if (e.target.classList.contains("list-name")) {
+      selectedListId = targetElement.dataset.listId;
+      saveAndRender();
+    } else if (e.target.classList.contains("rename-list-text")) {
+      renameInputForList(targetElement);
+    }
   }
 });
 
@@ -69,10 +74,11 @@ function handleTouchForListRename(listContainer) {
 
   // Touch events - Start
   listContainer.addEventListener("touchstart", (e) => {
-    const targetElement = e.target;
+    const targetElement = e.target.parentElement.parentElement;
     if (
       targetElement.matches("li") &&
-      targetElement.dataset.listId !== defaultListId
+      targetElement.dataset.listId !== defaultListId &&
+      targetElement.dataset.listId === selectedListId
     ) {
       pressTimer = setTimeout(() => {
         renameInputForList(targetElement);
@@ -84,16 +90,6 @@ function handleTouchForListRename(listContainer) {
     clearTimeout(pressTimer);
   });
   // Touch events - End
-
-  // Mouse events - Start
-  listContainer.addEventListener("mouseover", () => {
-    console.log("mouseover");
-  });
-
-  listContainer.addEventListener("mouseout", () => {
-    console.log("mouseout");
-  });
-  // Mouse events - End
 }
 handleTouchForListRename(listsContainer);
 
@@ -299,10 +295,23 @@ function renderLists() {
     const importedContent = document.importNode(listTemplate.content, true);
     const listElement = importedContent.firstElementChild;
     listElement.dataset.listId = list.id;
-    listElement.textContent = list.name;
     if (list.id === selectedListId) {
       listElement.classList.add("active-list");
     }
+
+    const listName = listElement.querySelector("#list-name");
+    listName.textContent = list.name;
+
+    if (listElement.dataset.listId !== defaultListId) {
+      const renameListText = listElement.querySelector("#rename-list-text");
+      renameListText.textContent =
+        activeTranslations?.buttons?.rename?.forList || "Rename list";
+    } else {
+      const listContainer = listElement.querySelector("#list-container");
+      const renameButton = listContainer.querySelector("#rename-list-text");
+      listContainer.removeChild(renameButton);
+    }
+
     listsContainer.appendChild(listElement);
   });
 }
@@ -317,14 +326,15 @@ function getSelectedListById(selectedListId) {
 
 function renameInputForList(listElement) {
   const listToRenameId = listElement.dataset.listId;
+  const listNameElement = listElement.querySelector("#list-name");
   const renameListFormTemplate = `
     <form action="" data-rename-list-form>
       <input
         type="text"
         class="rename list"
         data-rename-list-input
-        placeholder="${listElement.innerText}"
-        value="${listElement.innerText}"
+        placeholder="${listNameElement.innerText}"
+        value="${listNameElement.innerText}"
         aria-label="rename list name"
       />
     </form>
@@ -336,8 +346,10 @@ function renameInputForList(listElement) {
   );
   const listNameLenght = renameInput.value.length;
 
+  // renameInput.setSelectionRange(listNameLenght, listNameLenght);
+  // renameInput.scrollLeft = renameInput.scrollWidth;
   renameInput.focus();
-  renameInput.setSelectionRange(listNameLenght, listNameLenght);
+  renameInput.select();
   renameInput.addEventListener("keydown", (e) => {
     if (e.key === "Escape") {
       renameInput.blur();
