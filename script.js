@@ -93,24 +93,54 @@ function handleTouchForListRename(listContainer) {
 }
 handleTouchForListRename(listsContainer);
 
+// When we click on a <span> inside a <label>, it also triggers the <label>'s behavior.
+// The <label> has a special relationship with the <input>.
+// This means clicking on the <label> (or any child like <span>) activates the <input>.
+// stopPropagation() is used to stop the event from bubbling up to parent elements during the bubbling phase.
+// The bubbling phase is when the event moves from the child element (e.g., <span>) to its parent elements (e.g., <label>).
+// However, stopPropagation() does not stop the browser's default <label>-<input> behavior.
+// Capturing phase happens before bubbling, starting from the outermost element to the target element.
+// To prevent the <label>-<input> behavior, we must use preventDefault() to stop the browser's default action.
 tasksContainer.addEventListener("click", (e) => {
-  if (e.target.tagName.toLowerCase() === "input") {
-    const selectedList = getSelectedListById(selectedListId);
-    const selectedTask = selectedList.tasks.find(
-      (task) => task.id === e.target.id
-    );
-    selectedTask.complete = e.target.checked;
-    if (selectedTask.complete) {
-      selectedTask.completedDate = Date.now();
-    } else {
-      selectedTask.completedDate = null;
-      selectedTask.createdDate = Date.now();
-    }
-    saveAndRender();
-    renderTaskCount(selectedList);
-    setClearCompleteTasksButtonVisibility(selectedList);
+  if (e.target.tagName.toLowerCase() === "label") {
+    e.preventDefault();
+    //rename
+  } else if (e.target.tagName.toLowerCase() === "input") {
+    updateTaskStatus(e);
+  } //else if (e.target.tagName.toLowerCase() === "span") {
+  // e.stopPropagation();
+  // e.preventDefault();
+  //}
+});
+
+tasksContainer.addEventListener("keydown", (e) => {
+  if (e.key === "Enter" && e.target.tagName.toLowerCase() === "input") {
+    updateTaskStatus(e);
   }
 });
+
+function updateTaskStatus(event) {
+  const selectedList = getSelectedListById(selectedListId);
+  const selectedTask = selectedList.tasks.find(
+    (task) => task.id === event.target.id
+  );
+
+  if (event.type === "click") {
+    selectedTask.complete = event.target.checked;
+  } else if (event.type === "keydown" && event.key === "Enter") {
+    selectedTask.complete = !event.target.checked;
+  }
+
+  if (selectedTask.complete) {
+    selectedTask.completedDate = Date.now();
+  } else {
+    selectedTask.completedDate = null;
+    selectedTask.createdDate = Date.now();
+  }
+  saveAndRender();
+  renderTaskCount(selectedList);
+  setClearCompleteTasksButtonVisibility(selectedList);
+}
 
 // Event listeners are executed only when their corresponding event is triggered
 // therefore, they can reference functions or variables defined later in the code
