@@ -102,15 +102,40 @@ handleTouchForListRename(listsContainer);
 // Capturing phase happens before bubbling, starting from the outermost element to the target element.
 // To prevent the <label>-<input> behavior, we must use preventDefault() to stop the browser's default action.
 tasksContainer.addEventListener("click", (e) => {
-  if (e.target.tagName.toLowerCase() === "label") {
+  const targetElement = e.target;
+  if (
+    targetElement.tagName.toLowerCase() === "div" &&
+    targetElement.classList.contains("task")
+  ) {
+    // if the selected element is the div with the class 'task'
+    const taskCheckbox = targetElement.querySelector("input[type='checkbox']");
+    if (taskCheckbox.type === "checkbox" && taskCheckbox.hasAttribute("id")) {
+      updateTaskStatus(e);
+    }
+  } else if (
+    targetElement.tagName.toLowerCase() === "input" &&
+    targetElement.type === "checkbox"
+  ) {
+    // the user interacted with the span that has the 'checkbox' class inside the label,
+    // this triggered the label's default behavior,
+    // which is linked to the checkbox input
+    updateTaskStatus(e);
+  } else if (targetElement.tagName.toLowerCase() === "label") {
+    // if the selected element is the label
+    e.stopPropagation();
+    e.preventDefault();
+  } else if (
+    targetElement.tagName.toLowerCase() === "span" &&
+    targetElement.classList.contains("task-name")
+  ) {
+    // if the selected element is the span with the class 'task-name',
+    // it should not update the task status but instead handle renaming the task.
+    // this is why e.preventDefault is used to stop the label's default behavior
+    // from triggering its associated checkbox input
+    e.stopPropagation();
     e.preventDefault();
     //rename
-  } else if (e.target.tagName.toLowerCase() === "input") {
-    updateTaskStatus(e);
-  } //else if (e.target.tagName.toLowerCase() === "span") {
-  // e.stopPropagation();
-  // e.preventDefault();
-  //}
+  }
 });
 
 tasksContainer.addEventListener("keydown", (e) => {
@@ -122,13 +147,23 @@ tasksContainer.addEventListener("keydown", (e) => {
 function updateTaskStatus(event) {
   const selectedList = getSelectedListById(selectedListId);
   const selectedTask = selectedList.tasks.find(
-    (task) => task.id === event.target.id
+    (task) =>
+      task.id ===
+      (event.target.id ||
+        event.target.querySelector("input[type='checkbox']").id)
   );
 
   if (event.type === "click") {
-    selectedTask.complete = event.target.checked;
+    if (
+      event.target.tagName.toLowerCase() === "div" &&
+      event.target.classList.contains("task")
+    ) {
+      selectedTask.complete = !selectedTask.complete;
+    } else {
+      selectedTask.complete = event.target.checked;
+    }
   } else if (event.type === "keydown" && event.key === "Enter") {
-    selectedTask.complete = !event.target.checked;
+    selectedTask.complete = !selectedTask.complete;
   }
 
   if (selectedTask.complete) {
@@ -278,7 +313,8 @@ function renderTasks(selectedList) {
     checkbox.checked = task.complete;
     const label = taskElement.querySelector("label");
     label.htmlFor = task.id;
-    label.append(task.name);
+    const taskNameSpan = label.querySelector("#task-name");
+    taskNameSpan.textContent = task.name;
     tasksContainer.appendChild(taskElement);
   });
 }
