@@ -236,7 +236,7 @@ newListForm.addEventListener("submit", (e) => {
 newTaskForm.addEventListener("submit", (e) => {
   e.preventDefault();
   const taskName = newTaskInput.value;
-  if (!taskName) return;
+  if (!isValidTaskName(taskName)) return;
   const task = createTask(taskName);
   newTaskInput.value = null;
   const selectedList = getSelectedListById(selectedListId);
@@ -440,6 +440,11 @@ function renameInputForList(listElement) {
 function isValidListName(listName) {
   listName = listName.trim();
   return !listName ? false : true;
+}
+
+function isValidTaskName(taskName) {
+  taskName = taskName.trim();
+  return !taskName ? false : true;
 }
 
 function getLocalStorageItem(key) {
