@@ -134,12 +134,17 @@ tasksContainer.addEventListener("click", (e) => {
     // from triggering its associated checkbox input
     e.stopPropagation();
     e.preventDefault();
-    //rename
+    const taskElementToRename = targetElement.parentElement.parentElement;
+    renameInputForTask(taskElementToRename);
   }
 });
 
 tasksContainer.addEventListener("keydown", (e) => {
-  if (e.key === "Enter" && e.target.tagName.toLowerCase() === "input") {
+  if (
+    e.key === "Enter" &&
+    e.target.tagName.toLowerCase() === "input" &&
+    e.target.type === "checkbox" // to prevent it from working when submitting with the Enter key during task renaming
+  ) {
     updateTaskStatus(e);
   }
 });
@@ -308,6 +313,8 @@ function renderTasks(selectedList) {
   sortedTasks.forEach((task) => {
     emptyStateTasks.style.display = "none";
     const taskElement = document.importNode(taskTemplate.content, true);
+    const taskDiv = taskElement.querySelector("[data-task-id]");
+    taskDiv.dataset.taskId = task.id;
     const checkbox = taskElement.querySelector("input");
     checkbox.id = task.id;
     checkbox.checked = task.complete;
@@ -410,12 +417,13 @@ function renameInputForList(listElement) {
   const renameInput = renameListForm.querySelector(
     "input[data-rename-list-input]"
   );
-  const listNameLenght = renameInput.value.length;
+  //const listNameLenght = renameInput.value.length;
 
   // renameInput.setSelectionRange(listNameLenght, listNameLenght);
   // renameInput.scrollLeft = renameInput.scrollWidth;
   renameInput.focus();
   renameInput.select();
+
   renameInput.addEventListener("keydown", (e) => {
     if (e.key === "Escape") {
       renameInput.blur();
@@ -440,6 +448,53 @@ function renameInputForList(listElement) {
 function isValidListName(listName) {
   listName = listName.trim();
   return !listName ? false : true;
+}
+
+function renameInputForTask(taskElement) {
+  const taskToRenameId = taskElement.dataset.taskId;
+  const taskNameElement = taskElement.querySelector("#task-name");
+  const renameTaskFormTemplate = `
+    <form action="" data-rename-task-form>
+      <input
+        type="text"
+        class="rename task"
+        data-rename-task-input
+        placeholder="${taskNameElement.innerText}"
+        value="${taskNameElement.innerText}"
+        aria-label="rename task name"
+      />
+    </form>
+  `;
+  taskElement.innerHTML = renameTaskFormTemplate;
+  const renameTaskForm = taskElement.querySelector("[data-rename-task-form]");
+  const renameTaskInput = renameTaskForm.querySelector(
+    "input[data-rename-task-input]"
+  );
+
+  renameTaskInput.focus();
+  renameTaskInput.select();
+
+  renameTaskInput.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") {
+      renameTaskInput.blur();
+    }
+  });
+
+  renameTaskForm.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const newTaskName = renameTaskInput.value;
+    if (!isValidTaskName(newTaskName)) return;
+    const selectedList = getSelectedListById(selectedListId);
+    const selectedTask = selectedList.tasks.find(
+      (task) => task.id === taskToRenameId
+    );
+    selectedTask.name = newTaskName;
+    saveAndRender();
+  });
+
+  renameTaskForm.addEventListener("focusout", () => {
+    render();
+  });
 }
 
 function isValidTaskName(taskName) {
