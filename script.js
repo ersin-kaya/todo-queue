@@ -93,24 +93,94 @@ function handleTouchForListRename(listContainer) {
 }
 handleTouchForListRename(listsContainer);
 
+// When we click on a <span> inside a <label>, it also triggers the <label>'s behavior.
+// The <label> has a special relationship with the <input>.
+// This means clicking on the <label> (or any child like <span>) activates the <input>.
+// stopPropagation() is used to stop the event from bubbling up to parent elements during the bubbling phase.
+// The bubbling phase is when the event moves from the child element (e.g., <span>) to its parent elements (e.g., <label>).
+// However, stopPropagation() does not stop the browser's default <label>-<input> behavior.
+// Capturing phase happens before bubbling, starting from the outermost element to the target element.
+// To prevent the <label>-<input> behavior, we must use preventDefault() to stop the browser's default action.
 tasksContainer.addEventListener("click", (e) => {
-  if (e.target.tagName.toLowerCase() === "input") {
-    const selectedList = getSelectedListById(selectedListId);
-    const selectedTask = selectedList.tasks.find(
-      (task) => task.id === e.target.id
-    );
-    selectedTask.complete = e.target.checked;
-    if (selectedTask.complete) {
-      selectedTask.completedDate = Date.now();
-    } else {
-      selectedTask.completedDate = null;
-      selectedTask.createdDate = Date.now();
+  const targetElement = e.target;
+  if (
+    targetElement.tagName.toLowerCase() === "div" &&
+    targetElement.classList.contains("task")
+  ) {
+    // if the selected element is the div with the class 'task'
+    const taskCheckbox = targetElement.querySelector("input[type='checkbox']");
+    if (taskCheckbox.type === "checkbox" && taskCheckbox.hasAttribute("id")) {
+      updateTaskStatus(e);
     }
-    saveAndRender();
-    renderTaskCount(selectedList);
-    setClearCompleteTasksButtonVisibility(selectedList);
+  } else if (
+    targetElement.tagName.toLowerCase() === "input" &&
+    targetElement.type === "checkbox"
+  ) {
+    // the user interacted with the span that has the 'checkbox' class inside the label,
+    // this triggered the label's default behavior,
+    // which is linked to the checkbox input
+    updateTaskStatus(e);
+  } else if (targetElement.tagName.toLowerCase() === "label") {
+    // if the selected element is the label
+    e.stopPropagation();
+    e.preventDefault();
+  } else if (
+    targetElement.tagName.toLowerCase() === "span" &&
+    targetElement.classList.contains("task-name")
+  ) {
+    // if the selected element is the span with the class 'task-name',
+    // it should not update the task status but instead handle renaming the task.
+    // this is why e.preventDefault is used to stop the label's default behavior
+    // from triggering its associated checkbox input
+    e.stopPropagation();
+    e.preventDefault();
+    const taskElementToRename = targetElement.parentElement.parentElement;
+    renameInputForTask(taskElementToRename);
   }
 });
+
+tasksContainer.addEventListener("keydown", (e) => {
+  if (
+    e.key === "Enter" &&
+    e.target.tagName.toLowerCase() === "input" &&
+    e.target.type === "checkbox" // to prevent it from working when submitting with the Enter key during task renaming
+  ) {
+    updateTaskStatus(e);
+  }
+});
+
+function updateTaskStatus(event) {
+  const selectedList = getSelectedListById(selectedListId);
+  const selectedTask = selectedList.tasks.find(
+    (task) =>
+      task.id ===
+      (event.target.id ||
+        event.target.querySelector("input[type='checkbox']").id)
+  );
+
+  if (event.type === "click") {
+    if (
+      event.target.tagName.toLowerCase() === "div" &&
+      event.target.classList.contains("task")
+    ) {
+      selectedTask.complete = !selectedTask.complete;
+    } else {
+      selectedTask.complete = event.target.checked;
+    }
+  } else if (event.type === "keydown" && event.key === "Enter") {
+    selectedTask.complete = !selectedTask.complete;
+  }
+
+  if (selectedTask.complete) {
+    selectedTask.completedDate = Date.now();
+  } else {
+    selectedTask.completedDate = null;
+    selectedTask.createdDate = Date.now();
+  }
+  saveAndRender();
+  renderTaskCount(selectedList);
+  setClearCompleteTasksButtonVisibility(selectedList);
+}
 
 // Event listeners are executed only when their corresponding event is triggered
 // therefore, they can reference functions or variables defined later in the code
@@ -171,7 +241,7 @@ newListForm.addEventListener("submit", (e) => {
 newTaskForm.addEventListener("submit", (e) => {
   e.preventDefault();
   const taskName = newTaskInput.value;
-  if (!taskName) return;
+  if (!isValidTaskName(taskName)) return;
   const task = createTask(taskName);
   newTaskInput.value = null;
   const selectedList = getSelectedListById(selectedListId);
@@ -243,12 +313,15 @@ function renderTasks(selectedList) {
   sortedTasks.forEach((task) => {
     emptyStateTasks.style.display = "none";
     const taskElement = document.importNode(taskTemplate.content, true);
+    const taskDiv = taskElement.querySelector("[data-task-id]");
+    taskDiv.dataset.taskId = task.id;
     const checkbox = taskElement.querySelector("input");
     checkbox.id = task.id;
     checkbox.checked = task.complete;
     const label = taskElement.querySelector("label");
     label.htmlFor = task.id;
-    label.append(task.name);
+    const taskNameSpan = label.querySelector("#task-name");
+    taskNameSpan.textContent = task.name;
     tasksContainer.appendChild(taskElement);
   });
 }
@@ -307,7 +380,7 @@ function renderLists() {
       renameListText.textContent =
         activeTranslations?.buttons?.rename?.forList || "Rename list";
     } else {
-      const listContainer = listElement.querySelector("#list-container");
+      const listContainer = listElement.querySelector("#list");
       const renameButton = listContainer.querySelector("#rename-list-text");
       listContainer.removeChild(renameButton);
     }
@@ -344,12 +417,13 @@ function renameInputForList(listElement) {
   const renameInput = renameListForm.querySelector(
     "input[data-rename-list-input]"
   );
-  const listNameLenght = renameInput.value.length;
+  //const listNameLenght = renameInput.value.length;
 
   // renameInput.setSelectionRange(listNameLenght, listNameLenght);
   // renameInput.scrollLeft = renameInput.scrollWidth;
   renameInput.focus();
   renameInput.select();
+
   renameInput.addEventListener("keydown", (e) => {
     if (e.key === "Escape") {
       renameInput.blur();
@@ -374,6 +448,58 @@ function renameInputForList(listElement) {
 function isValidListName(listName) {
   listName = listName.trim();
   return !listName ? false : true;
+}
+
+function renameInputForTask(taskElement) {
+  const taskToRenameId = taskElement.dataset.taskId;
+  const taskNameElement = taskElement.querySelector("#task-name");
+  const renameTaskFormTemplate = `
+    <form action="" data-rename-task-form>
+      <input
+        type="text"
+        class="rename task"
+        data-rename-task-input
+        placeholder="${taskNameElement.innerText}"
+        value="${taskNameElement.innerText}"
+        aria-label="rename task name"
+      />
+    </form>
+  `;
+  taskElement.innerHTML = renameTaskFormTemplate;
+  const renameTaskForm = taskElement.querySelector("[data-rename-task-form]");
+  const renameTaskInput = renameTaskForm.querySelector(
+    "input[data-rename-task-input]"
+  );
+
+  renameTaskInput.focus();
+  renameTaskInput.select();
+
+  renameTaskInput.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") {
+      renameTaskInput.blur();
+    }
+  });
+
+  renameTaskForm.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const newTaskName = renameTaskInput.value;
+    if (!isValidTaskName(newTaskName)) return;
+    const selectedList = getSelectedListById(selectedListId);
+    const selectedTask = selectedList.tasks.find(
+      (task) => task.id === taskToRenameId
+    );
+    selectedTask.name = newTaskName;
+    saveAndRender();
+  });
+
+  renameTaskForm.addEventListener("focusout", () => {
+    render();
+  });
+}
+
+function isValidTaskName(taskName) {
+  taskName = taskName.trim();
+  return !taskName ? false : true;
 }
 
 function getLocalStorageItem(key) {

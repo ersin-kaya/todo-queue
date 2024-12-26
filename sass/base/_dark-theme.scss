@@ -28,7 +28,7 @@ body[data-theme="dark"] {
     }
 
     .task-list {
-      .list-item {
+      .list-row {
         &.active-list {
           text-shadow: $all-tasks-active-text-shadow-dark-theme;
           border-bottom-color: $all-tasks-active-border-color-dark-theme;
@@ -79,6 +79,14 @@ body[data-theme="dark"] {
           [type="checkbox"] {
             &:checked + label {
               opacity: 0.8;
+            }
+          }
+
+          form[data-rename-task-form] {
+            input {
+              background-color: $todo-list-rename-task-input-background-color-dark-theme;
+              color: $todo-list-rename-task-input-text-color-dark-theme;
+              border-bottom-color: $todo-list-rename-task-input-border-color-dark-theme;
             }
           }
         }
