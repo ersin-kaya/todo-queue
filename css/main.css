@@ -538,10 +538,10 @@ body[data-theme=dark] .preferences-bar button {
 
 .checkbox {
   display: inline-block;
-  width: 0.75em;
-  height: 0.75em;
-  min-width: 0.75em;
-  margin-right: 0.75em;
+  width: 0.9em;
+  height: 0.9em;
+  min-width: 0.9em;
+  margin-right: 0.9em;
   cursor: pointer;
   border: 2px solid currentColor;
   border-radius: 50%;
