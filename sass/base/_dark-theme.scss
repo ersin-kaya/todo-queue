@@ -81,6 +81,14 @@ body[data-theme="dark"] {
               opacity: 0.8;
             }
           }
+
+          form[data-rename-task-form] {
+            input {
+              background-color: $todo-list-rename-task-input-background-color-dark-theme;
+              color: $todo-list-rename-task-input-text-color-dark-theme;
+              border-bottom-color: $todo-list-rename-task-input-border-color-dark-theme;
+            }
+          }
         }
       }
 

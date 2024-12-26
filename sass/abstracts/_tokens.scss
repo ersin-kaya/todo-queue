@@ -115,6 +115,10 @@ $todo-list-delete-buttons-color: $color-gray-700;
 $todo-list-delete-buttons-hover-color: $color-secondary;
 $todo-list-delete-buttons-font-weight: $font-weight-bold;
 
+$todo-list-rename-task-input-background-color: rgba(orange, 0.16);
+$todo-list-rename-task-input-text-color: $color-gray-700;
+$todo-list-rename-task-input-border-color: rgba(orangered, 0.5);
+
 // To-do list component - Dark theme
 $todo-list-background-color-dark-theme: $color-very-dark-teal;
 $todo-list-text-color-dark-theme: $color-gray-200;
@@ -122,6 +126,13 @@ $todo-list-text-color-dark-theme: $color-gray-200;
 $todo-list-header-background-color-dark-theme: $color-background-muted-dark-theme;
 
 $todo-list-delete-buttons-color-dark-theme: $color-gray-100;
+
+$todo-list-rename-task-input-background-color-dark-theme: $color-black;
+$todo-list-rename-task-input-text-color-dark-theme: $color-gray-200;
+$todo-list-rename-task-input-border-color-dark-theme: rgba(
+  $color-mint-green,
+  0.7
+);
 
 // Checkbox component
 $checkbox-size: 0.75em;

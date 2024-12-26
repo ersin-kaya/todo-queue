@@ -134,6 +134,23 @@
             }
           }
         }
+
+        form[data-rename-task-form] {
+          input {
+            background-color: $todo-list-rename-task-input-background-color;
+            color: $todo-list-rename-task-input-text-color;
+            border: none;
+            border-bottom: 3px solid $todo-list-rename-task-input-border-color;
+            border-radius: 4px;
+            width: 100%;
+            margin: 10px auto;
+            padding: 5px;
+
+            &:focus {
+              outline: none;
+            }
+          }
+        }
       }
     }
 

@@ -108,6 +108,11 @@ body[data-theme=dark] .todo-list .todo-body .empty-state.empty-state-tasks .empt
 body[data-theme=dark] .todo-list .todo-body .tasks .task [type=checkbox]:checked + label {
   opacity: 0.8;
 }
+body[data-theme=dark] .todo-list .todo-body .tasks .task form[data-rename-task-form] input {
+  background-color: #000000;
+  color: #e9ecef;
+  border-bottom-color: rgba(16, 185, 129, 0.7);
+}
 body[data-theme=dark] .todo-list .todo-body .new-task-creator form input[type=text].new {
   background: transparent;
   border: 0;
@@ -436,6 +441,19 @@ body[data-theme=dark] .preferences-bar button {
   opacity: 0.5;
   text-decoration: line-through;
   text-decoration-thickness: 2px;
+}
+.todo-list .todo-body .tasks .task form[data-rename-task-form] input {
+  background-color: rgba(255, 165, 0, 0.16);
+  color: #495057;
+  border: none;
+  border-bottom: 3px solid rgba(255, 69, 0, 0.5);
+  border-radius: 4px;
+  width: 100%;
+  margin: 10px auto;
+  padding: 5px;
+}
+.todo-list .todo-body .tasks .task form[data-rename-task-form] input:focus {
+  outline: none;
 }
 .todo-list .todo-body .new-task-creator form {
   display: flex;
