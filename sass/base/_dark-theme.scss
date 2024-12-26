@@ -28,7 +28,7 @@ body[data-theme="dark"] {
     }
 
     .task-list {
-      .list-item {
+      .list-row {
         &.active-list {
           text-shadow: $all-tasks-active-text-shadow-dark-theme;
           border-bottom-color: $all-tasks-active-border-color-dark-theme;
