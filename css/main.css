@@ -425,7 +425,7 @@ body[data-theme=dark] .preferences-bar button {
   display: inline-flex;
   flex-direction: row;
   justify-content: flex-start;
-  align-items: center;
+  align-items: flex-start;
 }
 .todo-list .todo-body .tasks .task [type=checkbox] {
   opacity: 0;
@@ -544,6 +544,7 @@ body[data-theme=dark] .preferences-bar button {
   width: 1.05em;
   height: 1.05em;
   min-width: 1.05em;
+  margin-top: 0.14em;
   margin-right: 1.05em;
   cursor: pointer;
   border: 2px solid currentColor;
@@ -553,14 +554,14 @@ body[data-theme=dark] .preferences-bar button {
 }
 @media screen and (max-width: 55em) {
   .checkbox {
-    width: 1.15em;
-    height: 1.15em;
+    width: 1.1em;
+    height: 1.1em;
   }
 }
 @media screen and (max-width: 30em) {
   .checkbox {
-    width: 1.22em;
-    height: 1.22em;
+    width: 1.15em;
+    height: 1.15em;
   }
 }
 

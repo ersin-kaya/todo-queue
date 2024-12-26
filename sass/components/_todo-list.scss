@@ -91,7 +91,7 @@
         }
 
         label {
-          @include layout($display: inline-flex, $align-items: center);
+          @include layout($display: inline-flex, $align-items: flex-start);
           // The animation was canceled due to the possibility of multi-line input, and text-decoration is being used
           // position: relative;
 
