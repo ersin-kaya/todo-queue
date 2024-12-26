@@ -103,18 +103,10 @@
 
       form[data-rename-list-form] {
         input {
+          @include rename-form-input;
           background-color: $all-tasks-rename-list-input-background-color;
           color: $all-tasks-rename-list-input-text-color;
-          border: none;
-          border-bottom: 3px solid $all-tasks-active-border-color;
-          border-radius: 4px;
-          width: 100%;
-          margin: 10px auto;
-          padding: 5px;
-
-          &:focus {
-            outline: none;
-          }
+          border-color: $all-tasks-active-border-color;
         }
       }
     }
