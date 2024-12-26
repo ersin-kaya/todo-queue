@@ -69,6 +69,7 @@ body[data-theme=dark] .all-tasks .task-list .list-row.active-list {
   text-shadow: rgba(245, 245, 245, 0.75) 0 0 1px;
   border-bottom-color: rgba(16, 185, 129, 0.7);
   border-top-color: rgba(16, 185, 129, 0.7);
+  background-color: #011011;
 }
 body[data-theme=dark] .all-tasks .task-list .list-row form[data-rename-list-form] input {
   background-color: #011011;
@@ -261,9 +262,10 @@ body[data-theme=dark] .preferences-bar button {
   border-bottom: 2px solid rgba(70, 143, 175, 0.7);
   border-top: 2px solid rgba(70, 143, 175, 0.7);
   border-radius: 5px;
+  background-color: #fff8d9;
 }
 .all-tasks .task-list .list-row.active-list .list {
-  padding: 10px 0px;
+  padding: 8px 0px;
   line-height: 1.3;
 }
 .all-tasks .task-list .list-row.active-list .list .rename-list-text {
@@ -423,7 +425,7 @@ body[data-theme=dark] .preferences-bar button {
   display: inline-flex;
   flex-direction: row;
   justify-content: flex-start;
-  align-items: center;
+  align-items: flex-start;
 }
 .todo-list .todo-body .tasks .task [type=checkbox] {
   opacity: 0;
@@ -538,15 +540,29 @@ body[data-theme=dark] .preferences-bar button {
 
 .checkbox {
   display: inline-block;
-  width: 0.75em;
-  height: 0.75em;
-  min-width: 0.75em;
-  margin-right: 0.75em;
+  flex-shrink: 0;
+  width: 1.05em;
+  height: 1.05em;
+  min-width: 1.05em;
+  margin-top: 0.14em;
+  margin-right: 1.05em;
   cursor: pointer;
   border: 2px solid currentColor;
   border-radius: 50%;
   transform: scale(1);
   transition: transform 250ms ease-in-out;
+}
+@media screen and (max-width: 55em) {
+  .checkbox {
+    width: 1.1em;
+    height: 1.1em;
+  }
+}
+@media screen and (max-width: 30em) {
+  .checkbox {
+    width: 1.15em;
+    height: 1.15em;
+  }
 }
 
 .preferences-bar {

@@ -2,13 +2,25 @@
 
 .checkbox {
   display: inline-block;
+  flex-shrink: 0;
   width: $checkbox-size;
   height: $checkbox-size;
   min-width: $checkbox-size;
+  margin-top: $checkbox-size / 7.5;
   margin-right: $checkbox-size;
   cursor: pointer;
   border: 2px solid currentColor;
   border-radius: 50%;
   transform: scale(1);
   transition: transform 250ms ease-in-out;
+
+  @include mq(medium) {
+    width: $checkbox-size-medium-screens;
+    height: $checkbox-size-medium-screens;
+  }
+
+  @include mq(extra-small) {
+    width: $checkbox-size-extra-small-screens;
+    height: $checkbox-size-extra-small-screens;
+  }
 }

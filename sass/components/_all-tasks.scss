@@ -82,9 +82,10 @@
         border-bottom: $all-tasks-active-border;
         border-top: $all-tasks-active-border;
         border-radius: 5px;
+        background-color: $all-tasks-active-background-color;
 
         .list {
-          padding: 10px 0px;
+          padding: 8px 0px;
           line-height: 1.3;
 
           .rename-list-text {

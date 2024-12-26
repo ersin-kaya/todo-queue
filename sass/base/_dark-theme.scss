@@ -33,6 +33,7 @@ body[data-theme="dark"] {
           text-shadow: $all-tasks-active-text-shadow-dark-theme;
           border-bottom-color: $all-tasks-active-border-color-dark-theme;
           border-top-color: $all-tasks-active-border-color-dark-theme;
+          background-color: $all-tasks-active-background-color-dark-theme;
         }
 
         form[data-rename-list-form] {

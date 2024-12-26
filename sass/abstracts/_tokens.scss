@@ -72,6 +72,7 @@ $all-tasks-font-size: $font-size-400;
 $all-tasks-active-font-weight: $font-weight-bold;
 $all-tasks-active-border-color: rgba($color-steel-blue, 0.7);
 $all-tasks-active-border: 2px solid $all-tasks-active-border-color;
+$all-tasks-active-background-color: $color-muted-gold;
 
 $all-tasks-title-font-size: $font-size-700;
 $all-tasks-title-font-weight: $font-weight-bold;
@@ -92,6 +93,7 @@ $all-tasks-task-list-title-box-shadow-dark-theme: rgba(255, 255, 255, 0.13) 0px
 $all-tasks-active-text-shadow-dark-theme: rgba(245, 245, 245, 0.75) 0 0 1px;
 
 $all-tasks-active-border-color-dark-theme: rgba($color-mint-green, 0.7);
+$all-tasks-active-background-color-dark-theme: $color-very-dark-teal;
 
 $all-tasks-rename-list-input-background-color-dark-theme: $color-very-dark-teal;
 $all-tasks-rename-list-input-text-color-dark-theme: $color-gray-100;
@@ -135,9 +137,12 @@ $todo-list-rename-task-input-border-color-dark-theme: rgba(
 );
 
 // Checkbox component
-$checkbox-size: 0.75em;
+$checkbox-size: 1.05em;
 $checkbox-color-primary: $color-primary;
 $checkbox-color-secondary: $color-white;
+
+$checkbox-size-medium-screens: 1.1em;
+$checkbox-size-extra-small-screens: 1.15em;
 
 // Preferences bar component
 $preferences-bar-background-color: $color-background-muted;
