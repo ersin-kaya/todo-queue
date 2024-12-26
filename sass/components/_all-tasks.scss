@@ -43,7 +43,7 @@
     .list-item {
       margin: 10px auto;
 
-      .list-container {
+      .list {
         display: flex;
         justify-content: space-between;
         align-items: center;
@@ -83,7 +83,7 @@
         border-top: $all-tasks-active-border;
         border-radius: 5px;
 
-        .list-container {
+        .list {
           padding: 10px 0px;
           line-height: 1.3;
 

@@ -380,7 +380,7 @@ function renderLists() {
       renameListText.textContent =
         activeTranslations?.buttons?.rename?.forList || "Rename list";
     } else {
-      const listContainer = listElement.querySelector("#list-container");
+      const listContainer = listElement.querySelector("#list");
       const renameButton = listContainer.querySelector("#rename-list-text");
       listContainer.removeChild(renameButton);
     }
