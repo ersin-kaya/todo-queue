@@ -137,9 +137,12 @@ $todo-list-rename-task-input-border-color-dark-theme: rgba(
 );
 
 // Checkbox component
-$checkbox-size: 0.9em;
+$checkbox-size: 1.05em;
 $checkbox-color-primary: $color-primary;
 $checkbox-color-secondary: $color-white;
+
+$checkbox-size-medium-screens: 1.15em;
+$checkbox-size-extra-small-screens: 1.22em;
 
 // Preferences bar component
 $preferences-bar-background-color: $color-background-muted;

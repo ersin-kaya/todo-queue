@@ -540,15 +540,27 @@ body[data-theme=dark] .preferences-bar button {
 
 .checkbox {
   display: inline-block;
-  width: 0.9em;
-  height: 0.9em;
-  min-width: 0.9em;
-  margin-right: 0.9em;
+  width: 1.05em;
+  height: 1.05em;
+  min-width: 1.05em;
+  margin-right: 1.05em;
   cursor: pointer;
   border: 2px solid currentColor;
   border-radius: 50%;
   transform: scale(1);
   transition: transform 250ms ease-in-out;
+}
+@media screen and (max-width: 55em) {
+  .checkbox {
+    width: 1.15em;
+    height: 1.15em;
+  }
+}
+@media screen and (max-width: 30em) {
+  .checkbox {
+    width: 1.22em;
+    height: 1.22em;
+  }
 }
 
 .preferences-bar {
