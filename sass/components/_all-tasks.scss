@@ -102,7 +102,7 @@
       }
 
       form[data-rename-list-form] {
-        input {
+        input[data-rename-list-input] {
           @include rename-form-input;
           background-color: $all-tasks-rename-list-input-background-color;
           color: $all-tasks-rename-list-input-text-color;

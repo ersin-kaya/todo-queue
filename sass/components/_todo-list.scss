@@ -136,7 +136,7 @@
         }
 
         form[data-rename-task-form] {
-          input {
+          input[data-rename-task-input] {
             @include rename-form-input;
             background-color: $todo-list-rename-task-input-background-color;
             color: $todo-list-rename-task-input-text-color;

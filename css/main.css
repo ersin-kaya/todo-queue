@@ -278,18 +278,18 @@ body[data-theme=dark] .preferences-bar button {
     display: none;
   }
 }
-.all-tasks .task-list .list-row form[data-rename-list-form] input {
+.all-tasks .task-list .list-row form[data-rename-list-form] input[data-rename-list-input] {
   border: none;
   border-bottom: 3px solid;
   border-radius: 4px;
   width: 100%;
   margin: 10px auto;
-  padding: 5px;
+  padding: 7px 5px;
   background-color: #dee2e6;
   color: #343a40;
   border-color: rgba(70, 143, 175, 0.7);
 }
-.all-tasks .task-list .list-row form[data-rename-list-form] input:focus {
+.all-tasks .task-list .list-row form[data-rename-list-form] input[data-rename-list-input]:focus {
   outline: none;
 }
 .all-tasks .new-task-list-creator form {
@@ -443,18 +443,18 @@ body[data-theme=dark] .preferences-bar button {
   text-decoration: line-through;
   text-decoration-thickness: 2px;
 }
-.todo-list .todo-body .tasks .task form[data-rename-task-form] input {
+.todo-list .todo-body .tasks .task form[data-rename-task-form] input[data-rename-task-input] {
   border: none;
   border-bottom: 3px solid;
   border-radius: 4px;
   width: 100%;
   margin: 10px auto;
-  padding: 5px;
+  padding: 7px 5px;
   background-color: rgba(255, 165, 0, 0.16);
   color: #495057;
   border-color: rgba(255, 69, 0, 0.5);
 }
-.todo-list .todo-body .tasks .task form[data-rename-task-form] input:focus {
+.todo-list .todo-body .tasks .task form[data-rename-task-form] input[data-rename-task-input]:focus {
   outline: none;
 }
 .todo-list .todo-body .new-task-creator form {
