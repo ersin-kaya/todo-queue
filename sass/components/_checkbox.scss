@@ -2,6 +2,7 @@
 
 .checkbox {
   display: inline-block;
+  flex-shrink: 0;
   width: $checkbox-size;
   height: $checkbox-size;
   min-width: $checkbox-size;

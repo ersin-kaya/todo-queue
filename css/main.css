@@ -540,6 +540,7 @@ body[data-theme=dark] .preferences-bar button {
 
 .checkbox {
   display: inline-block;
+  flex-shrink: 0;
   width: 1.05em;
   height: 1.05em;
   min-width: 1.05em;
