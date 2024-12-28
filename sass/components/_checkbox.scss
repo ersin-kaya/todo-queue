@@ -1,3 +1,4 @@
+@use "sass:math";
 @use "../abstracts/" as *;
 
 .checkbox {
@@ -6,7 +7,7 @@
   width: $checkbox-size;
   height: $checkbox-size;
   min-width: $checkbox-size;
-  margin-top: $checkbox-size / 7.5;
+  margin-top: math.div($checkbox-size, 7.5);
   margin-right: $checkbox-size;
   cursor: pointer;
   border: 2px solid currentColor;

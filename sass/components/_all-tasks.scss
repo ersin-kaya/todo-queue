@@ -61,6 +61,10 @@
           overflow: hidden;
           text-overflow: ellipsis;
 
+          @include mq(small) {
+            white-space: normal;
+          }
+
           &:hover {
             opacity: 0.8;
           }
