@@ -136,11 +136,14 @@
         }
 
         form[data-rename-task-form] {
-          input[data-rename-task-input] {
+          textarea[data-rename-task-input] {
             @include rename-form-input;
             background-color: $todo-list-rename-task-input-background-color;
             color: $todo-list-rename-task-input-text-color;
             border-color: $todo-list-rename-task-input-border-color;
+
+            resize: none;
+            overflow: hidden;
           }
         }
       }

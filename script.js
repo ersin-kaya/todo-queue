@@ -455,24 +455,40 @@ function renameInputForTask(taskElement) {
   const taskNameElement = taskElement.querySelector("#task-name");
   const renameTaskFormTemplate = `
     <form action="" data-rename-task-form>
-      <input
-        type="text"
+      <textarea 
         class="rename task"
         data-rename-task-input
         placeholder="${taskNameElement.innerText}"
-        value="${taskNameElement.innerText}"
         aria-label="rename task name"
-      />
+      >${taskNameElement.innerText}</textarea>
     </form>
   `;
   taskElement.innerHTML = renameTaskFormTemplate;
   const renameTaskForm = taskElement.querySelector("[data-rename-task-form]");
   const renameTaskInput = renameTaskForm.querySelector(
-    "input[data-rename-task-input]"
+    "textarea[data-rename-task-input]"
   );
 
   renameTaskInput.focus();
   renameTaskInput.select();
+
+  // on focus, adjustInputHeight is called directly (immediate execution)
+  // on input, a callback ensures adjustInputHeight runs only when the event triggers
+  renameTaskInput.addEventListener("focus", adjustInputHeight());
+  renameTaskInput.addEventListener("input", () => adjustInputHeight());
+
+  function adjustInputHeight() {
+    renameTaskInput.style.height = "auto";
+    renameTaskInput.style.height = `${renameTaskInput.scrollHeight}px`;
+  }
+
+  renameTaskInput.addEventListener("keydown", (e) => {
+    if (e.key === "Enter") {
+      e.preventDefault();
+      const newTaskName = renameTaskInput.value;
+      handleTaskRename(newTaskName, selectedListId, taskToRenameId);
+    }
+  });
 
   renameTaskInput.addEventListener("keydown", (e) => {
     if (e.key === "Escape") {
@@ -483,18 +499,22 @@ function renameInputForTask(taskElement) {
   renameTaskForm.addEventListener("submit", (e) => {
     e.preventDefault();
     const newTaskName = renameTaskInput.value;
-    if (!isValidTaskName(newTaskName)) return;
-    const selectedList = getSelectedListById(selectedListId);
-    const selectedTask = selectedList.tasks.find(
-      (task) => task.id === taskToRenameId
-    );
-    selectedTask.name = newTaskName;
-    saveAndRender();
+    handleTaskRename(newTaskName, selectedListId, taskToRenameId);
   });
 
   renameTaskForm.addEventListener("focusout", () => {
     render();
   });
+}
+
+function handleTaskRename(newTaskName, selectedListId, taskToRenameId) {
+  if (!isValidTaskName(newTaskName)) return;
+  const selectedList = getSelectedListById(selectedListId);
+  const selectedTask = selectedList.tasks.find(
+    (task) => task.id === taskToRenameId
+  );
+  selectedTask.name = newTaskName;
+  saveAndRender();
 }
 
 function isValidTaskName(taskName) {

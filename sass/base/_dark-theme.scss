@@ -84,7 +84,7 @@ body[data-theme="dark"] {
           }
 
           form[data-rename-task-form] {
-            input {
+            textarea {
               background-color: $todo-list-rename-task-input-background-color-dark-theme;
               color: $todo-list-rename-task-input-text-color-dark-theme;
               border-bottom-color: $todo-list-rename-task-input-border-color-dark-theme;
