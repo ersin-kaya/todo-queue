@@ -472,6 +472,16 @@ function renameInputForTask(taskElement) {
   renameTaskInput.focus();
   renameTaskInput.select();
 
+  // on focus, adjustInputHeight is called directly (immediate execution)
+  // on input, a callback ensures adjustInputHeight runs only when the event triggers
+  renameTaskInput.addEventListener("focus", adjustInputHeight());
+  renameTaskInput.addEventListener("input", () => adjustInputHeight());
+
+  function adjustInputHeight() {
+    renameTaskInput.style.height = "auto";
+    renameTaskInput.style.height = `${renameTaskInput.scrollHeight}px`;
+  }
+
   renameTaskInput.addEventListener("keydown", (e) => {
     if (e.key === "Enter") {
       e.preventDefault();
