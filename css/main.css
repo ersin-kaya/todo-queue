@@ -246,6 +246,11 @@ body[data-theme=dark] .preferences-bar button {
   overflow: hidden;
   text-overflow: ellipsis;
 }
+@media screen and (max-width: 40em) {
+  .all-tasks .task-list .list-row .list .list-name {
+    white-space: normal;
+  }
+}
 .all-tasks .task-list .list-row .list .list-name:hover {
   opacity: 0.8;
 }
