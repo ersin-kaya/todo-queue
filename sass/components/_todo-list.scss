@@ -35,11 +35,20 @@
       @include mq(small) {
         font-size: $todo-list-title-font-size-small-screens;
       }
+
+      @include mq(extra-small) {
+        font-size: $todo-list-title-font-size-extra-small-screens;
+      }
     }
 
     .task-count {
       font-size: $todo-list-task-count-font-size;
       text-align: right;
+      min-width: 65px;
+
+      @include mq(extra-small) {
+        font-size: $todo-list-task-count-font-size-extra-small-screens;
+      }
     }
   }
 

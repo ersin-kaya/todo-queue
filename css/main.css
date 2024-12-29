@@ -379,9 +379,20 @@ body[data-theme=dark] .preferences-bar button {
     font-size: 1.4125rem;
   }
 }
+@media screen and (max-width: 30em) {
+  .todo-list .todo-header .list-title {
+    font-size: 1.125rem;
+  }
+}
 .todo-list .todo-header .task-count {
   font-size: 0.925rem;
   text-align: right;
+  min-width: 65px;
+}
+@media screen and (max-width: 30em) {
+  .todo-list .todo-header .task-count {
+    font-size: 0.875rem;
+  }
 }
 .todo-list .todo-body {
   padding: 2rem;
