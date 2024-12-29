@@ -61,11 +61,12 @@ $title-box-shadow: rgba($color-mauve-taupe, 0.1) 0px 5px,
 
 // Title component - Dark theme
 $title-background-color-dark-theme: $body-background-color-dark-theme;
-$title-box-shadow-dark-theme: rgba($color-steel-blue, 0.1) 0px 5px,
-  rgba($color-steel-blue, 0.1) 0px 10px, rgba($color-steel-blue, 0.05) 0px 15px,
-  rgba($color-steel-blue, 0.08) 0px 20px, rgba($color-steel-blue, 0.03) 0px 25px;
+$title-box-shadow-dark-theme: rgba($color-deep-navy, 0.3) 0px 5px,
+  rgba($color-deep-navy, 0.25) 0px 10px, rgba($color-deep-navy, 0.2) 0px 15px,
+  rgba($color-deep-navy, 0.15) 0px 20px, rgba($color-deep-navy, 0.1) 0px 25px;
 
 // All tasks component
+$all-tasks-background-color: $color-alabaster;
 $all-tasks-box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px,
   rgba(27, 31, 35, 0.15) 0px 0px 0px 2px;
 
@@ -75,7 +76,7 @@ $all-tasks-font-size: $font-size-400;
 $all-tasks-active-font-weight: $font-weight-bold;
 $all-tasks-active-border-color: rgba($color-steel-blue, 0.7);
 $all-tasks-active-border: 2px solid $all-tasks-active-border-color;
-$all-tasks-active-background-color: $color-muted-gold;
+$all-tasks-active-background-color: rgba($color-muted-gold, 0.3);
 
 $all-tasks-title-font-size: $font-size-700;
 $all-tasks-title-font-weight: $font-weight-bold;
@@ -84,10 +85,11 @@ $all-tasks-title-font-size-extra-small-screens: $font-size-600;
 
 $all-tasks-active-text-shadow: slategray 0 0 1px;
 
-$all-tasks-rename-list-input-background-color: $color-gray-300;
+$all-tasks-rename-list-input-background-color: #ffebc6;
 $all-tasks-rename-list-input-text-color: $color-gray-800;
 
 // All tasks component - Dark theme
+$all-tasks-background-color-dark-theme: $color-deep-midnight;
 $all-tasks-box-shadow-dark-theme: rgba(235, 235, 235, 0.02) 0px 1px 3px 0px,
   rgba(255, 255, 255, 0.15) 0px 0px 0px 2px;
 
@@ -95,15 +97,15 @@ $all-tasks-task-list-title-box-shadow-dark-theme: rgba(255, 255, 255, 0.13) 0px
   3px 1px 0px;
 $all-tasks-active-text-shadow-dark-theme: rgba(245, 245, 245, 0.75) 0 0 1px;
 
-$all-tasks-active-border-color-dark-theme: rgba($color-mint-green, 0.7);
-$all-tasks-active-background-color-dark-theme: $color-very-dark-teal;
+$all-tasks-active-border-color-dark-theme: rgba($color-mint-green, 0.5);
+$all-tasks-active-background-color-dark-theme: rgba($color-very-dark-teal, 0.6);
 
-$all-tasks-rename-list-input-background-color-dark-theme: $color-very-dark-teal;
+$all-tasks-rename-list-input-background-color-dark-theme: $color-deep-navy;
 $all-tasks-rename-list-input-text-color-dark-theme: $color-gray-100;
 
 // To-do list component
 $todo-list-font-size: $font-size-400;
-$todo-list-background-color: $color-muted-gold;
+$todo-list-background-color: rgba($color-muted-gold, 0.6);
 $todo-list-text-color: $body-text-color;
 
 $todo-list-spacer: 2rem;
@@ -122,24 +124,19 @@ $todo-list-delete-buttons-color: $color-gray-700;
 $todo-list-delete-buttons-hover-color: $color-secondary;
 $todo-list-delete-buttons-font-weight: $font-weight-bold;
 
-$todo-list-rename-task-input-background-color: rgba(orange, 0.16);
+$todo-list-rename-task-input-background-color: rgba(orange, 0.2);
 $todo-list-rename-task-input-text-color: $color-gray-700;
-$todo-list-rename-task-input-border-color: rgba(orangered, 0.5);
 
 // To-do list component - Dark theme
-$todo-list-background-color-dark-theme: $color-very-dark-teal;
+$todo-list-background-color-dark-theme: rgba($color-very-dark-teal, 0.9);
 $todo-list-text-color-dark-theme: $color-gray-200;
 
-$todo-list-header-background-color-dark-theme: $color-background-muted-dark-theme;
+$todo-list-header-background-color-dark-theme: $color-deep-midnight;
 
 $todo-list-delete-buttons-color-dark-theme: $color-gray-100;
 
-$todo-list-rename-task-input-background-color-dark-theme: $color-black;
-$todo-list-rename-task-input-text-color-dark-theme: $color-gray-200;
-$todo-list-rename-task-input-border-color-dark-theme: rgba(
-  $color-mint-green,
-  0.7
-);
+$todo-list-rename-task-input-background-color-dark-theme: $color-prussian-blue;
+$todo-list-rename-task-input-text-color-dark-theme: $color-gray-100;
 
 // Checkbox component
 $checkbox-size: 1.05em;
@@ -160,7 +157,7 @@ $preferences-bar-border-color: rgba(6, 24, 44, 0.25);
 $preferences-bar-border: 2px solid $preferences-bar-border-color;
 
 // Preferences bar component - Dark theme
-$preferences-bar-background-color-dark-theme: $color-background-muted-dark-theme;
+$preferences-bar-background-color-dark-theme: $color-deep-midnight;
 $preferences-bar-button-color-dark-theme: $color-black;
 $preferences-bar-button-background-color-dark-theme: $color-gray-100;
 

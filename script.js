@@ -404,6 +404,7 @@ function renameInputForList(listElement) {
     <form action="" data-rename-list-form>
       <input
         type="text"
+        spellcheck="false"
         class="rename list"
         data-rename-list-input
         placeholder="${listNameElement.innerText}"
@@ -456,6 +457,7 @@ function renameInputForTask(taskElement) {
   const renameTaskFormTemplate = `
     <form action="" data-rename-task-form>
       <textarea 
+        spellcheck="false"
         class="rename task"
         data-rename-task-input
         placeholder="${taskNameElement.innerText}"

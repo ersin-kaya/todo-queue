@@ -2,6 +2,7 @@
 
 .all-tasks {
   grid-area: lists;
+  background-color: $all-tasks-background-color;
   padding: 10px;
   border-radius: 5px;
   box-shadow: $all-tasks-box-shadow;
@@ -111,7 +112,11 @@
           @include rename-form-input;
           background-color: $all-tasks-rename-list-input-background-color;
           color: $all-tasks-rename-list-input-text-color;
-          border-color: $all-tasks-active-border-color;
+
+          &::selection {
+            color: #3a506b;
+            background-color: #fdfcdc;
+          }
         }
       }
     }
