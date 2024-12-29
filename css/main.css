@@ -23,7 +23,7 @@ body {
   font-weight: 400;
   font-size: 1.125rem;
   color: #444444;
-  background-color: #fbfbf2;
+  background-color: #f5f5f5;
   line-height: 1.5;
   min-height: 100dvh;
   word-break: break-word;
@@ -49,14 +49,15 @@ body {
 
 body[data-theme=dark] {
   color: #d5d5d5;
-  background-color: #141a21;
+  background-color: #000000;
 }
 body[data-theme=dark] .title {
   color: #ced4da;
-  background-color: #111827;
-  box-shadow: rgba(70, 130, 180, 0.1) 0px 5px, rgba(70, 130, 180, 0.08) 0px 10px, rgba(70, 130, 180, 0.06) 0px 15px, rgba(70, 130, 180, 0.04) 0px 20px, rgba(70, 130, 180, 0.02) 0px 25px;
+  background-color: #000000;
+  box-shadow: rgba(17, 29, 74, 0.3) 0px 5px, rgba(17, 29, 74, 0.25) 0px 10px, rgba(17, 29, 74, 0.2) 0px 15px, rgba(17, 29, 74, 0.15) 0px 20px, rgba(17, 29, 74, 0.1) 0px 25px;
 }
 body[data-theme=dark] .all-tasks {
+  background-color: #10101b;
   box-shadow: rgba(235, 235, 235, 0.02) 0px 1px 3px 0px, rgba(255, 255, 255, 0.15) 0px 0px 0px 2px;
 }
 body[data-theme=dark] .all-tasks .task-list-title {
@@ -67,14 +68,13 @@ body[data-theme=dark] .all-tasks .empty-state.empty-state-lists .empty-state-lis
 }
 body[data-theme=dark] .all-tasks .task-list .list-row.active-list {
   text-shadow: rgba(245, 245, 245, 0.75) 0 0 1px;
-  border-bottom-color: rgba(16, 185, 129, 0.7);
-  border-top-color: rgba(16, 185, 129, 0.7);
-  background-color: #011011;
+  border-bottom-color: rgba(16, 185, 129, 0.5);
+  border-top-color: rgba(16, 185, 129, 0.5);
+  background-color: rgba(1, 16, 17, 0.6);
 }
 body[data-theme=dark] .all-tasks .task-list .list-row form[data-rename-list-form] input {
-  background-color: #011011;
+  background-color: #111d4a;
   color: #f8f9fa;
-  border-bottom-color: rgba(16, 185, 129, 0.7);
 }
 body[data-theme=dark] .all-tasks .new-task-list-creator form input[type=text].new {
   background: transparent;
@@ -95,12 +95,12 @@ body[data-theme=dark] .all-tasks .new-task-list-creator form input[type=text].ne
   opacity: 0.4;
 }
 body[data-theme=dark] .todo-list {
-  background: #011011;
+  background: rgba(1, 16, 17, 0.9);
   color: #e9ecef;
   box-shadow: rgba(255, 255, 255, 0.07) 0px 2px 2px;
 }
 body[data-theme=dark] .todo-list .todo-header {
-  background-color: #1e2a35;
+  background-color: #10101b;
   box-shadow: rgba(255, 245, 244, 0.3) 0px 0px 0px 2px, rgba(255, 245, 244, 0.35) 0px 4px 0px -1px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
 }
 body[data-theme=dark] .todo-list .todo-body .empty-state.empty-state-tasks .empty-state-tasks-message {
@@ -110,9 +110,8 @@ body[data-theme=dark] .todo-list .todo-body .tasks .task [type=checkbox]:checked
   opacity: 0.8;
 }
 body[data-theme=dark] .todo-list .todo-body .tasks .task form[data-rename-task-form] textarea {
-  background-color: #000000;
-  color: #e9ecef;
-  border-bottom-color: rgba(16, 185, 129, 0.7);
+  background-color: #003049;
+  color: #f8f9fa;
 }
 body[data-theme=dark] .todo-list .todo-body .new-task-creator form input[type=text].new {
   background: transparent;
@@ -146,7 +145,7 @@ body[data-theme=dark] .todo-list .todo-body .delete-stuff .btn.delete:hover {
   color: #e74c3c;
 }
 body[data-theme=dark] .preferences-bar {
-  background-color: #1e2a35;
+  background-color: #10101b;
   border-top: 2px solid rgba(128, 128, 128, 0.2);
   border-bottom: 2px solid rgba(128, 128, 128, 0.2);
 }
@@ -157,15 +156,15 @@ body[data-theme=dark] .preferences-bar button {
 
 .title {
   grid-area: header;
-  background-color: rgba(70, 143, 175, 0.9);
+  background-color: #f5f5f5;
   font-family: "Poppins", serif;
   font-size: calc(4vw + 1.875rem);
   font-weight: 700;
-  color: #fff8d9;
+  color: #6c6f83;
   text-align: center;
   letter-spacing: 1px;
   margin: -0.15em 0 1em;
-  box-shadow: rgba(255, 183, 120, 0.3) 0px 5px, rgba(255, 183, 120, 0.2) 0px 10px, rgba(255, 183, 120, 0.15) 0px 15px, rgba(255, 183, 120, 0.1) 0px 20px, rgba(255, 183, 120, 0.05) 0px 25px;
+  box-shadow: rgba(154, 140, 152, 0.1) 0px 5px, rgba(154, 140, 152, 0.1) 0px 10px, rgba(154, 140, 152, 0.05) 0px 15px, rgba(154, 140, 152, 0.08) 0px 20px, rgba(154, 140, 152, 0.03) 0px 25px;
 }
 @media screen and (max-width: 55em) {
   .title {
@@ -189,6 +188,7 @@ body[data-theme=dark] .preferences-bar button {
 
 .all-tasks {
   grid-area: lists;
+  background-color: #fafafa;
   padding: 10px;
   border-radius: 5px;
   box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 2px;
@@ -267,7 +267,7 @@ body[data-theme=dark] .preferences-bar button {
   border-bottom: 2px solid rgba(70, 143, 175, 0.7);
   border-top: 2px solid rgba(70, 143, 175, 0.7);
   border-radius: 5px;
-  background-color: #fff8d9;
+  background-color: rgba(255, 248, 217, 0.3);
 }
 .all-tasks .task-list .list-row.active-list .list {
   padding: 8px 0px;
@@ -287,17 +287,19 @@ body[data-theme=dark] .preferences-bar button {
 }
 .all-tasks .task-list .list-row form[data-rename-list-form] input[data-rename-list-input] {
   border: none;
-  border-bottom: 3px solid;
   border-radius: 4px;
   width: 100%;
   margin: 10px auto;
   padding: 7px 5px;
-  background-color: #dee2e6;
+  background-color: #ffebc6;
   color: #343a40;
-  border-color: rgba(70, 143, 175, 0.7);
 }
 .all-tasks .task-list .list-row form[data-rename-list-form] input[data-rename-list-input]:focus {
   outline: none;
+}
+.all-tasks .task-list .list-row form[data-rename-list-form] input[data-rename-list-input]::selection {
+  color: #3a506b;
+  background-color: #fdfcdc;
 }
 .all-tasks .new-task-list-creator form {
   display: flex;
@@ -345,7 +347,7 @@ body[data-theme=dark] .preferences-bar button {
 
 .todo-list {
   grid-area: active;
-  background: #fff8d9;
+  background: rgba(255, 248, 217, 0.6);
   color: #444444;
   box-shadow: rgba(0, 0, 0, 0.14) 0px 2px 2px;
 }
@@ -379,9 +381,25 @@ body[data-theme=dark] .preferences-bar button {
     font-size: 1.4125rem;
   }
 }
+@media screen and (max-width: 30em) {
+  .todo-list .todo-header .list-title {
+    font-size: 1.125rem;
+  }
+}
 .todo-list .todo-header .task-count {
   font-size: 0.925rem;
-  text-align: right;
+  font-weight: 700;
+  text-align: center;
+  min-width: 85px;
+  padding: 5px;
+  border-radius: 8px;
+  border: 2px solid;
+  opacity: 0.7;
+}
+@media screen and (max-width: 30em) {
+  .todo-list .todo-header .task-count {
+    font-size: 0.875rem;
+  }
 }
 .todo-list .todo-body {
   padding: 2rem;
@@ -452,19 +470,21 @@ body[data-theme=dark] .preferences-bar button {
 }
 .todo-list .todo-body .tasks .task form[data-rename-task-form] textarea[data-rename-task-input] {
   border: none;
-  border-bottom: 3px solid;
   border-radius: 4px;
   width: 100%;
   margin: 10px auto;
   padding: 7px 5px;
-  background-color: rgba(255, 165, 0, 0.16);
+  background-color: rgba(255, 165, 0, 0.2);
   color: #495057;
-  border-color: rgba(255, 69, 0, 0.5);
   resize: none;
   overflow: hidden;
 }
 .todo-list .todo-body .tasks .task form[data-rename-task-form] textarea[data-rename-task-input]:focus {
   outline: none;
+}
+.todo-list .todo-body .tasks .task form[data-rename-task-form] textarea[data-rename-task-input]::selection {
+  color: #ffffff;
+  background-color: #aaa1c8;
 }
 .todo-list .todo-body .new-task-creator form {
   display: flex;
@@ -513,7 +533,7 @@ body[data-theme=dark] .preferences-bar button {
 .todo-list .todo-body .delete-stuff {
   display: flex;
   flex-direction: row;
-  justify-content: space-evenly;
+  justify-content: space-around;
   align-items: stretch;
   position: absolute;
   width: 100%;

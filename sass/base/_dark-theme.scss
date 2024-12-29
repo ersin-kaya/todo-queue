@@ -13,6 +13,7 @@ body[data-theme="dark"] {
 
   // All tasks component
   .all-tasks {
+    background-color: $all-tasks-background-color-dark-theme;
     box-shadow: $all-tasks-box-shadow-dark-theme;
 
     .task-list-title {
@@ -40,7 +41,6 @@ body[data-theme="dark"] {
           input {
             background-color: $all-tasks-rename-list-input-background-color-dark-theme;
             color: $all-tasks-rename-list-input-text-color-dark-theme;
-            border-bottom-color: $all-tasks-active-border-color-dark-theme;
           }
         }
       }
@@ -87,7 +87,6 @@ body[data-theme="dark"] {
             textarea {
               background-color: $todo-list-rename-task-input-background-color-dark-theme;
               color: $todo-list-rename-task-input-text-color-dark-theme;
-              border-bottom-color: $todo-list-rename-task-input-border-color-dark-theme;
             }
           }
         }

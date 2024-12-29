@@ -35,11 +35,25 @@
       @include mq(small) {
         font-size: $todo-list-title-font-size-small-screens;
       }
+
+      @include mq(extra-small) {
+        font-size: $todo-list-title-font-size-extra-small-screens;
+      }
     }
 
     .task-count {
       font-size: $todo-list-task-count-font-size;
-      text-align: right;
+      font-weight: 700;
+      text-align: center;
+      min-width: 85px;
+      padding: 5px;
+      border-radius: 8px;
+      border: 2px solid;
+      opacity: 0.7;
+
+      @include mq(extra-small) {
+        font-size: $todo-list-task-count-font-size-extra-small-screens;
+      }
     }
   }
 
@@ -140,10 +154,14 @@
             @include rename-form-input;
             background-color: $todo-list-rename-task-input-background-color;
             color: $todo-list-rename-task-input-text-color;
-            border-color: $todo-list-rename-task-input-border-color;
 
             resize: none;
             overflow: hidden;
+
+            &::selection {
+              color: #ffffff;
+              background-color: #aaa1c8;
+            }
           }
         }
       }
@@ -171,7 +189,7 @@
     }
 
     .delete-stuff {
-      @include layout($display: flex, $justify-content: space-evenly);
+      @include layout($display: flex, $justify-content: space-around);
       position: absolute;
       width: 100%;
       left: 0;
