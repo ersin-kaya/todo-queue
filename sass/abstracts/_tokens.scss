@@ -47,20 +47,23 @@ $create-button-font-weight: $font-weight-black;
 $create-button-color: $color-primary;
 
 // Title component
-$title-background-color: rgba($color-steel-blue, 0.9);
+$title-background-color: $body-background-color;
+$title-text-color: $color-slate-gray;
 $title-font-size-large-screens: calc(4vw + ($heading-1-font-size / 2));
 $title-font-size-medium-screens: calc(5vw + ($heading-1-font-size / 3));
 $title-font-size-small-screens: calc(5vw + ($heading-1-font-size / 4));
 $title-font-size-extra-small-screens: calc(3vw + ($heading-1-font-size / 3));
-$title-box-shadow: rgba(255, 183, 120, 0.3) 0px 5px,
-  rgba(255, 183, 120, 0.2) 0px 10px, rgba(255, 183, 120, 0.15) 0px 15px,
-  rgba(255, 183, 120, 0.1) 0px 20px, rgba(255, 183, 120, 0.05) 0px 25px;
+$title-box-shadow: rgba($color-mauve-taupe, 0.1) 0px 5px,
+  rgba($color-mauve-taupe, 0.1) 0px 10px,
+  rgba($color-mauve-taupe, 0.05) 0px 15px,
+  rgba($color-mauve-taupe, 0.08) 0px 20px,
+  rgba($color-mauve-taupe, 0.03) 0px 25px;
 
 // Title component - Dark theme
-$title-background-color-dark-theme: $color-night-black;
-$title-box-shadow-dark-theme: rgba(70, 130, 180, 0.1) 0px 5px,
-  rgba(70, 130, 180, 0.08) 0px 10px, rgba(70, 130, 180, 0.06) 0px 15px,
-  rgba(70, 130, 180, 0.04) 0px 20px, rgba(70, 130, 180, 0.02) 0px 25px;
+$title-background-color-dark-theme: $body-background-color-dark-theme;
+$title-box-shadow-dark-theme: rgba($color-steel-blue, 0.1) 0px 5px,
+  rgba($color-steel-blue, 0.1) 0px 10px, rgba($color-steel-blue, 0.05) 0px 15px,
+  rgba($color-steel-blue, 0.08) 0px 20px, rgba($color-steel-blue, 0.03) 0px 25px;
 
 // All tasks component
 $all-tasks-box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px,

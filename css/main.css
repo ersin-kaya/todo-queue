@@ -23,7 +23,7 @@ body {
   font-weight: 400;
   font-size: 1.125rem;
   color: #444444;
-  background-color: #fbfbf2;
+  background-color: #f5f5f5;
   line-height: 1.5;
   min-height: 100dvh;
   word-break: break-word;
@@ -49,12 +49,12 @@ body {
 
 body[data-theme=dark] {
   color: #d5d5d5;
-  background-color: #141a21;
+  background-color: #000000;
 }
 body[data-theme=dark] .title {
   color: #ced4da;
-  background-color: #111827;
-  box-shadow: rgba(70, 130, 180, 0.1) 0px 5px, rgba(70, 130, 180, 0.08) 0px 10px, rgba(70, 130, 180, 0.06) 0px 15px, rgba(70, 130, 180, 0.04) 0px 20px, rgba(70, 130, 180, 0.02) 0px 25px;
+  background-color: #000000;
+  box-shadow: rgba(70, 143, 175, 0.1) 0px 5px, rgba(70, 143, 175, 0.1) 0px 10px, rgba(70, 143, 175, 0.05) 0px 15px, rgba(70, 143, 175, 0.08) 0px 20px, rgba(70, 143, 175, 0.03) 0px 25px;
 }
 body[data-theme=dark] .all-tasks {
   box-shadow: rgba(235, 235, 235, 0.02) 0px 1px 3px 0px, rgba(255, 255, 255, 0.15) 0px 0px 0px 2px;
@@ -157,15 +157,15 @@ body[data-theme=dark] .preferences-bar button {
 
 .title {
   grid-area: header;
-  background-color: rgba(70, 143, 175, 0.9);
+  background-color: #f5f5f5;
   font-family: "Poppins", serif;
   font-size: calc(4vw + 1.875rem);
   font-weight: 700;
-  color: #fff8d9;
+  color: #6c6f83;
   text-align: center;
   letter-spacing: 1px;
   margin: -0.15em 0 1em;
-  box-shadow: rgba(255, 183, 120, 0.3) 0px 5px, rgba(255, 183, 120, 0.2) 0px 10px, rgba(255, 183, 120, 0.15) 0px 15px, rgba(255, 183, 120, 0.1) 0px 20px, rgba(255, 183, 120, 0.05) 0px 25px;
+  box-shadow: rgba(154, 140, 152, 0.1) 0px 5px, rgba(154, 140, 152, 0.1) 0px 10px, rgba(154, 140, 152, 0.05) 0px 15px, rgba(154, 140, 152, 0.08) 0px 20px, rgba(154, 140, 152, 0.03) 0px 25px;
 }
 @media screen and (max-width: 55em) {
   .title {
