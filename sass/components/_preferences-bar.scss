@@ -18,5 +18,7 @@
     background-color: $preferences-bar-button-background-color;
     border-radius: 4px;
     font-size: 19px;
+    font-weight: $font-weight-extra-bold;
+    min-width: 85px;
   }
 }
