@@ -320,7 +320,7 @@ function renderTasks(selectedList) {
     checkbox.checked = task.complete;
     const label = taskElement.querySelector("label");
     label.htmlFor = task.id;
-    const taskNameSpan = label.querySelector("#task-name");
+    const taskNameSpan = label.querySelector("[data-task-name]");
     taskNameSpan.textContent = task.name;
     tasksContainer.appendChild(taskElement);
   });
@@ -455,7 +455,7 @@ function isValidListName(listName) {
 
 function renameInputForTask(taskElement) {
   const taskToRenameId = taskElement.dataset.taskId;
-  const taskNameElement = taskElement.querySelector("#task-name");
+  const taskNameElement = taskElement.querySelector("[data-task-name]");
   const renameTaskFormTemplate = `
     <form action="" data-rename-task-form>
       <textarea 
