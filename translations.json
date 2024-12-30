@@ -17,8 +17,8 @@
       "clearCompleted": "Clear completed tasks",
       "deleteList": "Delete list",
       "theme": {
-        "darkModeContent": "🌙",
-        "lightModeContent": "🔆"
+        "darkModeContent": "Dark",
+        "lightModeContent": "Light"
       },
       "languageSupport": {
         "trContent": "TR",
@@ -55,8 +55,8 @@
       "clearCompleted": "Tamamlananları temizle",
       "deleteList": "Listeyi sil",
       "theme": {
-        "darkModeContent": "🌙",
-        "lightModeContent": "🔆"
+        "darkModeContent": "Koyu",
+        "lightModeContent": "Açık"
       },
       "languageSupport": {
         "trContent": "TR",

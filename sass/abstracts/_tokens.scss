@@ -61,9 +61,11 @@ $title-box-shadow: rgba($color-mauve-taupe, 0.1) 0px 5px,
 
 // Title component - Dark theme
 $title-background-color-dark-theme: $body-background-color-dark-theme;
-$title-box-shadow-dark-theme: rgba($color-deep-navy, 0.3) 0px 5px,
-  rgba($color-deep-navy, 0.25) 0px 10px, rgba($color-deep-navy, 0.2) 0px 15px,
-  rgba($color-deep-navy, 0.15) 0px 20px, rgba($color-deep-navy, 0.1) 0px 25px;
+$title-box-shadow-dark-theme: rgba($color-jungle-green, 0.1) 0px 5px,
+  rgba($color-jungle-green, 0.1) 0px 10px,
+  rgba($color-jungle-green, 0.05) 0px 15px,
+  rgba($color-jungle-green, 0.08) 0px 20px,
+  rgba($color-jungle-green, 0.03) 0px 25px;
 
 // All tasks component
 $all-tasks-background-color: $color-alabaster;
@@ -97,8 +99,8 @@ $all-tasks-task-list-title-box-shadow-dark-theme: rgba(255, 255, 255, 0.13) 0px
   3px 1px 0px;
 $all-tasks-active-text-shadow-dark-theme: rgba(245, 245, 245, 0.75) 0 0 1px;
 
-$all-tasks-active-border-color-dark-theme: $color-steel-blue;
-$all-tasks-active-background-color-dark-theme: rgba($color-purple-indigo, 0.25);
+$all-tasks-active-border-color-dark-theme: rgba($color-jungle-green, 0.7);
+$all-tasks-active-background-color-dark-theme: rgba($color-purple-indigo, 0.08);
 
 $all-tasks-rename-list-input-background-color-dark-theme: $color-deep-navy;
 $all-tasks-rename-list-input-text-color-dark-theme: $color-gray-100;
@@ -151,15 +153,15 @@ $preferences-bar-background-color: $color-background-muted;
 $preferences-bar-margin-top: 12vh;
 $preferences-bar-height: 10vh;
 $preferences-bar-button-color: $color-gray-100;
-$preferences-bar-button-background-color: $color-gray-800;
+$preferences-bar-button-background-color: $color-slate-gray;
 
 $preferences-bar-border-color: rgba(6, 24, 44, 0.25);
 $preferences-bar-border: 2px solid $preferences-bar-border-color;
 
 // Preferences bar component - Dark theme
 $preferences-bar-background-color-dark-theme: $color-deep-midnight;
-$preferences-bar-button-color-dark-theme: $color-black;
-$preferences-bar-button-background-color-dark-theme: $color-gray-100;
+$preferences-bar-button-color-dark-theme: $color-gray-900;
+$preferences-bar-button-background-color-dark-theme: $color-gray-400;
 
 $preferences-bar-border-color-dark-theme: rgba(gray, 0.2);
 $preferences-bar-border-dark-theme: 2px solid

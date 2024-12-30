@@ -54,7 +54,7 @@ body[data-theme=dark] {
 body[data-theme=dark] .title {
   color: #ced4da;
   background-color: #000000;
-  box-shadow: rgba(17, 29, 74, 0.3) 0px 5px, rgba(17, 29, 74, 0.25) 0px 10px, rgba(17, 29, 74, 0.2) 0px 15px, rgba(17, 29, 74, 0.15) 0px 20px, rgba(17, 29, 74, 0.1) 0px 25px;
+  box-shadow: rgba(42, 157, 143, 0.1) 0px 5px, rgba(42, 157, 143, 0.1) 0px 10px, rgba(42, 157, 143, 0.05) 0px 15px, rgba(42, 157, 143, 0.08) 0px 20px, rgba(42, 157, 143, 0.03) 0px 25px;
 }
 body[data-theme=dark] .all-tasks {
   background-color: #10101b;
@@ -68,9 +68,9 @@ body[data-theme=dark] .all-tasks .empty-state.empty-state-lists .empty-state-lis
 }
 body[data-theme=dark] .all-tasks .task-list .list-row.active-list {
   text-shadow: rgba(245, 245, 245, 0.75) 0 0 1px;
-  border-bottom-color: #468faf;
-  border-top-color: #468faf;
-  background-color: rgba(105, 48, 195, 0.25);
+  border-bottom-color: rgba(42, 157, 143, 0.7);
+  border-top-color: rgba(42, 157, 143, 0.7);
+  background-color: rgba(105, 48, 195, 0.08);
 }
 body[data-theme=dark] .all-tasks .task-list .list-row form[data-rename-list-form] input {
   background-color: #111d4a;
@@ -150,8 +150,8 @@ body[data-theme=dark] .preferences-bar {
   border-bottom: 2px solid rgba(128, 128, 128, 0.2);
 }
 body[data-theme=dark] .preferences-bar button {
-  color: #000000;
-  background-color: #f8f9fa;
+  color: #212529;
+  background-color: #ced4da;
 }
 
 .title {
@@ -270,7 +270,7 @@ body[data-theme=dark] .preferences-bar button {
   background-color: rgba(255, 248, 217, 0.16);
 }
 .all-tasks .task-list .list-row.active-list .list {
-  padding: 8px 0px;
+  padding: 8px 3px;
   line-height: 1.3;
 }
 .all-tasks .task-list .list-row.active-list .list .rename-list-text {
@@ -614,10 +614,12 @@ body[data-theme=dark] .preferences-bar button {
   transition: opacity 160ms ease-in;
   color: #f8f9fa;
   margin: 0 30px;
-  padding: 5px 8px;
-  background-color: #343a40;
+  padding: 5px 18px;
+  background-color: #6c6f83;
   border-radius: 4px;
   font-size: 19px;
+  font-weight: 800;
+  min-width: 85px;
 }
 .preferences-bar button:hover {
   opacity: 0.7;
