@@ -372,16 +372,18 @@ function renderLists() {
       listElement.classList.add("active-list");
     }
 
-    const listName = listElement.querySelector("#list-name");
+    const listName = listElement.querySelector("[data-list-name]");
     listName.textContent = list.name;
 
     if (listElement.dataset.listId !== defaultListId) {
-      const renameListText = listElement.querySelector("#rename-list-text");
+      const renameListText = listElement.querySelector(
+        "[data-rename-list-text]"
+      );
       renameListText.textContent =
         activeTranslations?.buttons?.rename?.forList || "Rename list";
     } else {
-      const listContainer = listElement.querySelector("#list");
-      const renameButton = listContainer.querySelector("#rename-list-text");
+      const listContainer = listElement.querySelector("[data-list]");
+      const renameButton = listElement.querySelector("[data-rename-list-text]");
       listContainer.removeChild(renameButton);
     }
 
