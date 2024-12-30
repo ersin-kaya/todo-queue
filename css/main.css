@@ -64,13 +64,13 @@ body[data-theme=dark] .all-tasks .task-list-title {
   box-shadow: rgba(255, 255, 255, 0.13) 0px 3px 1px 0px;
 }
 body[data-theme=dark] .all-tasks .empty-state.empty-state-lists .empty-state-lists-message {
-  color: #f97316;
+  color: #80ffdb;
 }
 body[data-theme=dark] .all-tasks .task-list .list-row.active-list {
   text-shadow: rgba(245, 245, 245, 0.75) 0 0 1px;
-  border-bottom-color: rgba(16, 185, 129, 0.5);
-  border-top-color: rgba(16, 185, 129, 0.5);
-  background-color: rgba(1, 16, 17, 0.6);
+  border-bottom-color: #468faf;
+  border-top-color: #468faf;
+  background-color: rgba(105, 48, 195, 0.25);
 }
 body[data-theme=dark] .all-tasks .task-list .list-row form[data-rename-list-form] input {
   background-color: #111d4a;
@@ -104,7 +104,7 @@ body[data-theme=dark] .todo-list .todo-header {
   box-shadow: rgba(255, 245, 244, 0.3) 0px 0px 0px 2px, rgba(255, 245, 244, 0.35) 0px 4px 0px -1px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
 }
 body[data-theme=dark] .todo-list .todo-body .empty-state.empty-state-tasks .empty-state-tasks-message {
-  color: #f97316;
+  color: #80ffdb;
 }
 body[data-theme=dark] .todo-list .todo-body .tasks .task [type=checkbox]:checked + label {
   opacity: 0.8;
@@ -264,10 +264,10 @@ body[data-theme=dark] .preferences-bar button {
 .all-tasks .task-list .list-row.active-list {
   font-weight: 700;
   text-shadow: slategray 0 0 1px;
-  border-bottom: 2px solid rgba(70, 143, 175, 0.7);
-  border-top: 2px solid rgba(70, 143, 175, 0.7);
+  border-bottom: 2px solid rgba(143, 192, 169, 0.9);
+  border-top: 2px solid rgba(143, 192, 169, 0.9);
   border-radius: 5px;
-  background-color: rgba(255, 248, 217, 0.3);
+  background-color: rgba(255, 248, 217, 0.16);
 }
 .all-tasks .task-list .list-row.active-list .list {
   padding: 8px 0px;
