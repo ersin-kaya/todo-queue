@@ -401,7 +401,7 @@ function getSelectedListById(selectedListId) {
 
 function renameInputForList(listElement) {
   const listToRenameId = listElement.dataset.listId;
-  const listNameElement = listElement.querySelector("#list-name");
+  const listNameElement = listElement.querySelector("[data-list-name]");
   const renameListFormTemplate = `
     <form action="" data-rename-list-form>
       <input
