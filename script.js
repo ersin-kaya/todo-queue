@@ -320,7 +320,7 @@ function renderTasks(selectedList) {
     checkbox.checked = task.complete;
     const label = taskElement.querySelector("label");
     label.htmlFor = task.id;
-    const taskNameSpan = label.querySelector("#task-name");
+    const taskNameSpan = label.querySelector("[data-task-name]");
     taskNameSpan.textContent = task.name;
     tasksContainer.appendChild(taskElement);
   });
@@ -372,16 +372,18 @@ function renderLists() {
       listElement.classList.add("active-list");
     }
 
-    const listName = listElement.querySelector("#list-name");
+    const listName = listElement.querySelector("[data-list-name]");
     listName.textContent = list.name;
 
     if (listElement.dataset.listId !== defaultListId) {
-      const renameListText = listElement.querySelector("#rename-list-text");
+      const renameListText = listElement.querySelector(
+        "[data-rename-list-text]"
+      );
       renameListText.textContent =
         activeTranslations?.buttons?.rename?.forList || "Rename list";
     } else {
-      const listContainer = listElement.querySelector("#list");
-      const renameButton = listContainer.querySelector("#rename-list-text");
+      const listContainer = listElement.querySelector("[data-list]");
+      const renameButton = listElement.querySelector("[data-rename-list-text]");
       listContainer.removeChild(renameButton);
     }
 
@@ -399,7 +401,7 @@ function getSelectedListById(selectedListId) {
 
 function renameInputForList(listElement) {
   const listToRenameId = listElement.dataset.listId;
-  const listNameElement = listElement.querySelector("#list-name");
+  const listNameElement = listElement.querySelector("[data-list-name]");
   const renameListFormTemplate = `
     <form action="" data-rename-list-form>
       <input
@@ -453,7 +455,7 @@ function isValidListName(listName) {
 
 function renameInputForTask(taskElement) {
   const taskToRenameId = taskElement.dataset.taskId;
-  const taskNameElement = taskElement.querySelector("#task-name");
+  const taskNameElement = taskElement.querySelector("[data-task-name]");
   const renameTaskFormTemplate = `
     <form action="" data-rename-task-form>
       <textarea 
