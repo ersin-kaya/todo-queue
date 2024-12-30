@@ -4,6 +4,7 @@ import LOCAL_STORAGE_KEYS from "./constants/localStorageConstants.js";
 import THEME from "./constants/themeConstants.js";
 import LANGUAGE from "./constants/languageConstants.js";
 import TIMINGS from "./constants/timingConstants.js";
+import DISPLAY_STATE from "./constants/displayStateConstants.js";
 
 const listsContainer = document.querySelector("[data-lists]");
 const listTemplate = document.getElementById("list-template");
@@ -189,7 +190,8 @@ clearCompleteTasksButton.addEventListener("click", (e) => {
   if (!confirm(deleteConfirmationMessage(dynamicPartForTasks))) return;
   const selectedList = getSelectedListById(selectedListId);
   selectedList.tasks = selectedList.tasks.filter((task) => !task.complete);
-  if (!selectedList.tasks.length) emptyStateTasks.style.display = "";
+  if (!selectedList.tasks.length)
+    emptyStateTasks.style.display = DISPLAY_STATE.DEFAULT;
   saveAndRender();
 });
 
@@ -233,7 +235,7 @@ newListForm.addEventListener("submit", (e) => {
   newListInput.value = null;
   lists.push(list);
   selectedListId = list.id;
-  listCountElement.style.display = "";
+  listCountElement.style.display = DISPLAY_STATE.DEFAULT;
   newTaskInput.focus();
   saveAndRender();
 });
@@ -281,23 +283,23 @@ function render() {
   clearElement(listsContainer);
   renderLists();
   const selectedList = getSelectedListById(selectedListId);
-  emptyStateLists.style.display = "none";
+  emptyStateLists.style.display = DISPLAY_STATE.NONE;
   if (selectedListId === null) {
-    listCountElement.style.display = "none";
-    todoBody.style.display = "none";
+    listCountElement.style.display = DISPLAY_STATE.NONE;
+    todoBody.style.display = DISPLAY_STATE.NONE;
     if (!lists.length) {
       listTitleElement.textContent =
         activeTranslations?.messages?.welcome ||
         "Let's create a list to get started!";
-      emptyStateLists.style.display = "";
+      emptyStateLists.style.display = DISPLAY_STATE.DEFAULT;
     } else {
       listTitleElement.textContent =
         activeTranslations?.messages?.selectOrCreateList ||
         "Please select or create a list to continue.";
     }
   } else {
-    listCountElement.style.display = "";
-    todoBody.style.display = "";
+    listCountElement.style.display = DISPLAY_STATE.DEFAULT;
+    todoBody.style.display = DISPLAY_STATE.DEFAULT;
     listTitleElement.textContent = selectedList.name;
     renderTaskCount(selectedList);
     clearElement(tasksContainer);
@@ -308,10 +310,10 @@ function render() {
 }
 
 function renderTasks(selectedList) {
-  emptyStateTasks.style.display = "";
+  emptyStateTasks.style.display = DISPLAY_STATE.DEFAULT;
   const sortedTasks = sortTasks(selectedList.tasks);
   sortedTasks.forEach((task) => {
-    emptyStateTasks.style.display = "none";
+    emptyStateTasks.style.display = DISPLAY_STATE.NONE;
     const taskElement = document.importNode(taskTemplate.content, true);
     const taskDiv = taskElement.querySelector("[data-task-id]");
     taskDiv.dataset.taskId = task.id;
