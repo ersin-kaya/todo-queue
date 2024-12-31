@@ -171,7 +171,7 @@
       @include layout($display: flex, $align-items: center);
 
       input[type="text"].new {
-        @include add-item-input($order: 1);
+        @include add-item-input($order: $todo-list-add-item-input-order);
 
         &.task {
           font-size: $todo-list-font-size;
@@ -185,6 +185,10 @@
           @include btn-create;
           color: $create-button-color;
         }
+      }
+
+      div[data-new-task-reminder-container] {
+        order: $todo-list-task-reminder-container-order;
       }
     }
 

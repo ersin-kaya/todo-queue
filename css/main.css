@@ -530,6 +530,9 @@ body[data-theme=dark] .preferences-bar button {
   font-weight: 900;
   color: #18b3a8;
 }
+.todo-list .todo-body .new-task-creator form div[data-new-task-reminder-container] {
+  order: 2;
+}
 .todo-list .todo-body .delete-stuff {
   display: flex;
   flex-direction: row;
