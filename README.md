@@ -3,6 +3,8 @@
 Yapacaklarınızı yönetmenize yardımcı olmak için tasarlanmış bir yapılacaklar listesi uygulamasıdır.
 <br> HTML, JavaScript ve SCSS ile geliştirilmiştir.
 
+[Uygulamaya git](https://todo-queue.ersinkaya.dev/)
+
 ## Özellikler
 
 - **Dil Desteği:** Sağ alt köşedeki dil butonunu kullanarak Türkçe ve İngilizce dilleri arasında geçiş yapabilirsiniz.
@@ -20,6 +22,8 @@ Yapacaklarınızı yönetmenize yardımcı olmak için tasarlanmış bir yapıla
 
 An application designed to help you manage your tasks effectively.
 <br> Developed with HTML, JavaScript, and SCSS.
+
+[Go to live preview](https://todo-queue.ersinkaya.dev/)
 
 ## Features
 
