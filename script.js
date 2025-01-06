@@ -20,6 +20,9 @@ const tasksContainer = document.querySelector("[data-tasks]");
 const taskTemplate = document.getElementById("task-template");
 const newTaskForm = document.querySelector("[data-new-task-form]");
 const newTaskInput = document.querySelector("[data-new-task-input]");
+const newTaskReminderContainer = document.querySelector(
+  "[data-new-task-reminder-container]"
+);
 const clearCompleteTasksButton = document.querySelector(
   "[data-clear-complete-tasks-button]"
 );
@@ -45,6 +48,7 @@ let activeTranslations = {};
 
 let lists = JSON.parse(getLocalStorageItem(LOCAL_STORAGE_KEYS.LISTS)) || [];
 let selectedListId = getLocalStorageItem(LOCAL_STORAGE_KEYS.SELECTED_LIST_ID);
+let isTaskReminderDatetimeChanged = false;
 let defaultListCreated = JSON.parse(
   getLocalStorageItem(LOCAL_STORAGE_KEYS.DEFAULT_LIST_CREATED) || false
 );
@@ -183,6 +187,29 @@ function updateTaskStatus(event) {
   setClearCompleteTasksButtonVisibility(selectedList);
 }
 
+newTaskReminderContainer.addEventListener("click", (e) => {
+  const newTaskDatetimeInput = newTaskReminderContainer.querySelector(
+    "[data-new-task-datetime-input]"
+  );
+  newTaskDatetimeInput.showPicker();
+});
+
+newTaskReminderContainer.addEventListener("change", (e) => {
+  // isTaskReminderDatetimeChanged = true;
+  const newTaskDatetimeInput = newTaskReminderContainer.querySelector(
+    "[data-new-task-datetime-input]"
+  );
+  console.log(newTaskDatetimeInput.value);
+});
+
+newTaskReminderContainer.addEventListener("input", (e) => {
+  // const newTaskDatetimeInput = newTaskReminderContainer.querySelector(
+  //   "[data-new-task-datetime-input]"
+  // );
+  // console.log(newTaskDatetimeInput.value);
+  // isTaskReminderDatetimeChanged = true;
+});
+
 // Event listeners are executed only when their corresponding event is triggered
 // therefore, they can reference functions or variables defined later in the code
 // (deleteConfirmationMessage)
@@ -242,6 +269,7 @@ newListForm.addEventListener("submit", (e) => {
 
 newTaskForm.addEventListener("submit", (e) => {
   e.preventDefault();
+  console.log(isTaskReminderDatetimeChanged);
   const taskName = newTaskInput.value;
   if (!isValidTaskName(taskName)) return;
   const task = createTask(taskName);

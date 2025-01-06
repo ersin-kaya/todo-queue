@@ -189,6 +189,24 @@
 
       div[data-new-task-reminder-container] {
         order: $todo-list-task-reminder-container-order;
+        position: relative;
+        display: inline-block;
+        cursor: pointer;
+
+        &::after {
+          content: "\1F4C5";
+          font-size: 32px;
+          color: #2a9d8f;
+          display: inline-block;
+        }
+
+        input[type="datetime-local"].new.task.datetime {
+          position: absolute;
+          width: 0;
+          height: 0;
+          pointer-events: none;
+          opacity: 0;
+        }
       }
     }
 
