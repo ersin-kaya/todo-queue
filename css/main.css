@@ -81,7 +81,6 @@ body[data-theme=dark] .all-tasks .new-task-list-creator form input[type=text].ne
   border: 0;
   color: inherit;
   border-bottom: 2px solid currentColor;
-  font-size: inherit;
   letter-spacing: 1px;
   outline: none;
   opacity: 0.8;
@@ -118,7 +117,6 @@ body[data-theme=dark] .todo-list .todo-body .new-task-creator form input[type=te
   border: 0;
   color: inherit;
   border-bottom: 2px solid currentColor;
-  font-size: inherit;
   letter-spacing: 1px;
   outline: none;
   opacity: 0.8;
@@ -312,7 +310,6 @@ body[data-theme=dark] .preferences-bar button {
   border: 0;
   color: inherit;
   border-bottom: 2px solid currentColor;
-  font-size: inherit;
   letter-spacing: 1px;
   outline: none;
   opacity: 0.6;
@@ -497,7 +494,6 @@ body[data-theme=dark] .preferences-bar button {
   border: 0;
   color: inherit;
   border-bottom: 2px solid currentColor;
-  font-size: inherit;
   letter-spacing: 1px;
   outline: none;
   opacity: 0.6;
