@@ -5,8 +5,13 @@ import THEME from "./constants/themeConstants.js";
 import LANGUAGE from "./constants/languageConstants.js";
 import TIMINGS from "./constants/timingConstants.js";
 import DISPLAY_STATE from "./constants/displayStateConstants.js";
+import UI_CLASSES from "./constants/uiClassesConstants.js";
 
 const onboardingModal = document.querySelector("[data-onboarding-modal]");
+const onboardingModalButtonStart = onboardingModal.querySelector(
+  "[data-onboarding-modal-button-start]"
+);
+const overlay = document.getElementById("overlay");
 const listsContainer = document.querySelector("[data-lists]");
 const listTemplate = document.getElementById("list-template");
 const newListForm = document.querySelector("[data-new-list-form]");
@@ -62,6 +67,10 @@ let appLanguage =
   getLocalStorageItem(LOCAL_STORAGE_KEYS.LANGUAGE) ||
   navigator.language.split("-")[0] ||
   LANGUAGE.EN;
+
+onboardingModalButtonStart.addEventListener("click", () => {
+  closeOnboardingModal();
+});
 
 listsContainer.addEventListener("click", (e) => {
   const targetElement = e.target.parentElement.parentElement;
@@ -290,8 +299,7 @@ function render() {
     setAppInitialized();
 
     if (onboardingModalData) {
-      updateOnboardingModalContent();
-      onboardingModal.style.display = DISPLAY_STATE.BLOCK;
+      openOnboardingModal();
     }
   }
   clearElement(listsContainer);
@@ -681,6 +689,19 @@ function updateDefaultListNameByLanguage() {
       ? { ...list, name: activeTranslations.defaultListName }
       : list;
   });
+}
+
+function openOnboardingModal() {
+  if (onboardingModal == null) return;
+  updateOnboardingModalContent();
+  onboardingModal.classList.add(UI_CLASSES.ACTIVE);
+  overlay.classList.add(UI_CLASSES.ACTIVE);
+}
+
+function closeOnboardingModal() {
+  if (onboardingModal == null) return;
+  onboardingModal.classList.remove(UI_CLASSES.ACTIVE);
+  overlay.classList.remove(UI_CLASSES.ACTIVE);
 }
 
 function updateOnboardingModalContent() {

@@ -1,0 +1,55 @@
+@use "../abstracts/" as *;
+
+.onboarding-modal {
+  background-color: $onboarding-modal-background-color;
+  color: $onboarding-modal-text-color;
+
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  transition: $onboarding-modal-transition-duration ease-in-out;
+  border: $onboarding-modal-border;
+  border-radius: 5px;
+  z-index: 10;
+  padding: 25px 55px;
+
+  width: 900px;
+  max-width: $onboarding-modal-max-width;
+
+  @include mq(medium) {
+    max-width: $onboarding-modal-max-width-medium-screens;
+  }
+
+  @include mq(small) {
+    max-width: $onboarding-modal-max-width-small-screens;
+  }
+
+  &.active {
+    transform: translate(-50%, -50%) scale(1);
+  }
+
+  .onboarding-modal-title {
+    font-size: $onboarding-modal-title-font-size;
+
+    padding-bottom: 20px;
+  }
+}
+
+#overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: $overlay-background-color;
+
+  opacity: 0;
+  pointer-events: none;
+  transition: $onboarding-modal-transition-duration ease-in-out;
+
+  &.active {
+    opacity: 1;
+    pointer-events: all;
+  }
+}

@@ -46,6 +46,25 @@ $create-button-font-size: $font-size-700;
 $create-button-font-weight: $font-weight-black;
 $create-button-color: $color-primary;
 
+// Onboarding modal component
+$onboarding-modal-background-color: $body-background-color;
+$onboarding-modal-text-color: $body-text-color;
+$onboarding-modal-transition-duration: 200ms;
+
+$onboarding-modal-border-width: 2px;
+$onboarding-modal-border-style: solid;
+$onboarding-modal-border-color: $color-gray-500;
+$onboarding-modal-border: $onboarding-modal-border-width
+  $onboarding-modal-border-style $onboarding-modal-border-color;
+
+$onboarding-modal-max-width: 80%;
+$onboarding-modal-max-width-medium-screens: 85%;
+$onboarding-modal-max-width-small-screens: 90%;
+
+$onboarding-modal-title-font-size: $font-size-700;
+
+$overlay-background-color: rgba(0, 0, 0, 0.6);
+
 // Title component
 $title-background-color: $body-background-color;
 $title-text-color: $color-slate-gray;

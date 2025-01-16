@@ -154,6 +154,55 @@ body[data-theme=dark] .preferences-bar button {
   background-color: #ced4da;
 }
 
+.onboarding-modal {
+  background-color: #f5f5f5;
+  color: #444444;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  transition: 200ms ease-in-out;
+  border: 2px solid #adb5bd;
+  border-radius: 5px;
+  z-index: 10;
+  padding: 25px 55px;
+  width: 900px;
+  max-width: 80%;
+}
+@media screen and (max-width: 55em) {
+  .onboarding-modal {
+    max-width: 85%;
+  }
+}
+@media screen and (max-width: 40em) {
+  .onboarding-modal {
+    max-width: 90%;
+  }
+}
+.onboarding-modal.active {
+  transform: translate(-50%, -50%) scale(1);
+}
+.onboarding-modal .onboarding-modal-title {
+  font-size: 1.75rem;
+  padding-bottom: 20px;
+}
+
+#overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  opacity: 0;
+  pointer-events: none;
+  transition: 200ms ease-in-out;
+}
+#overlay.active {
+  opacity: 1;
+  pointer-events: all;
+}
+
 .title {
   grid-area: header;
   background-color: #f5f5f5;
