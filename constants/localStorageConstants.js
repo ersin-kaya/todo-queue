@@ -1,4 +1,5 @@
 const LOCAL_STORAGE_KEYS = {
+  APP_INITIALIZED: "app.initialized",
   THEME: "app.theme",
   LANGUAGE: "app.language",
   LISTS: "task.lists",

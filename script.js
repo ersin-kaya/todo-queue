@@ -6,6 +6,7 @@ import LANGUAGE from "./constants/languageConstants.js";
 import TIMINGS from "./constants/timingConstants.js";
 import DISPLAY_STATE from "./constants/displayStateConstants.js";
 
+const onboardingModal = document.querySelector("[data-onboarding-modal]");
 const listsContainer = document.querySelector("[data-lists]");
 const listTemplate = document.getElementById("list-template");
 const newListForm = document.querySelector("[data-new-list-form]");
@@ -43,6 +44,9 @@ const emptyStateTasksMessage = emptyStateTasks.querySelector(
 let translations = {};
 let activeTranslations = {};
 
+let isAppInitialized = JSON.parse(
+  getLocalStorageItem(LOCAL_STORAGE_KEYS.APP_INITIALIZED) || false
+);
 let lists = JSON.parse(getLocalStorageItem(LOCAL_STORAGE_KEYS.LISTS)) || [];
 let selectedListId = getLocalStorageItem(LOCAL_STORAGE_KEYS.SELECTED_LIST_ID);
 let defaultListCreated = JSON.parse(
@@ -280,6 +284,12 @@ function save() {
 }
 
 function render() {
+  if (!isAppInitialized) {
+    isAppInitialized = true;
+    setAppInitialized();
+
+    onboardingModal.style.display = DISPLAY_STATE.BLOCK;
+  }
   clearElement(listsContainer);
   renderLists();
   const selectedList = getSelectedListById(selectedListId);
@@ -705,6 +715,10 @@ function setActiveTranslations() {
 function applyPreferences(theme, language) {
   applyTheme(theme);
   applyLanguage(language);
+}
+
+function setAppInitialized() {
+  setLocalStorageItem(LOCAL_STORAGE_KEYS.APP_INITIALIZED, isAppInitialized);
 }
 
 async function initializeApp() {
