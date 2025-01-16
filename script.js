@@ -385,7 +385,7 @@ function renderLists() {
     const listElement = importedContent.firstElementChild;
     listElement.dataset.listId = list.id;
     if (list.id === selectedListId) {
-      listElement.classList.add("active-list");
+      listElement.classList.add(UI_CLASSES.ACTIVE_LIST);
     }
 
     const listName = listElement.querySelector("[data-list-name]");
