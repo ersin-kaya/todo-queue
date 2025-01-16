@@ -4,6 +4,16 @@ body[data-theme="dark"] {
   color: $body-text-color-dark-theme;
   background-color: $body-background-color-dark-theme;
 
+  // Onboarding modal component
+  .onboarding-modal {
+    background-color: $onboarding-modal-background-color-dark-theme;
+    color: $onboarding-modal-text-color-dark-theme;
+  }
+
+  #overlay {
+    background-color: $overlay-background-color-dark-theme;
+  }
+
   // Title component
   .title {
     color: $heading-color-default-dark-theme;

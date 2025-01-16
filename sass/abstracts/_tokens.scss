@@ -65,6 +65,12 @@ $onboarding-modal-title-font-size: $font-size-700;
 
 $overlay-background-color: rgba(0, 0, 0, 0.6);
 
+// Onboarding modal component - Dark theme
+$onboarding-modal-background-color-dark-theme: $body-background-color-dark-theme;
+$onboarding-modal-text-color-dark-theme: $body-text-color-dark-theme;
+
+$overlay-background-color-dark-theme: rgba(0, 0, 0, 0.75);
+
 // Title component
 $title-background-color: $body-background-color;
 $title-text-color: $color-slate-gray;

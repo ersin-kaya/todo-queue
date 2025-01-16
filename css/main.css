@@ -51,6 +51,13 @@ body[data-theme=dark] {
   color: #d5d5d5;
   background-color: #000000;
 }
+body[data-theme=dark] .onboarding-modal {
+  background-color: #000000;
+  color: #d5d5d5;
+}
+body[data-theme=dark] #overlay {
+  background-color: rgba(0, 0, 0, 0.75);
+}
 body[data-theme=dark] .title {
   color: #ced4da;
   background-color: #000000;
