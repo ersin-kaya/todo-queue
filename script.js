@@ -43,6 +43,7 @@ const emptyStateTasksMessage = emptyStateTasks.querySelector(
 
 let translations = {};
 let activeTranslations = {};
+let onboardingModalData = null;
 
 let isAppInitialized = JSON.parse(
   getLocalStorageItem(LOCAL_STORAGE_KEYS.APP_INITIALIZED) || false
@@ -288,7 +289,10 @@ function render() {
     isAppInitialized = true;
     setAppInitialized();
 
-    onboardingModal.style.display = DISPLAY_STATE.BLOCK;
+    if (onboardingModalData) {
+      updateOnboardingModalContent();
+      onboardingModal.style.display = DISPLAY_STATE.BLOCK;
+    }
   }
   clearElement(listsContainer);
   renderLists();
@@ -634,6 +638,10 @@ function updateTextsForSelectedLanguage() {
     emptyStateTasksMessage.textContent =
       activeTranslations.messages.emptyStateForTask;
 
+    if (!isAppInitialized) {
+      onboardingModalData = activeTranslations.onboardingModalData;
+    }
+
     if (defaultListId) {
       updateDefaultListNameByLanguage();
     }
@@ -672,6 +680,32 @@ function updateDefaultListNameByLanguage() {
     return list.id === defaultListId
       ? { ...list, name: activeTranslations.defaultListName }
       : list;
+  });
+}
+
+function updateOnboardingModalContent() {
+  const titleElement = document.querySelector("[data-onboarding-modal-title]");
+  const descriptionElement = document.querySelector(
+    "[data-onboarding-modal-description]"
+  );
+  const list = document.querySelector("[data-onboarding-modal-list]");
+  const buttonStart = document.querySelector(
+    "[data-onboarding-modal-button-start]"
+  );
+  const listItemTemplate = (content) => `
+    <li
+      class="onboarding-modal-list-item"
+      data-onboarding-modal-list-item>
+      ${content}
+    </li>
+  `;
+
+  titleElement.textContent = onboardingModalData.title;
+  descriptionElement.textContent = onboardingModalData.description;
+  buttonStart.textContent = onboardingModalData.buttonStart;
+
+  Object.values(onboardingModalData.listItems).forEach((listItem) => {
+    list.innerHTML += listItemTemplate(listItem);
   });
 }
 
