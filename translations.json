@@ -35,6 +35,17 @@
         "forTasks": "all completed tasks",
         "forList": "this list"
       }
+    },
+    "onboardingModalData": {
+      "title": "Hi there!",
+      "description": "A quick guide to learn how to use our application:",
+      "buttonStart": "Let's get started!",
+      "listItems": {
+        "feature1": "<strong>Language Support:</strong> Switch between Turkish and English using the language button in the bottom-right corner.",
+        "feature2": "<strong>Light/Dark Mode:</strong> For a better user experience, toggle between light and dark themes using the theme button in the bottom-left corner.",
+        "feature3": "<strong>Edit Tasks:</strong> Regardless of whether you are on a desktop or mobile device, click or tap on the text of any completed or pending task to edit it.",
+        "feature4": "<strong>Rename Lists:</strong> On desktop devices, click the 'Edit' button displayed on the right side of the active list. On mobile devices, press and hold the active list's name to open the renaming field."
+      }
     }
   },
   "tr": {
@@ -72,6 +83,17 @@
         "baseMessage": "silmek istediğinizden emin misiniz",
         "forTasks": "Tamamlanan tüm görevleri",
         "forList": "Listeyi"
+      }
+    },
+    "onboardingModalData": {
+      "title": "Merhaba!",
+      "description": "Uygulamamızı nasıl kullanacağınızı öğrenmek için hızlı bir rehber:",
+      "buttonStart": "Hadi başlayalım!",
+      "listItems": {
+        "feature1": "<strong>Dil Desteği:</strong> Sağ alt köşedeki dil butonunu kullanarak Türkçe ve İngilizce dilleri arasında geçiş yapabilirsiniz.",
+        "feature2": "<strong>Açık/Koyu Mod:</strong> Daha iyi bir kullanıcı deneyimi için sol alt köşedeki tema butonunu kullanarak açık ve koyu renkli temalar arasında geçiş yapabilirsiniz.",
+        "feature3": "<strong>Görev Düzenleme:</strong> Masaüstü veya mobil cihaz fark etmeksizin, tamamlanmış veya henüz tamamlanmamış olan bir göreve ait metin içeriğinin üzerine tıklayarak/dokunarak düzenlemeler yapabilirsiniz.",
+        "feature4": "<strong>Listeyi Yeniden Adlandırma:</strong> Masaüstü cihazlarda aktif olan listenin sağ tarafında görüntülenen 'Düzenle' butonuna tıklayarak, mobil cihazlarda ise yine aktif olan listenin ismine basılı tutarak açılan alandan listeyi yeniden adlandırabilirsiniz."
       }
     }
   }

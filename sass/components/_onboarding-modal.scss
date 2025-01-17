@@ -1,0 +1,114 @@
+@use "../abstracts/" as *;
+
+.onboarding-modal {
+  background-color: $onboarding-modal-background-color;
+  color: $onboarding-modal-text-color;
+  font-weight: $onboarding-modal-font-weight;
+
+  max-height: $onboarding-modal-max-height;
+  overflow-y: auto;
+
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  transition: $onboarding-modal-transition-duration ease-in-out;
+  border: $onboarding-modal-border;
+  border-radius: 5px;
+  z-index: 10;
+  padding: $onboarding-modal-vertical-padding
+    $onboarding-modal-horizontal-padding;
+
+  width: 900px;
+  max-width: $onboarding-modal-max-width;
+
+  @include mq(medium) {
+    padding: $onboarding-modal-vertical-padding-medium-screens
+      $onboarding-modal-horizontal-padding-medium-screens;
+    max-width: $onboarding-modal-max-width-medium-screens;
+  }
+
+  @include mq(small) {
+    padding: $onboarding-modal-vertical-padding-small-screens
+      $onboarding-modal-horizontal-padding-small-screens;
+    max-width: $onboarding-modal-max-width-small-screens;
+  }
+
+  @include mq(extra-small) {
+    padding: $onboarding-modal-vertical-padding-extra-small-screens
+      $onboarding-modal-horizontal-padding-extra-small-screens;
+    max-width: $onboarding-modal-max-width-extra-small-screens;
+  }
+
+  &.active {
+    transform: translate(-50%, -50%) scale(1);
+  }
+
+  .onboarding-modal-title {
+    font-size: $onboarding-modal-title-font-size;
+    padding-bottom: $onboarding-modal-elements-padding-default;
+  }
+
+  .onboarding-modal-description {
+    font-size: $onboarding-modal-description-font-size;
+    padding-bottom: $onboarding-modal-elements-padding-default;
+    line-height: $onboarding-modal-description-line-height;
+  }
+
+  .onboarding-modal-list {
+    list-style-type: none;
+    padding-left: $onboarding-modal-elements-padding-default;
+    border-left: $onboarding-modal-border;
+    border-color: $onboarding-modal-list-border-color;
+  }
+
+  .onboarding-modal-list-item {
+    padding-bottom: $onboarding-modal-elements-padding-default;
+
+    & strong {
+      font-weight: $onboarding-modal-list-item-strong-font-weight;
+    }
+  }
+
+  .onboarding-modal-button-start {
+    background: none;
+    border: none;
+    cursor: pointer;
+
+    border: 2px solid $color-gray-700;
+    margin-top: 20px;
+    padding: 3px 8px;
+    border-radius: 5px;
+    background-color: rgba(
+      $onboarding-modal-button-start-background-color,
+      0.5
+    );
+    color: $color-gray-800;
+    transition: background-color $onboarding-modal-transition-duration;
+
+    &:hover {
+      background-color: rgba(
+        $onboarding-modal-button-start-background-color,
+        0.65
+      );
+    }
+  }
+}
+
+#overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: $overlay-background-color;
+
+  opacity: 0;
+  pointer-events: none;
+  transition: $onboarding-modal-transition-duration ease-in-out;
+
+  &.active {
+    opacity: 1;
+    pointer-events: all;
+  }
+}

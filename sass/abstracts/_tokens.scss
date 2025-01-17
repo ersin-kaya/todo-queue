@@ -46,6 +46,61 @@ $create-button-font-size: $font-size-700;
 $create-button-font-weight: $font-weight-black;
 $create-button-color: $color-primary;
 
+// Onboarding modal component
+$overlay-background-color: rgba(0, 0, 0, 0.6);
+
+$onboarding-modal-background-color: $body-background-color;
+$onboarding-modal-text-color: $body-text-color;
+$onboarding-modal-transition-duration: 200ms;
+$onboarding-modal-font-weight: $font-weight-medium-bold;
+$onboarding-modal-vertical-padding: 25px;
+$onboarding-modal-horizontal-padding: 35px;
+
+$onboarding-modal-vertical-padding-medium-screens: 20px;
+$onboarding-modal-horizontal-padding-medium-screens: 25px;
+
+$onboarding-modal-vertical-padding-small-screens: 15px;
+$onboarding-modal-horizontal-padding-small-screens: 15px;
+
+$onboarding-modal-vertical-padding-extra-small-screens: 10px;
+$onboarding-modal-horizontal-padding-extra-small-screens: 10px;
+
+$onboarding-modal-border-width: 3px;
+$onboarding-modal-border-style: solid;
+$onboarding-modal-border-color: $color-gray-500;
+$onboarding-modal-border: $onboarding-modal-border-width
+  $onboarding-modal-border-style $onboarding-modal-border-color;
+
+$onboarding-modal-max-height: 90vh;
+
+$onboarding-modal-max-width: 80%;
+$onboarding-modal-max-width-medium-screens: 85%;
+$onboarding-modal-max-width-small-screens: 90%;
+$onboarding-modal-max-width-extra-small-screens: 95%;
+
+$onboarding-modal-elements-padding-default: 10px;
+
+$onboarding-modal-title-font-size: $font-size-700;
+
+$onboarding-modal-description-font-size: $font-size-600;
+$onboarding-modal-description-line-height: 1.1;
+
+$onboarding-modal-list-item-strong-font-weight: $font-weight-black;
+
+$onboarding-modal-list-border-color: $color-steel-blue;
+
+$onboarding-modal-button-start-background-color: $color-vivid-orange;
+
+// Onboarding modal component - Dark theme
+$overlay-background-color-dark-theme: rgba(0, 0, 0, 0.75);
+
+$onboarding-modal-background-color-dark-theme: $body-background-color-dark-theme;
+$onboarding-modal-text-color-dark-theme: $body-text-color-dark-theme;
+
+$onboarding-modal-list-border-color-dark-theme: $color-steel-blue;
+
+$onboarding-modal-button-start-background-color-dark-theme: $color-mint-green;
+
 // Title component
 $title-background-color: $body-background-color;
 $title-text-color: $color-slate-gray;

@@ -5,7 +5,13 @@ import THEME from "./constants/themeConstants.js";
 import LANGUAGE from "./constants/languageConstants.js";
 import TIMINGS from "./constants/timingConstants.js";
 import DISPLAY_STATE from "./constants/displayStateConstants.js";
+import UI_CLASSES from "./constants/uiClassesConstants.js";
 
+const onboardingModal = document.querySelector("[data-onboarding-modal]");
+const onboardingModalButtonStart = onboardingModal.querySelector(
+  "[data-onboarding-modal-button-start]"
+);
+const overlay = document.getElementById("overlay");
 const listsContainer = document.querySelector("[data-lists]");
 const listTemplate = document.getElementById("list-template");
 const newListForm = document.querySelector("[data-new-list-form]");
@@ -42,7 +48,11 @@ const emptyStateTasksMessage = emptyStateTasks.querySelector(
 
 let translations = {};
 let activeTranslations = {};
+let onboardingModalData = null;
 
+let isAppInitialized = JSON.parse(
+  getLocalStorageItem(LOCAL_STORAGE_KEYS.APP_INITIALIZED) || false
+);
 let lists = JSON.parse(getLocalStorageItem(LOCAL_STORAGE_KEYS.LISTS)) || [];
 let selectedListId = getLocalStorageItem(LOCAL_STORAGE_KEYS.SELECTED_LIST_ID);
 let defaultListCreated = JSON.parse(
@@ -57,6 +67,10 @@ let appLanguage =
   getLocalStorageItem(LOCAL_STORAGE_KEYS.LANGUAGE) ||
   navigator.language.split("-")[0] ||
   LANGUAGE.EN;
+
+onboardingModalButtonStart.addEventListener("click", () => {
+  closeOnboardingModal();
+});
 
 listsContainer.addEventListener("click", (e) => {
   const targetElement = e.target.parentElement.parentElement;
@@ -280,6 +294,14 @@ function save() {
 }
 
 function render() {
+  if (!isAppInitialized) {
+    isAppInitialized = true;
+    setAppInitialized();
+
+    if (onboardingModalData) {
+      openOnboardingModal();
+    }
+  }
   clearElement(listsContainer);
   renderLists();
   const selectedList = getSelectedListById(selectedListId);
@@ -371,7 +393,7 @@ function renderLists() {
     const listElement = importedContent.firstElementChild;
     listElement.dataset.listId = list.id;
     if (list.id === selectedListId) {
-      listElement.classList.add("active-list");
+      listElement.classList.add(UI_CLASSES.ACTIVE_LIST);
     }
 
     const listName = listElement.querySelector("[data-list-name]");
@@ -624,6 +646,10 @@ function updateTextsForSelectedLanguage() {
     emptyStateTasksMessage.textContent =
       activeTranslations.messages.emptyStateForTask;
 
+    if (!isAppInitialized) {
+      onboardingModalData = activeTranslations.onboardingModalData;
+    }
+
     if (defaultListId) {
       updateDefaultListNameByLanguage();
     }
@@ -662,6 +688,45 @@ function updateDefaultListNameByLanguage() {
     return list.id === defaultListId
       ? { ...list, name: activeTranslations.defaultListName }
       : list;
+  });
+}
+
+function openOnboardingModal() {
+  if (onboardingModal == null) return;
+  updateOnboardingModalContent();
+  onboardingModal.classList.add(UI_CLASSES.ACTIVE);
+  overlay.classList.add(UI_CLASSES.ACTIVE);
+}
+
+function closeOnboardingModal() {
+  if (onboardingModal == null) return;
+  onboardingModal.classList.remove(UI_CLASSES.ACTIVE);
+  overlay.classList.remove(UI_CLASSES.ACTIVE);
+}
+
+function updateOnboardingModalContent() {
+  const titleElement = document.querySelector("[data-onboarding-modal-title]");
+  const descriptionElement = document.querySelector(
+    "[data-onboarding-modal-description]"
+  );
+  const list = document.querySelector("[data-onboarding-modal-list]");
+  const buttonStart = document.querySelector(
+    "[data-onboarding-modal-button-start]"
+  );
+  const listItemTemplate = (content) => `
+    <li
+      class="onboarding-modal-list-item"
+      data-onboarding-modal-list-item>
+      ${content}
+    </li>
+  `;
+
+  titleElement.textContent = onboardingModalData.title;
+  descriptionElement.textContent = onboardingModalData.description;
+  buttonStart.textContent = onboardingModalData.buttonStart;
+
+  Object.values(onboardingModalData.listItems).forEach((listItem) => {
+    list.innerHTML += listItemTemplate(listItem);
   });
 }
 
@@ -705,6 +770,10 @@ function setActiveTranslations() {
 function applyPreferences(theme, language) {
   applyTheme(theme);
   applyLanguage(language);
+}
+
+function setAppInitialized() {
+  setLocalStorageItem(LOCAL_STORAGE_KEYS.APP_INITIALIZED, isAppInitialized);
 }
 
 async function initializeApp() {
