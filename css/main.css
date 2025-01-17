@@ -176,6 +176,8 @@ body[data-theme=dark] .preferences-bar button {
   background-color: #f5f5f5;
   color: #444444;
   font-weight: 600;
+  max-height: 90vh;
+  overflow-y: auto;
   position: fixed;
   top: 50%;
   left: 50%;

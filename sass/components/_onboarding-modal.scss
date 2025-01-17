@@ -5,6 +5,9 @@
   color: $onboarding-modal-text-color;
   font-weight: $onboarding-modal-font-weight;
 
+  max-height: $onboarding-modal-max-height;
+  overflow-y: auto;
+
   position: fixed;
   top: 50%;
   left: 50%;
