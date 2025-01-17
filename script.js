@@ -590,8 +590,8 @@ function applyTheme(theme) {
   themeElement.dataset.theme = appTheme;
   themeToggleButton.textContent =
     appTheme === THEME.LIGHT
-      ? activeTranslations?.buttons?.theme?.darkModeContent || "🌙"
-      : activeTranslations?.buttons?.theme?.lightModeContent || "🔆";
+      ? activeTranslations?.buttons?.theme?.darkModeContent || "Dark"
+      : activeTranslations?.buttons?.theme?.lightModeContent || "Light";
   setLocalStorageItem(LOCAL_STORAGE_KEYS.THEME, appTheme);
 }
 
