@@ -55,6 +55,17 @@ body[data-theme=dark] .onboarding-modal {
   background-color: #000000;
   color: #d5d5d5;
 }
+body[data-theme=dark] .onboarding-modal .onboarding-modal-list {
+  border-color: #468faf;
+}
+body[data-theme=dark] .onboarding-modal .onboarding-modal-button-start {
+  border-color: #f8f9fa;
+  background-color: rgba(16, 185, 129, 0.75);
+  color: #f8f9fa;
+}
+body[data-theme=dark] .onboarding-modal .onboarding-modal-button-start:hover {
+  background-color: rgba(16, 185, 129, 0.55);
+}
 body[data-theme=dark] #overlay {
   background-color: rgba(0, 0, 0, 0.75);
 }
@@ -202,6 +213,7 @@ body[data-theme=dark] .preferences-bar button {
   list-style-type: none;
   padding-left: 10px;
   border-left: 3px solid #adb5bd;
+  border-color: #468faf;
 }
 .onboarding-modal .onboarding-modal-list-item strong {
   font-weight: 900;
@@ -214,12 +226,12 @@ body[data-theme=dark] .preferences-bar button {
   margin-top: 20px;
   padding: 3px 8px;
   border-radius: 5px;
-  background-color: rgba(245, 222, 179, 0.6);
+  background-color: rgba(249, 115, 22, 0.5);
   color: #343a40;
   transition: background-color 200ms;
 }
 .onboarding-modal .onboarding-modal-button-start:hover {
-  background-color: wheat;
+  background-color: rgba(249, 115, 22, 0.65);
 }
 
 #overlay {

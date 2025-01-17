@@ -44,6 +44,7 @@
     list-style-type: none;
     padding-left: 10px;
     border-left: $onboarding-modal-border;
+    border-color: $onboarding-modal-list-border-color;
   }
 
   .onboarding-modal-list-item {
@@ -63,7 +64,7 @@
     border-radius: 5px;
     background-color: rgba(
       $onboarding-modal-button-start-background-color,
-      0.6
+      0.5
     );
     color: $color-gray-800;
     transition: background-color $onboarding-modal-transition-duration;
@@ -71,7 +72,7 @@
     &:hover {
       background-color: rgba(
         $onboarding-modal-button-start-background-color,
-        1
+        0.65
       );
     }
   }

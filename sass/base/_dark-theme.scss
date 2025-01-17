@@ -8,6 +8,26 @@ body[data-theme="dark"] {
   .onboarding-modal {
     background-color: $onboarding-modal-background-color-dark-theme;
     color: $onboarding-modal-text-color-dark-theme;
+
+    .onboarding-modal-list {
+      border-color: $onboarding-modal-list-border-color-dark-theme;
+    }
+
+    .onboarding-modal-button-start {
+      border-color: $color-gray-100;
+      background-color: rgba(
+        $onboarding-modal-button-start-background-color-dark-theme,
+        0.75
+      );
+      color: $color-gray-100;
+
+      &:hover {
+        background-color: rgba(
+          $onboarding-modal-button-start-background-color-dark-theme,
+          0.55
+        );
+      }
+    }
   }
 
   #overlay {

@@ -70,13 +70,19 @@ $onboarding-modal-description-font-size: $font-size-600;
 
 $onboarding-modal-list-item-strong-font-weight: $font-weight-black;
 
-$onboarding-modal-button-start-background-color: wheat;
+$onboarding-modal-list-border-color: $color-steel-blue;
+
+$onboarding-modal-button-start-background-color: $color-vivid-orange;
 
 // Onboarding modal component - Dark theme
 $overlay-background-color-dark-theme: rgba(0, 0, 0, 0.75);
 
 $onboarding-modal-background-color-dark-theme: $body-background-color-dark-theme;
 $onboarding-modal-text-color-dark-theme: $body-text-color-dark-theme;
+
+$onboarding-modal-list-border-color-dark-theme: $color-steel-blue;
+
+$onboarding-modal-button-start-background-color-dark-theme: $color-mint-green;
 
 // Title component
 $title-background-color: $body-background-color;
