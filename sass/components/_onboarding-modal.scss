@@ -3,6 +3,7 @@
 .onboarding-modal {
   background-color: $onboarding-modal-background-color;
   color: $onboarding-modal-text-color;
+  font-weight: $onboarding-modal-font-weight;
 
   position: fixed;
   top: 50%;
@@ -31,8 +32,48 @@
 
   .onboarding-modal-title {
     font-size: $onboarding-modal-title-font-size;
+    padding-bottom: 10px;
+  }
 
-    padding-bottom: 20px;
+  .onboarding-modal-description {
+    font-size: $onboarding-modal-description-font-size;
+    padding-bottom: 10px;
+  }
+
+  .onboarding-modal-list {
+    list-style-type: none;
+    padding-left: 10px;
+    border-left: $onboarding-modal-border;
+  }
+
+  .onboarding-modal-list-item {
+    & strong {
+      font-weight: $onboarding-modal-list-item-strong-font-weight;
+    }
+  }
+
+  .onboarding-modal-button-start {
+    background: none;
+    border: none;
+    cursor: pointer;
+
+    border: 2px solid $color-gray-700;
+    margin-top: 20px;
+    padding: 3px 8px;
+    border-radius: 5px;
+    background-color: rgba(
+      $onboarding-modal-button-start-background-color,
+      0.6
+    );
+    color: $color-gray-800;
+    transition: background-color $onboarding-modal-transition-duration;
+
+    &:hover {
+      background-color: rgba(
+        $onboarding-modal-button-start-background-color,
+        1
+      );
+    }
   }
 }
 

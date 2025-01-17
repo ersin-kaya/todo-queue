@@ -164,12 +164,13 @@ body[data-theme=dark] .preferences-bar button {
 .onboarding-modal {
   background-color: #f5f5f5;
   color: #444444;
+  font-weight: 600;
   position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%) scale(0);
   transition: 200ms ease-in-out;
-  border: 2px solid #adb5bd;
+  border: 3px solid #adb5bd;
   border-radius: 5px;
   z-index: 10;
   padding: 25px 55px;
@@ -191,7 +192,34 @@ body[data-theme=dark] .preferences-bar button {
 }
 .onboarding-modal .onboarding-modal-title {
   font-size: 1.75rem;
-  padding-bottom: 20px;
+  padding-bottom: 10px;
+}
+.onboarding-modal .onboarding-modal-description {
+  font-size: 1.4125rem;
+  padding-bottom: 10px;
+}
+.onboarding-modal .onboarding-modal-list {
+  list-style-type: none;
+  padding-left: 10px;
+  border-left: 3px solid #adb5bd;
+}
+.onboarding-modal .onboarding-modal-list-item strong {
+  font-weight: 900;
+}
+.onboarding-modal .onboarding-modal-button-start {
+  background: none;
+  border: none;
+  cursor: pointer;
+  border: 2px solid #495057;
+  margin-top: 20px;
+  padding: 3px 8px;
+  border-radius: 5px;
+  background-color: rgba(245, 222, 179, 0.6);
+  color: #343a40;
+  transition: background-color 200ms;
+}
+.onboarding-modal .onboarding-modal-button-start:hover {
+  background-color: wheat;
 }
 
 #overlay {
