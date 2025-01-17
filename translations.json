@@ -87,7 +87,7 @@
     },
     "onboardingModalData": {
       "title": "Merhaba!",
-      "description": "Uygulamamızı nasıl kullanacağınızı öğrenmek için hızlı bir rehber:",
+      "description": "Uygulamayı nasıl kullanacağınızı öğrenmeniz için kısa bir bilgilendirme:",
       "buttonStart": "Hadi başlayalım!",
       "listItems": {
         "feature1": "<strong>Dil Desteği:</strong> Sağ alt köşedeki dil butonunu kullanarak Türkçe ve İngilizce dilleri arasında geçiş yapabilirsiniz.",
