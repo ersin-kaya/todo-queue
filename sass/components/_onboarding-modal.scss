@@ -13,17 +13,28 @@
   border: $onboarding-modal-border;
   border-radius: 5px;
   z-index: 10;
-  padding: 25px 55px;
+  padding: $onboarding-modal-vertical-padding
+    $onboarding-modal-horizontal-padding;
 
   width: 900px;
   max-width: $onboarding-modal-max-width;
 
   @include mq(medium) {
+    padding: $onboarding-modal-vertical-padding-medium-screens
+      $onboarding-modal-horizontal-padding-medium-screens;
     max-width: $onboarding-modal-max-width-medium-screens;
   }
 
   @include mq(small) {
+    padding: $onboarding-modal-vertical-padding-small-screens
+      $onboarding-modal-horizontal-padding-small-screens;
     max-width: $onboarding-modal-max-width-small-screens;
+  }
+
+  @include mq(extra-small) {
+    padding: $onboarding-modal-vertical-padding-extra-small-screens
+      $onboarding-modal-horizontal-padding-extra-small-screens;
+    max-width: $onboarding-modal-max-width-extra-small-screens;
   }
 
   &.active {

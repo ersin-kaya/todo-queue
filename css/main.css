@@ -184,18 +184,26 @@ body[data-theme=dark] .preferences-bar button {
   border: 3px solid #adb5bd;
   border-radius: 5px;
   z-index: 10;
-  padding: 25px 55px;
+  padding: 25px 35px;
   width: 900px;
   max-width: 80%;
 }
 @media screen and (max-width: 55em) {
   .onboarding-modal {
+    padding: 20px 25px;
     max-width: 85%;
   }
 }
 @media screen and (max-width: 40em) {
   .onboarding-modal {
+    padding: 15px 15px;
     max-width: 90%;
+  }
+}
+@media screen and (max-width: 30em) {
+  .onboarding-modal {
+    padding: 10px 10px;
+    max-width: 95%;
   }
 }
 .onboarding-modal.active {
