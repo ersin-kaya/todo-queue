@@ -218,12 +218,16 @@ body[data-theme=dark] .preferences-bar button {
 .onboarding-modal .onboarding-modal-description {
   font-size: 1.4125rem;
   padding-bottom: 10px;
+  line-height: 1.1;
 }
 .onboarding-modal .onboarding-modal-list {
   list-style-type: none;
   padding-left: 10px;
   border-left: 3px solid #adb5bd;
   border-color: #468faf;
+}
+.onboarding-modal .onboarding-modal-list-item {
+  padding-bottom: 10px;
 }
 .onboarding-modal .onboarding-modal-list-item strong {
   font-weight: 900;

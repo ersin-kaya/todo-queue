@@ -46,22 +46,25 @@
 
   .onboarding-modal-title {
     font-size: $onboarding-modal-title-font-size;
-    padding-bottom: 10px;
+    padding-bottom: $onboarding-modal-elements-padding-default;
   }
 
   .onboarding-modal-description {
     font-size: $onboarding-modal-description-font-size;
-    padding-bottom: 10px;
+    padding-bottom: $onboarding-modal-elements-padding-default;
+    line-height: $onboarding-modal-description-line-height;
   }
 
   .onboarding-modal-list {
     list-style-type: none;
-    padding-left: 10px;
+    padding-left: $onboarding-modal-elements-padding-default;
     border-left: $onboarding-modal-border;
     border-color: $onboarding-modal-list-border-color;
   }
 
   .onboarding-modal-list-item {
+    padding-bottom: $onboarding-modal-elements-padding-default;
+
     & strong {
       font-weight: $onboarding-modal-list-item-strong-font-weight;
     }
