@@ -77,6 +77,7 @@ listsContainer.addEventListener("click", (e) => {
   if (e.target.tagName.toLowerCase() === "span") {
     if (e.target.classList.contains("list-name")) {
       selectedListId = targetElement.dataset.listId;
+      resetAndFocusNewTaskInput();
       saveAndRender();
     } else if (e.target.classList.contains("rename-list-text")) {
       renameInputForList(targetElement);
@@ -251,15 +252,15 @@ newListForm.addEventListener("submit", (e) => {
   selectedListId = list.id;
   listCountElement.style.display = DISPLAY_STATE.DEFAULT;
   saveAndRender();
-  newTaskInput.focus();
+  resetAndFocusNewTaskInput();
 });
 
 newTaskForm.addEventListener("submit", (e) => {
   e.preventDefault();
   const taskName = newTaskInput.value;
   if (!isValidTaskName(taskName)) return;
+  resetAndFocusNewTaskInput();
   const task = createTask(taskName);
-  newTaskInput.value = null;
   const selectedList = getSelectedListById(selectedListId);
   selectedList.tasks.push(task);
   saveAndRender();
@@ -417,6 +418,19 @@ function renderLists() {
 
 function clearElement(element) {
   element.innerHTML = "";
+}
+
+function resetAndFocusNewTaskInput() {
+  resetNewTaskInput();
+  focusNewTaskInput();
+}
+
+function resetNewTaskInput() {
+  newTaskInput.value = null;
+}
+
+function focusNewTaskInput() {
+  newTaskInput.focus();
 }
 
 function getSelectedListById(selectedListId) {
