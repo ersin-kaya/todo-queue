@@ -11,6 +11,7 @@ Yapacaklarınızı yönetmenize yardımcı olmak için tasarlanmış bir yapıla
 - **Açık/Koyu Mod:** Daha iyi bir kullanıcı deneyimi için sol alt köşedeki tema butonunu kullanarak açık ve koyu renkli temalar arasında geçiş yapabilirsiniz.
 - **Liste Oluşturma ve Silme:** Kolayca yeni listeler oluşturabilir ve mevcut listeleri silebilirsiniz.
 - **Listeyi Yeniden Adlandırma:** Masaüstü cihazlarda aktif olan listenin sağ tarafında görüntülenen "Düzenle" butonuna tıklayarak, mobil cihazlarda ise yine aktif olan listenin ismine basılı tutarak açılan alandan listeyi yeniden adlandırabilirsiniz.
+<br><ins>**Not:** Varsayılan listenin adı güncellenemez.</ins>
 - **Görev Ekleme:** Herhangi bir listeye yeni görevler eklemek için bir görev adı yazın ve gönderin.
 - **Görev Düzenleme:** Masaüstü veya mobil cihaz fark etmeksizin, tamamlanmış veya henüz tamamlanmamış olan bir göreve ait metin içeriğinin üzerine tıklayarak/dokunarak düzenlemeler yapabilirsiniz.
 - **Görevleri Tamamlandı Olarak İşaretleme ve Kaldırma:** Görevlerin solundaki onay kutusuna veya göreve ait satırdaki herhangi bir boş alana tıklayarak/dokunarak görevi tamamlandı olarak işaretleyebilir veya geri alabilirsiniz.
@@ -31,6 +32,7 @@ An application designed to help you manage your tasks effectively.
 - **Light/Dark Mode:** For a better user experience, toggle between light and dark themes using the theme button in the bottom-left corner.
 - **Create and Delete Lists:** Easily create new lists or delete existing ones.
 - **Rename Lists:** On desktop devices, click the "Rename list" button displayed on the right side of the active list. On mobile devices, press and hold the active list's name to open the renaming field.
+<br><ins>**Note:** The default list's name cannot be updated.</ins>
 - **Add Tasks:** Enter a task name and submit to add new tasks to any list.
 - **Edit Tasks:** Regardless of whether you are on a desktop or mobile device, click or tap on the text of any completed or pending task to edit it.
 - **Mark and Unmark Tasks as Completed:** Click or tap the checkbox to the left of a task or any blank area in the task row to mark it as completed or undo this action.
