@@ -30,7 +30,7 @@ An application designed to help you manage your tasks effectively.
 - **Language Support:** Switch between Turkish and English using the language button in the bottom-right corner.
 - **Light/Dark Mode:** For a better user experience, toggle between light and dark themes using the theme button in the bottom-left corner.
 - **Create and Delete Lists:** Easily create new lists or delete existing ones.
-- **Rename Lists:** On desktop devices, click the "Edit" button displayed on the right side of the active list. On mobile devices, press and hold the active list's name to open the renaming field.
+- **Rename Lists:** On desktop devices, click the "Rename list" button displayed on the right side of the active list. On mobile devices, press and hold the active list's name to open the renaming field.
 - **Add Tasks:** Enter a task name and submit to add new tasks to any list.
 - **Edit Tasks:** Regardless of whether you are on a desktop or mobile device, click or tap on the text of any completed or pending task to edit it.
 - **Mark and Unmark Tasks as Completed:** Click or tap the checkbox to the left of a task or any blank area in the task row to mark it as completed or undo this action.
